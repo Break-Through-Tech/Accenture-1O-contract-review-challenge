@@ -1,7 +1,7 @@
 # Contract Review Challenge
 
 **Company / Org:** Accenture  
-**Challenge Advisor:** Sebastian Avery, [Email address]  
+**Challenge Advisor:** Sebastian Avery, seb@theaverys.org.uk    
 **Program:** Break Through Tech AI Studio - Fall 2026  
 
 ---
