@@ -584,37 +584,3 @@ An all-positive result is allowed if these rules select it, but it must be flagg
 ### Workflow Run
 
 One recorded execution of an ordered set of project steps using identified data, code, configuration, and settings.
-
-## Usage Guide
-
-### Example Dialogue
-
-> **Fellow:** “Is a Contract the same thing as a Document?”
->
-> **Tech lead:** “Not quite. The Contract is the agreement record, while the Document holds its exact text and character positions. Each Contract-category Annotation Set points to any labeled Spans in that Document.”
->
-> **Fellow:** “Does a protected label mean I am not allowed to access it?”
->
-> **Tech lead:** “No. Every fellow, the coach, and the Challenge Advisor can access all project materials. The term only means that official-test labels must not influence development work.”
->
-> **Fellow:** “What does the model evaluate after the Contract is chunked?”
->
-> **Tech lead:** “It evaluates one chunk-category pair at a time. TF-IDF creates the features, LinearSVC produces a margin, and the frozen threshold turns that margin into a detection.”
-
-### How These Terms Relate
-
-- A **Contract** owns its **Document** text and has one **Annotation Set** for each CUAD category; an Annotation Set contains zero or more **Spans**.
-- Contracts with the same **`context_group_id`** stay together when the **publisher split** is divided into the team's **model split**.
-- Each unmasked **chunk-category pair** receives one baseline prediction that is compared with its **gold label**.
-- TF-IDF creates features for `LinearSVC`, `LinearSVC` produces a **margin**, and a threshold turns that margin into a category detection.
-- A **Workflow Run** produces **Artifact Bundles** whose **Artifact Manifests** support bundle-integrity checks and whose **Run Receipts** record each execution attempt.
-- Many **bootstrap repetitions** produce **percentile intervals**, and using the same repetition for both baselines produces a **paired interval** for their difference.
-
-### Terminology to Use Consistently
-
-- Use **official-test** when referring to the dataset split and **automated test** when referring to optional software tests; do not use “test” alone when the meaning could be unclear.
-- Use **source-text excerpt** for Gate 2 examples and **chunk-category pair** for model-training or evaluation rows; do not use “example” when its unit is unclear.
-- Use **publisher split** for CUAD's original training-versus-official-test division and **model split** for the team's training-versus-validation division; do not call both simply “the split.”
-- Use **margin** for a `LinearSVC` score; do not describe it as a probability or confidence percentage.
-- Use **development-use rule** when describing how official-test information is kept out of development; do not use “access restriction” because everyone named in the milestone has access.
-- Keep **Artifact Manifest** and **Run Receipt** separate: the manifest describes the reproducible bundle, while the receipt describes one execution attempt.

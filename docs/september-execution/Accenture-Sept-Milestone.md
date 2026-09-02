@@ -24,7 +24,7 @@ In practice this **Gate Handoff** should work as follows:
 
 ### Artifacts
 
-When completing tasks you will produce [Artifacts](./Glossary.md#artifacts). Store the Artifacts in the team's shared Google Colab space so the whole team can access them. To make handoffs easy in an async environment [Artifact Bundles](./Glossary.md#artifact-bundle) are recommended.
+When completing tasks you will produce [Artifacts](./Glossary.md#artifacts). Store the Artifacts in the team's shared Google Colab space so every fellow, the coach, and the Challenge Advisor can access them. To make handoffs easy in an async environment [Artifact Bundles](./Glossary.md#artifact-bundle) are recommended.
 
 ## Gate 1 - Data Ready
 
@@ -48,14 +48,14 @@ When completing tasks you will produce [Artifacts](./Glossary.md#artifacts). Sto
   - use seeded iterative multilabel stratification with seed `20260901`.
 - [ ] Freeze the resulting split. Do not try additional splits because a model receives a better score on them.
 - [ ] Confirm that no Contract or context group appears in more than one publisher or model split.
-- [ ] Although the whole team can access the official-test data, confirm that development notebooks and code in Google Colab do not use official-test data, complete gold-label data, or files with restricted hashes.
+- [ ] Confirm that every fellow, the coach, and the Challenge Advisor can access all official-test files, labels, results, and statistics.
 - [ ] Confirm that normal development outputs in Google Colab do not include official-test label information, including:
   - annotated Spans;
   - target or gold-label values;
   - Span counts;
   - label prevalence;
   - examples; or
-  - other statistics calculated from protected labels.
+  - other statistics calculated from official-test labels.
 - [ ] Confirm that the training-data profile includes:
   - integrity checks;
   - document-length statistics;
@@ -79,28 +79,28 @@ When completing tasks you will produce [Artifacts](./Glossary.md#artifacts). Sto
 
 ### Plain-language materials
 
-- [ ] Present five Review Bundles containing exactly 10 CUAD categories. Do not rank the bundles. Review bundles is a grouping of related CUAD categories so a person can review them together. Example Cap on Liability and Uncapped Liability belong together because both concern limits on liability.
-- [ ] Include a few clear positive examples and difficult negative examples for each category.
+- [ ] Present exactly five Review Bundles. Each bundle must contain exactly two different CUAD categories, for a total of 10 categories. Do not rank the five selected bundles by importance. A Review Bundle groups related categories so a person can review them together. For example, Cap on Liability and Uncapped Liability can be placed in one bundle because both concern limits on liability.
+- [ ] Include a few clear positive source-text excerpts and difficult negative source-text excerpts from the training Contracts for each category. A positive excerpt must show the annotated Span with enough surrounding text to understand it. A negative excerpt must show similar-looking Contract text that should not count as that category.
 - [ ] Explain that the system identifies clauses without deciding which party they favor. Categories grouped in the same Review Bundle must still be predicted separately.
 - [ ] Identify related clauses or context that a reviewer may also need to consider. Explain which related categories or details are not included in the current scope.
-- [ ] Name the strongest alternative Review Bundle and explain why it was not selected.
+- [ ] Name the best-supported alternative two-category Review Bundle that was considered but not selected, and explain why it was not selected. This comparison does not rank the five selected Review Bundles against one another.
 
 ### Technical record supporting the decision
 
-- [ ] List the exact 10 proposed CUAD categories and show how they are grouped into the five Review Bundles.
+- [ ] List the exact 10 proposed CUAD categories and show each category assigned to exactly one of the five Review Bundles, with two categories in each bundle.
 - [ ] Using training data only, report the number of positive Contracts, distinct context groups, and annotated Spans for each category.
-- [ ] Show how often related categories appear together and whether the examples are overly concentrated in a small number of contracts, context groups, or contract types.
+- [ ] Show how often related categories appear together and whether the selected source-text excerpts are overly concentrated in a small number of Contracts, context groups, or contract types.
 - [ ] Confirm that each category has at least 20 positive Contracts and 20 positive context groups. Document and justify any exception.
-- [ ] Provide five representative positive examples and five realistic hard-negative examples for each category.
-- [ ] Have someone who did not select the categories independently review the annotations for clarity. Record recurring rules about what should and should not count as an example.
+- [ ] Provide five representative positive source-text excerpts and five realistic hard-negative source-text excerpts from the training Contracts for each category. For every excerpt, record its source Contract and text location. For each positive excerpt, also identify the annotated Span.
+- [ ] Have someone who did not select the categories independently review the annotations for clarity. Record recurring rules about what Contract language should and should not count for each category.
 - [ ] Document known data problems, unclear annotations, and other uncertainties for each category.
 - [ ] Explain important relationships between categories, related context that is not included, and limitations involving intellectual-property and restrictive-covenant categories.
-- [ ] Confirm that no official-test statistics, examples, labels, or results influenced the category selection.
+- [ ] Confirm that no official-test statistics, source-text excerpts, labels, or results influenced the category selection.
 - [ ] Record who performed the independent review, any disagreements, known limitations, and the exact versions or IDs of the evidence used.
 
 ## Gate 3 - Evaluation Ready
 
-- [ ] After Gate 2 Core Scope Frozen approval, confirm that every approved Core Category has both positive and negative examples in the model-training set and the validation set.
+- [ ] After Gate 2 Core Scope Frozen approval, confirm that every approved Core Category has at least one positive Contract and one negative Contract in both the model-training set and the validation set, according to the training labels.
 - [ ] Before comparing chunking methods, have the team record the criteria it will use to make the decision. Identify which criteria are required and which involve tradeoffs. The criteria must address:
   - complete Span coverage;
   - Spans split across boundaries;
@@ -116,7 +116,7 @@ When completing tasks you will produce [Artifacts](./Glossary.md#artifacts). Sto
   - why the team rejected each alternative; and
   - important tradeoffs, limitations, or disagreements.
 - [ ] Freeze the team-approved chunking method and its exact settings for the rest of the September work. If the team wants to change the method or its settings, repeat the comparison and record a new team decision before continuing.
-- [ ] Confirm that the team-approved chunker used for official evaluation in Google Colab cannot access annotated Spans or correct labels.
+- [ ] Confirm that the team-approved chunker does not read or use annotated Spans or correct labels when producing chunks for official evaluation in Google Colab. This software safeguard does not restrict the team's access to those materials.
 - [ ] For the team-approved method, record the training results, including:
   - the total number of chunks;
   - the number of masked chunk-category pairs;
@@ -138,7 +138,7 @@ When completing tasks you will produce [Artifacts](./Glossary.md#artifacts). Sto
 - [ ] Freeze the rules before examining validation results. Select one threshold for each of the 10 categories using the [keyword threshold-selection rules](./Glossary.md#threshold-selection-rules).
 - [ ] Confirm that the validation results contain one prediction for every required chunk-category pair produced by the team-approved chunking method and that the scorer’s output contains no correct labels.
 - [ ] Document weak or unsuccessful behavior. Confirm that no rules were changed in response to validation results.
-- [ ] Have a teammate who did not write the rules review every category’s decision table and a representative sample of matches.
+- [ ] Have a teammate who did not write the rules review every category’s decision table and a representative sample of matched source-text locations.
 
 ### TF-IDF baseline evidence
 
@@ -147,7 +147,7 @@ When completing tasks you will produce [Artifacts](./Glossary.md#artifacts). Sto
   - `min_df`: 2 or 5; and
   - `C`: 0.1, 1.0, or 10.0.
   Keep the settings listed in the glossary fixed. If a configuration fails, preserve the details explaining why.
-- [ ] Train 10 separate classifiers—one for each category. Exclude masked rows for that category and confirm that each classifier has both positive and negative training examples.
+- [ ] Train 10 separate classifiers—one for each category. Exclude masked rows for that category and confirm that each classifier receives at least one positive and one negative unmasked model-training chunk-category pair.
 - [ ] Record the use of balanced class weights, iteration counts, convergence results, finite-value checks, and other training diagnostics.
 - [ ] For every valid configuration and category, select its threshold using the [TF-IDF threshold-selection rules](./Glossary.md#threshold-selection-rules).
 - [ ] Select one overall configuration by:
@@ -176,12 +176,12 @@ When completing tasks you will produce [Artifacts](./Glossary.md#artifacts). Sto
   - [repeatable error selection and reviewer order](./Glossary.md#repeatable-error-selection); and
   - [error-review categories and secondary causes](./Glossary.md#error-review-categories).
 - [ ] Record the team's chunking criteria, candidate comparisons, approval and rejection decision, approved method and settings, and exact chunking configuration version with the Artifact Manifests and Run Receipts.
-- [ ] Record the exact access classifications, schemas, workflow settings, code revision, dependency lock, Google Colab notebook and runtime versions, processing-thread settings, and inputs.
-- [ ] From a clean committed version of the project in Google Colab, rerun the complete workflow and confirm that the team-approved chunks and every required result can be reproduced.
+- [ ] Record the shared Google Colab access settings that give every fellow, the coach, and the Challenge Advisor access to all project materials. Also record the development-use rules, schemas, workflow settings, code revision, dependency lock, Google Colab notebook and runtime versions, processing-thread settings, and inputs.
+- [ ] From a clean committed version of the project in Google Colab, rerun the development workflow through validation only. Confirm that the team-approved training and validation chunks, validation predictions, threshold selections, metrics, and all other required pre-authorization results can be reproduced. Do not use official-test data or official-test labels during this clean rerun.
 - [ ] Have someone other than the original author independently recalculate the confusion counts and main validation metrics from the frozen row-level results.
-- [ ] Complete a final check confirming that no protected official-test information leaked into development.
+- [ ] Complete a final check confirming that official-test inputs, labels, results, and statistics did not influence development work. This is a separation-of-use check, not an access restriction.
 
-### Authorization to use the official test data
+### Authorization to run the official-test evaluation
 
 - [ ] Confirm that the Markdown approval and official JSON authorization contain the same:
   - approved Git commit;
@@ -197,10 +197,8 @@ When completing tasks you will produce [Artifacts](./Glossary.md#artifacts). Sto
 
 ## Gate 4 - September Complete
 
-## Gate 4 Checklist
-
 - [ ] Confirm that both approved baseline models were run in the team's Google Colab space during the same authorized official-test event and used the same contract chunks produced by the team-approved chunking method and settings.
-- [ ] Have someone other than the official-test executor independently recalculate the confusion counts, main metrics, bootstrap results, and error samples from the saved predictions in Google Colab. Do not run the models again.
+- [ ] Have someone other than the official-test executor independently recalculate the confusion counts, main metrics, bootstrap results, and error samples from the saved predictions in Google Colab.
 - [ ] Include a validation-selection table showing:
   - the keyword baseline;
   - all six TF-IDF configurations;
@@ -212,8 +210,8 @@ When completing tasks you will produce [Artifacts](./Glossary.md#artifacts). Sto
   - differences between the two baselines; and
   - the exact Workflow Run and Artifact Bundle IDs.
 - [ ] For each category, report:
-  - the number of actual positive and negative examples;
-  - the number predicted as positive;
+  - the number of actual positive and negative unmasked chunk-category pairs;
+  - the number of unmasked chunk-category pairs predicted as positive;
   - precision;
   - recall;
   - F1;
@@ -230,10 +228,12 @@ When completing tasks you will produce [Artifacts](./Glossary.md#artifacts). Sto
 
 ### Error review
 
-- [ ] Create the complete false-positive and false-negative lists for all 40 combinations: two baselines × 10 categories × two error types.
-- [ ] Select up to five cases from each combination using the [repeatable error-selection method](./Glossary.md#repeatable-error-selection). Record combinations with no errors, and do not replace inconvenient or unclear selected cases.
-- [ ] Before reviewers see selected official-test errors in Google Colab, have them practice and align their review approach using development-data examples.
-- [ ] Have two reviewers independently assess every selected official-test error in the team's Google Colab space before they discuss it with each other.
+**Workload note:** This step may include up to 200 selected error pairs and, because every pair has two independent reviewers, up to 400 individual assessments. Break the work into smaller, clearly assigned batches—such as by baseline, category, or error type—and share those batches across the team. Track which batches are assigned, completed, and still open so work is not duplicated or missed. If the review extends into October, that is acceptable. Keep Gate 4 open until the required reviews, resulting corrections, and final handoff are complete; do not reduce the sample or skip the second independent review only to meet the end-of-September date.
+
+- [ ] Create the complete false-positive and false-negative lists of unmasked official-test chunk-category pairs for all 40 combinations: two baselines × 10 categories × two error types.
+- [ ] Select up to five chunk-category pairs from each combination using the [repeatable error-selection method](./Glossary.md#repeatable-error-selection). Record combinations with no errors, and do not replace selected pairs because they are inconvenient or unclear.
+- [ ] Before reviewers see selected official-test errors in Google Colab, have them practice and align their review approach using false-positive and false-negative chunk-category pairs from the development data.
+- [ ] Have two reviewers independently assess every selected official-test error pair in the team's Google Colab space before they discuss it with each other.
 - [ ] For every review, record:
   - one main source of the error from the [error-review categories](./Glossary.md#error-review-categories);
   - any applicable secondary causes from the same reference;
@@ -241,7 +241,7 @@ When completing tasks you will produce [Artifacts](./Glossary.md#artifacts). Sto
   - the reviewer’s confidence; and
   - the workflow stage where the issue should be addressed.
 - [ ] If reviewers disagree, preserve both original assessments. Do not treat the reviewed sample’s error patterns as rates for the full dataset.
-- [ ] Resolve every confirmed data-processing or workflow defect before completing the gate.
+- [ ] Resolve every confirmed data-processing or workflow defect before completing the gate. If resolving a defect requires rerunning one or both baseline models, record the reason for the rerun, the corrected workflow or model version, and the new Workflow Run and Artifact Bundle IDs. Use the corrected run for verification and final reporting.
 
 ### Handoff and communication
 
@@ -260,7 +260,7 @@ When completing tasks you will produce [Artifacts](./Glossary.md#artifacts). Sto
   - some categories and modifying details were excluded; and
   - the results do not provide legal advice or determine contract risk.
 - [ ] Create the [October recommendation register](./Glossary.md#october-recommendation-register) using every required field in the template, and link each recommendation to the exact supporting evidence.
-- [ ] Preserve the following in the team's shared Google Colab space so the whole team can access them:
+- [ ] Preserve the following in the team's shared Google Colab space so every fellow, the coach, and the Challenge Advisor can access them:
   - approved Artifact Bundle IDs;
   - manifests;
   - instructions for reproducing the results;
@@ -269,7 +269,7 @@ When completing tasks you will produce [Artifacts](./Glossary.md#artifacts). Sto
   - interface definitions;
   - recorded anomalies;
   - approved deviations; and
-  - the official-test authorization and access records.
+  - the official-test run authorization and team-wide access confirmation.
 - [ ] In the team retrospective, record:
   - one practice to keep;
   - one practice to change;
