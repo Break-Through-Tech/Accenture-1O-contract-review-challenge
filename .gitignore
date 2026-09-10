@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/pycharm+all,jupyternotebooks,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=pycharm+all,jupyternotebooks,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/pycharm+all,jupyternotebooks,visualstudiocode,venv
+# Edit at https://www.toptal.com/developers/gitignore?templates=pycharm+all,jupyternotebooks,visualstudiocode,venv
 
 ### JupyterNotebooks ###
 # gitignore template for Jupyter Notebooks
@@ -103,6 +103,20 @@ fabric.properties
 !.idea/codeStyles
 !.idea/runConfigurations
 
+### venv ###
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+.venv
+pip-selfcheck.json
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -122,4 +136,4 @@ fabric.properties
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/pycharm+all,jupyternotebooks,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/pycharm+all,jupyternotebooks,visualstudiocode,venv
