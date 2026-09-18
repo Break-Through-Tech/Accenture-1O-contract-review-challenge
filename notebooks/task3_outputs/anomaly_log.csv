@@ -1,0 +1,7 @@
+check,count,detail
+span_text_offset_mismatch,0,context[answer_start:answer_end] != answer_text
+span_bad_offset,0,negative or inverted start/end index
+impossible_but_has_spans,0,
+answerable_but_no_spans,0,
+suspiciously_short_document,0,context under 200 characters
+category_low_support_under_5,0,

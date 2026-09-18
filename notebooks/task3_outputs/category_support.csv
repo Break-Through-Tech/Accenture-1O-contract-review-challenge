@@ -1,0 +1,42 @@
+category_id,num_supporting_contracts,category_name
+document_name,325,Document Name
+parties,324,Parties
+agreement_date,300,Agreement Date
+governing_law,274,Governing Law
+expiration_date,263,Expiration Date
+effective_date,253,Effective Date
+anti_assignment,235,Anti-Assignment
+cap_on_liability,184,Cap On Liability
+license_grant,163,License Grant
+audit_rights,139,Audit Rights
+termination_for_convenience,123,Termination For Convenience
+post_termination_services,122,Post-Termination Services
+renewal_term,120,Renewal Term
+exclusivity,117,Exclusivity
+insurance,104,Insurance
+revenue_profit_sharing,103,Revenue/Profit Sharing
+minimum_commitment,101,Minimum Commitment
+non_transferable_license,93,Non-Transferable License
+ip_ownership_assignment,81,Ip Ownership Assignment
+uncapped_liability,78,Uncapped Liability
+non_compete,77,Non-Compete
+notice_period_to_terminate_renewal,76,Notice Period To Terminate Renewal
+change_of_control,70,Change Of Control
+covenant_not_to_sue,59,Covenant Not To Sue
+rofr_rofo_rofn,54,Rofr/Rofo/Rofn
+volume_restriction,52,Volume Restriction
+warranty_duration,52,Warranty Duration
+competitive_restriction_exception,48,Competitive Restriction Exception
+irrevocable_or_perpetual_license,46,Irrevocable Or Perpetual License
+no_solicit_of_employees,39,No-Solicit Of Employees
+liquidated_damages,38,Liquidated Damages
+affiliate_license_licensee,38,Affiliate License-Licensee
+joint_ip_ownership,31,Joint Ip Ownership
+non_disparagement,25,Non-Disparagement
+no_solicit_of_customers,22,No-Solicit Of Customers
+third_party_beneficiary,21,Third Party Beneficiary
+most_favored_nation,20,Most Favored Nation
+affiliate_license_licensor,14,Affiliate License-Licensor
+price_restrictions,12,Price Restrictions
+unlimited_all_you_can_eat_license,11,Unlimited/All-You-Can-Eat-License
+source_code_escrow,10,Source Code Escrow
