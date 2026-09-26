@@ -1,0 +1,11 @@
+category_name,cuad_group,num_positive_contracts,num_positive_spans,spans_per_contract,top1_contract_share,flag_single_contract_heavy,top_related_category,top_related_cooccurrence
+Governing Law,-,274,290,1.06,0.007,False,Anti-Assignment,229
+Renewal Term,1,120,144,1.2,0.035,False,Governing Law,114
+Revenue/Profit Sharing,-,103,269,2.61,0.041,False,Governing Law,94
+Cap On Liability,6,184,458,2.49,0.035,False,Governing Law,180
+Uncapped Liability,6,78,123,1.58,0.041,False,Cap On Liability,78
+Termination For Convenience,-,123,165,1.34,0.024,False,Governing Law,117
+Anti-Assignment,3,235,408,1.74,0.017,False,Governing Law,229
+Audit Rights,5,139,417,3.0,0.038,False,Governing Law,137
+License Grant,4,163,530,3.25,0.03,False,Governing Law,155
+Exclusivity,2,117,274,2.34,0.044,False,Governing Law,113

@@ -1,0 +1,16 @@
+{
+  "num_bundles": 5,
+  "categories_covered": [
+    "Anti-Assignment",
+    "Audit Rights",
+    "Cap On Liability",
+    "Exclusivity",
+    "Governing Law",
+    "License Grant",
+    "Renewal Term",
+    "Revenue/Profit Sharing",
+    "Termination For Convenience",
+    "Uncapped Liability"
+  ],
+  "checks_passed": true
+}

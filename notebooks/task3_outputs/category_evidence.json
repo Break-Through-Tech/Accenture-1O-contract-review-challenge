@@ -1,0 +1,962 @@
+{
+  "Governing Law": {
+    "category_id": "governing_law",
+    "cuad_group": "-",
+    "description": "Which state/country's law governs the interpretation of the contract?",
+    "statistics": {
+      "num_positive_contracts": 274,
+      "num_positive_context_groups": 273,
+      "num_positive_spans": 290,
+      "spans_per_contract": 1.06,
+      "top1_contract_share": 0.007,
+      "flag_single_contract_heavy": false
+    },
+    "related_categories": [
+      {
+        "category": "Anti-Assignment",
+        "cooccurrence_count": 229
+      },
+      {
+        "category": "Cap On Liability",
+        "cooccurrence_count": 180
+      },
+      {
+        "category": "License Grant",
+        "cooccurrence_count": 155
+      }
+    ],
+    "positive_examples": [
+      {
+        "contract_id": "contract_0179",
+        "answer_text": "This Agreement shall be governed by and construed in accordance with the laws of the State of California without regard to its conflict of laws provisions.",
+        "answer_start": 40521,
+        "answer_end": 40676
+      },
+      {
+        "contract_id": "contract_0287",
+        "answer_text": "This Agreement shall be governed by and construed in accordance with the laws of the Province of Ontario and the federal laws of Canada applicable in the Province of Ontario.",
+        "answer_start": 77012,
+        "answer_end": 77186
+      },
+      {
+        "contract_id": "contract_0006",
+        "answer_text": "This Amendment shall be governed by and construed in accordance with the laws of Japan.",
+        "answer_start": 6650,
+        "answer_end": 6737
+      },
+      {
+        "contract_id": "contract_0213",
+        "answer_text": "This Agreement shall be governed by and construed in accordance with the laws of New York, US, without reference to its conflict of laws principles, and shall not be governed by the United Nations Convention of International Contracts on the Sale of Goods (the Vienna Convention).",
+        "answer_start": 158652,
+        "answer_end": 158932
+      },
+      {
+        "contract_id": "contract_0323",
+        "answer_text": "This Agreement will be governed by, construed and enforced in accordance with the laws of the State of Texas.",
+        "answer_start": 20048,
+        "answer_end": 20157
+      }
+    ],
+    "hard_negative_examples": [
+      {
+        "contract_id": "contract_0073",
+        "negative_source_category": "Anti-Assignment",
+        "answer_text": "Consequently either this Agreement or any of the respective rights or obligations of the Parties hereunder may be assigned or otherwise transferred, in whole or in part, in any form whatsoever (including by way of change of Control), by either Party subject to the prior written consent of the other Party, which consent shall not be unreasonably withheld or delayed, and any attempt to do so without such consent shall be null and void.",
+        "answer_start": 87997,
+        "answer_end": 88434
+      },
+      {
+        "contract_id": "contract_0214",
+        "negative_source_category": "Anti-Assignment",
+        "answer_text": "Either Party may, without consent of the other Party, assign this Agreement in whole to (i) in the case of RevMed, its successor in interest or assignee or purchaser, as applicable, in the case of a Change of Control or (ii) in the case of Sanofi, its successor in interest or assignee or purchaser, as applicable, in connection with the sale of all or substantially all of its assets to which this Agreement relates, or in connection with a merger, acquisition or similar transaction.",
+        "answer_start": 243853,
+        "answer_end": 244338
+      },
+      {
+        "contract_id": "contract_0249",
+        "negative_source_category": "Anti-Assignment",
+        "answer_text": "Neither this Agreement nor any rights or obligations hereunder shall be assignable by a Party without the prior written consent of the other Party, provided that either Party shall have the right, on notice to but without the other Party's consent, to assign this Agreement and its rights and obligations contained herein, to an affiliate or to a third party who is not a competitor of the other Party in connection with a sale of all or substantially all of the assigning Party's business or assets relating to this Agreement.",
+        "answer_start": 85146,
+        "answer_end": 85673
+      },
+      {
+        "contract_id": "contract_0295",
+        "negative_source_category": "Anti-Assignment",
+        "answer_text": "Neither party may assign this Agreement without the other's           prior written approval, except by operation of law or in connection           with the sale of substantially all of the assets of such party's           business or the acquisition of such party by a third party.",
+        "answer_start": 28052,
+        "answer_end": 28334
+      },
+      {
+        "contract_id": "contract_0407",
+        "negative_source_category": "License Grant",
+        "answer_text": "Depomed hereby grants to King a non-assignable, non- sublicensable, non-exclusive, royalty-free right and license to use the Depomed Trademarks in the Territory solely in connection with King's Promotion of the Product in accordance with this Agreement; provided King may assign and sublicense such right and license in accordance with Section 2.2.",
+        "answer_start": 63634,
+        "answer_end": 63982
+      }
+    ]
+  },
+  "Renewal Term": {
+    "category_id": "renewal_term",
+    "cuad_group": "1",
+    "description": "What is the renewal term after the initial term expires? This includes automatic extensions and unilateral extensions with prior notice.",
+    "statistics": {
+      "num_positive_contracts": 120,
+      "num_positive_context_groups": 120,
+      "num_positive_spans": 144,
+      "spans_per_contract": 1.2,
+      "top1_contract_share": 0.035,
+      "flag_single_contract_heavy": false
+    },
+    "related_categories": [
+      {
+        "category": "Governing Law",
+        "cooccurrence_count": 114
+      },
+      {
+        "category": "Anti-Assignment",
+        "cooccurrence_count": 107
+      },
+      {
+        "category": "Cap On Liability",
+        "cooccurrence_count": 91
+      }
+    ],
+    "positive_examples": [
+      {
+        "contract_id": "contract_0167",
+        "answer_text": "Within ninety (90) days of our receipt of your notice to renew, we will furnish you with written notice of:  (i) reasons which could cause us not to grant a renewal to you including but not limited to any deficiencies which require correction and a schedule for correction by you; and (ii) our then-current requirements relating to the image, appearance, decoration, furnishing, equipping and stocking of Buffalo Wild Wings businesses, and a schedule for effecting upgrading or modifications in order to bring the Franchised Restaurant in compliance, as a condition of renewal.  Renewal of the franchise shall be conditioned upon your compliance with such requirements and continued compliance with all the terms and conditions of this Agreement up to the date of termination of the initial term.",
+        "answer_start": 13627,
+        "answer_end": 14423
+      },
+      {
+        "contract_id": "contract_0359",
+        "answer_text": "This Agreement will automatically be renewed for periods of       twelve (12) months unless either Party gives six (6) months written       notice of its intent to terminate this Agreement.",
+        "answer_start": 12332,
+        "answer_end": 12521
+      },
+      {
+        "contract_id": "contract_0391",
+        "answer_text": "This Agreement shall be subject to an automatic extension for consecutive one (1) year periods  thereafter (each, an \"Extension Term\" and together with the Initial Term, the \"Term\"), unless terminated (i) in accordance with its terms or (ii)  upon thirty (30) days' written notice by either Party to the other Party.",
+        "answer_start": 13088,
+        "answer_end": 13404
+      },
+      {
+        "contract_id": "contract_0142",
+        "answer_text": "As provided for in this Section 1, the term of this Agreement shall be for a period of five (5) years, beginning on the Effective Date (the \"Initial Term\"); provided, however, the Initial Term shall be subject to automatic successive renewal terms of three (3) years each (the \"Renewal Terms\" and together with the Initial Term, the \"Term\").",
+        "answer_start": 1324,
+        "answer_end": 1665
+      },
+      {
+        "contract_id": "contract_0143",
+        "answer_text": "This Agreement may be renewed for additional periods of one (1) year (each such additional period, a \"Renewal Term\") unless either Party provides notice of nonrenewal upon not less than [***] prior written notice to the other Party.",
+        "answer_start": 37900,
+        "answer_end": 38132
+      }
+    ],
+    "hard_negative_examples": [
+      {
+        "contract_id": "contract_0306",
+        "negative_source_category": "Termination For Convenience",
+        "answer_text": "Either party may terminate this Agreement at any time with 30 days written notice.",
+        "answer_start": 5872,
+        "answer_end": 5954
+      },
+      {
+        "contract_id": "contract_0266",
+        "negative_source_category": "Termination For Convenience",
+        "answer_text": "ISO may terminate this Agreement prior to its expiration for cause upon prior written notice to SERVICERS as follows:",
+        "answer_start": 65829,
+        "answer_end": 65946
+      },
+      {
+        "contract_id": "contract_0293",
+        "negative_source_category": "Termination For Convenience",
+        "answer_text": "EHS or EHN, on the one hand, and Dr. Murray, on the other, may terminate any Services Term of this Agreement by delivering 60 days written notice to the other party.",
+        "answer_start": 7296,
+        "answer_end": 7461
+      },
+      {
+        "contract_id": "contract_0187",
+        "negative_source_category": "Cap On Liability",
+        "answer_text": "ACTION FIRST ARISING, EVEN IF IT IS A CONTINUOUS ONE, OR IN THE          AGGREGATE, WITH RESPECT OF ALL CLAIMS ARISING OUT OF OR RELATED TO          THIS AGREEMENT, THE TOTAL AMOUNT ACTUALLY PAID BY CORIO UNDER THIS          AGREEMENT TO CHANGEPOINT.",
+        "answer_start": 55450,
+        "answer_end": 55700
+      },
+      {
+        "contract_id": "contract_0324",
+        "negative_source_category": "Exclusivity",
+        "answer_text": "Licensee shall have the non-exclusive right and license to develop and distribute ICE AGE 2 Wireless Products during the Term of the Agreement for all Wireless Products set forth in this Paragraph 2(c) except the Game, for which Licensee shall have the exclusive right and license to develop and distribute until December 31, 2006.",
+        "answer_start": 4341,
+        "answer_end": 4672
+      }
+    ]
+  },
+  "Revenue/Profit Sharing": {
+    "category_id": "revenue_profit_sharing",
+    "cuad_group": "-",
+    "description": "Is one party required to share revenue or profit with the counterparty for any technology, goods, or\u00a0services?",
+    "statistics": {
+      "num_positive_contracts": 103,
+      "num_positive_context_groups": 103,
+      "num_positive_spans": 269,
+      "spans_per_contract": 2.61,
+      "top1_contract_share": 0.041,
+      "flag_single_contract_heavy": false
+    },
+    "related_categories": [
+      {
+        "category": "Governing Law",
+        "cooccurrence_count": 94
+      },
+      {
+        "category": "Anti-Assignment",
+        "cooccurrence_count": 81
+      },
+      {
+        "category": "License Grant",
+        "cooccurrence_count": 72
+      }
+    ],
+    "positive_examples": [
+      {
+        "contract_id": "contract_0240",
+        "answer_text": "In consideration for the intangible rights granted hereunder, for each Year in which the Spoken-Word Audio Sub-Section (including the Mirror Company Site) generates revenue of at [***] (the \"Revenue Threshold\"), Company will pay ACSI a royalty equal to [***] of all revenues generated from the Spoken-Word Audio Sub-Section (including, for the avoidance of doubt, any revenue received by Company from any Company customer who first links to the Mirror Company Site from the Spoken-Word Audio Sub-Section and who later accesses the Company Site directly) in excess of Revenue Threshold (the \"Royalties\") for each Year of the Term.",
+        "answer_start": 39616,
+        "answer_end": 40245
+      },
+      {
+        "contract_id": "contract_0058",
+        "answer_text": "HSNS agrees to pay E.piphany an additional                   $0.005 per email for any email distributed by HSNS as a result                   of any deal it closes that either results from a lead                   generated by E.piphany or in which E.piphany assisted prior to                   closing for the first year after the deal closes.",
+        "answer_start": 49950,
+        "answer_end": 50294
+      },
+      {
+        "contract_id": "contract_0182",
+        "answer_text": "During the Distribution Term, and in addition to the consideration provided pursuant to Sections 6.1, 6.2, 6.3, and 6.4, for all Product supplied by Zogenix to Distributor under purchase orders submitted pursuant to the Supply Agreement in a particular Fiscal Year, Distributor shall pay to Zogenix a transfer price per unit of Product supplied (the \"Transfer Price\") equal to the sum of (i) [***] of the Fully-Burdened Manufacturing Cost per unit of Product for such Fiscal Year, (ii) [***] of aggregate annual Net Sales for such Fiscal Year, and (iii) the applicable markup percent of the applicable aggregate Net Price for such Fiscal Year, which markup percent is determined based on the incremental amount of Product ordered in such Fiscal Year as set forth below, as may be adjusted pursuant to Section 6.5(b):\n\nAmount of Product Supplied per Fiscal Year Net Price Markup\n\nFor the portion of Product supplied less than or equal to the equivalent of [***] in Net Sales in such Fiscal Year [***]\n\nFor the portion of Product supplied in excess of the equivalent of [***] in Net Sales and less than or equal to the equivalent of [***] in Net Sales in such Fiscal Year [***]\n\nFor the portion of Product supplied in excess of the equivalent of [***] in Net Sales and less than or equal to the equivalent of [***] in Net Sales in such Fiscal Year [***]\n\nFor the portion of Product supplied in excess of the equivalent of [***] in Net Sales in such Fiscal Year [***]",
+        "answer_start": 79182,
+        "answer_end": 80646
+      },
+      {
+        "contract_id": "contract_0394",
+        "answer_text": "In addition, Client shall be entitled to receive a royalty payment on the shipping and  handling charges paid by customers during the applicable Calendar Quarter (\"Shipping Royalty\") equal to the Royalty percentage  multiplied by the shipping profit.",
+        "answer_start": 61555,
+        "answer_end": 61805
+      },
+      {
+        "contract_id": "contract_0360",
+        "answer_text": "In consideration of the license of Liquidmetal Technical Information and the Licensed Equipment granted by Liquidmetal, Eutectix agrees to pay Liquidmetal a cash royalty based on a percentage of the invoice price of any Licensed Products (but not including Liquidmetal Products) sold by Eutectix or its permitted sublicensees and for which payment was actually received by Eutectix.",
+        "answer_start": 14954,
+        "answer_end": 15336
+      }
+    ],
+    "hard_negative_examples": [
+      {
+        "contract_id": "contract_0147",
+        "negative_source_category": "Audit Rights",
+        "answer_text": "This right to audit shall remain in effect throughout the life of this Agreement and for a period of three (3) years after the termination of this Agreement.",
+        "answer_start": 82271,
+        "answer_end": 82428
+      },
+      {
+        "contract_id": "contract_0387",
+        "negative_source_category": "Audit Rights",
+        "answer_text": "We have the right to inspect the proposed supplier's facilities, and require that product samples from the proposed supplier be delivered, at our option, either directly to us, or to any independent, certified laboratory that we may designate, for testing.",
+        "answer_start": 75218,
+        "answer_end": 75474
+      },
+      {
+        "contract_id": "contract_0407",
+        "negative_source_category": "Audit Rights",
+        "answer_text": "The auditor will only examine such books and records during business hours but not more than once each fiscal year while this Agreement remains in effect and for three years thereafter in order to verify expenses, Net Sales, Depomed Net Sales, PDEs or Details completed, or payments due under this Agreement.",
+        "answer_start": 101672,
+        "answer_end": 101980
+      },
+      {
+        "contract_id": "contract_0364",
+        "negative_source_category": "Renewal Term",
+        "answer_text": "At the end of such initial term, and any renewed term, as applicable, this Agreement shall automatically renew for an additional one (1) year term, unless a party provides written notice to the other parties at least six (6) months prior to the end of the",
+        "answer_start": 34042,
+        "answer_end": 34297
+      },
+      {
+        "contract_id": "contract_0387",
+        "negative_source_category": "Renewal Term",
+        "answer_text": "Subject to the provisions of subparagraph 2.6(b) below, and if you have substantially complied with all provisions of this Agreement and all other agreements between us, on expiration of the Initial Term, if you refurbish and decorate the Premises, replace fixtures, furnishings, wall decor, furniture, equipment, and signs and otherwise modify the Franchise in compliance with specifications and standards then applicable under new or renewal franchises for The Joint Corp. Location franchises, you will have the right to renew the Franchise for one (1) additional term of ten (10) years (the \"Renewal Term\").",
+        "answer_start": 18218,
+        "answer_end": 18828
+      }
+    ]
+  },
+  "Cap On Liability": {
+    "category_id": "cap_on_liability",
+    "cuad_group": "6",
+    "description": "Does the contract include a cap on liability upon the breach of a party\u2019s obligation? This includes time limitation for the counterparty to bring claims or maximum amount for recovery.",
+    "statistics": {
+      "num_positive_contracts": 184,
+      "num_positive_context_groups": 184,
+      "num_positive_spans": 458,
+      "spans_per_contract": 2.49,
+      "top1_contract_share": 0.035,
+      "flag_single_contract_heavy": false
+    },
+    "related_categories": [
+      {
+        "category": "Governing Law",
+        "cooccurrence_count": 180
+      },
+      {
+        "category": "Anti-Assignment",
+        "cooccurrence_count": 164
+      },
+      {
+        "category": "License Grant",
+        "cooccurrence_count": 124
+      }
+    ],
+    "positive_examples": [
+      {
+        "contract_id": "contract_0012",
+        "answer_text": "If a Buyer receives a product that fails to conform to these representations and warranties, the sole remedies of Buyer for the breach of warranty will be to: (1) reject and return the non-conforming product to Seller for a refund or credit, or a replacement conforming product, in the manner and time period provided in the SOP; (2) obtain reimbursement from Seller for actual, reasonable, substantiated out-of-pocket expenses incurred by Buyer in the recovery, return or disposal of a non-conforming product that is the subject of a mandatory product recall required under Applicable Laws or a voluntary withdrawal declared by Seller or approved by Seller (such approval not to be unreasonably withheld, conditioned or delayed); and (3) obtain indemnification from Seller for any Indemnified Claim arising from or related to the non-conforming product as provided in Section 7.",
+        "answer_start": 11315,
+        "answer_end": 12194
+      },
+      {
+        "contract_id": "contract_0389",
+        "answer_text": "In addition, in the event of a material breach by Nexstar of its obligations hereunder, WYZZ shall be entitled to terminate this Agreement and exercise its rights pursuant to Section 25(a) hereof (except that WYZZ may not assert consequential, special or punitive damages or any claim for lost profits).",
+        "answer_start": 68977,
+        "answer_end": 69280
+      },
+      {
+        "contract_id": "contract_0301",
+        "answer_text": "The warranty and remedies set forth in Exhibit B are exclusive and in lieu of any other warranties or remedies, express or implied, including the implied warranties of merchantability and fitness for intended or particular purpose.",
+        "answer_start": 23425,
+        "answer_end": 23656
+      },
+      {
+        "contract_id": "contract_0208",
+        "answer_text": "IBM will give Customer a credit equal to the amount Customer paid IBM for the applicable Materials or for use of the applicable Base Components up to a maximum of twelve (12) months of applicable charges.",
+        "answer_start": 18007,
+        "answer_end": 18211
+      },
+      {
+        "contract_id": "contract_0283",
+        "answer_text": "Except for claims arising under section 6, in no event will either party be liable for any special, indirect, incidental or consequential damages.",
+        "answer_start": 6038,
+        "answer_end": 6184
+      }
+    ],
+    "hard_negative_examples": [
+      {
+        "contract_id": "contract_0066",
+        "negative_source_category": "Uncapped Liability",
+        "answer_text": "The provisions of Section 9.1 and Section 9.2 will not apply to limit the Licensee's indemnification obligations under Section 8.2, or in the case of Licensee's gross negligence or wilful misconduct.",
+        "answer_start": 25255,
+        "answer_end": 25454
+      },
+      {
+        "contract_id": "contract_0154",
+        "negative_source_category": "Uncapped Liability",
+        "answer_text": "THE LIMITATIONS ON LIABILITY FOR DAMAGES SET FORTH IN THIS AGREEMENT SHALL BE INAPPLICABLE TO EACH PARTY'S CONTRACTUAL OBLIGATION TO INDEMNIFY THE OTHER PARTY AS SET FORTH IN SECTIONS 2.6 AND 13.",
+        "answer_start": 42426,
+        "answer_end": 42621
+      },
+      {
+        "contract_id": "contract_0157",
+        "negative_source_category": "Uncapped Liability",
+        "answer_text": "TO THE MAXIMUM EXTENT PERMISSIBLE UNDER APPLICABLE LAW, EXCEPT FOR THE WILFUL MISAPPROPRIATION OR INFRINGEMENT OF THE INTELLECTUAL PROPERTY OF A PARTY TO THIS AGREEMENT, OR THE OBLIGATIONS OF THE PARTIES TO THIS AGREEMENT PURSUANT TO SECTION 13, (A) THE LIABILITY OF ANY PARTY TO THIS AGREEMENT, IF ANY, FOR DAMAGES FOR ANY CLAIM OF ANY KIND WHATSOEVER AND REGARDLESS OF THE LEGAL THEORY, WITH REGARD TO THE RIGHTS GRANTED HEREUNDER OR THE SERVICES PERFORMED HEREUNDER, SHALL NOT INCLUDE COMPENSATION, REIMBURSEMENT OR DAMAGES ON ACCOUNT OF THE LOSS OF PRESENT OR PROSPECTIVE PROFITS, EXPENDITURES, DATA, OPPORTUNITY, ANTICIPATED SAVINGS, INVESTMENTS OR COMMITMENTS, WHETHER MADE IN ESTABLISHMENT, DEVELOPMENT OR MAINTENANCE OF REPUTATION OR GOODWILL OR FOR ANY OTHER REASON WHATSOEVER; AND (B) IN NO EVENT SHALL ANY PARTY TO THIS AGREEMENT BE LIABLE TO THE OTHER PARTIES TO THIS AGREEMENT FOR SPECIAL, INDIRECT, CONSEQUENTIAL, INCIDENTAL, PUNITIVE OR CONSEQUENTIAL DAMAGES.",
+        "answer_start": 90347,
+        "answer_end": 91321
+      },
+      {
+        "contract_id": "contract_0402",
+        "negative_source_category": "Termination For Convenience",
+        "answer_text": "COMPANY may, in its unfettered discretion, terminate this Agreement at any time after first givingCONTENT PROVIDER ten (10) days advance notice thereof.",
+        "answer_start": 13290,
+        "answer_end": 13442
+      },
+      {
+        "contract_id": "contract_0171",
+        "negative_source_category": "Anti-Assignment",
+        "answer_text": "No party to this Agreement may assign its rights or delegate its obligations under this Agreement, whether by operation of law or otherwise, and any assignment in contravention hereof shall be null and void.",
+        "answer_start": 28443,
+        "answer_end": 28650
+      }
+    ]
+  },
+  "Uncapped Liability": {
+    "category_id": "uncapped_liability",
+    "cuad_group": "6",
+    "description": "Is a party\u2019s liability uncapped upon the breach of its obligation in the contract? This also includes uncap liability for a particular type of breach such as IP infringement or breach of confidentiality obligation.",
+    "statistics": {
+      "num_positive_contracts": 78,
+      "num_positive_context_groups": 78,
+      "num_positive_spans": 123,
+      "spans_per_contract": 1.58,
+      "top1_contract_share": 0.041,
+      "flag_single_contract_heavy": false
+    },
+    "related_categories": [
+      {
+        "category": "Cap On Liability",
+        "cooccurrence_count": 78
+      },
+      {
+        "category": "Governing Law",
+        "cooccurrence_count": 77
+      },
+      {
+        "category": "Anti-Assignment",
+        "cooccurrence_count": 77
+      }
+    ],
+    "positive_examples": [
+      {
+        "contract_id": "contract_0249",
+        "answer_text": "Subject to Section 17(c), in no event shall either Party's liability under this Agreement exceed the aggregate of all amounts paid under this Agreement and amounts that have accrued but not yet been paid in the twelve (12) months preceding the event giving rise to the claim.",
+        "answer_start": 77010,
+        "answer_end": 77285
+      },
+      {
+        "contract_id": "contract_0208",
+        "answer_text": "In no event will either party be liable to the other for special, incidental, or indirect damages or for any consequential damages (including lost profits or savings), even if they are informed of the possibility; provided that this Section 10.0 does not apply to Customer's failure to pay any amounts owing to IBM under this Agreement (including amounts owing for Services that would have been rendered but for Customer's breach of this Agreement).",
+        "answer_start": 21007,
+        "answer_end": 21456
+      },
+      {
+        "contract_id": "contract_0228",
+        "answer_text": "With the exception of wilful misconduct by a Party, and such cases where a limitation of liability and/or indemnification is not possible under applicable law, for which cases there shall be no limitation, any and all liability and/or indemnification obligations of each of BII and XENCOR under this Agreement shall be:   a. excluded for incidental, indirect, consequential, punitive or special damages (provided that the foregoing shall not exclude a Party's right to consequential or incidental",
+        "answer_start": 79285,
+        "answer_end": 79781
+      },
+      {
+        "contract_id": "contract_0183",
+        "answer_text": "EXCEPT IN CONNECTION WITH A BREACH BY EITHER PARTY OF ARTICLE 9 OR SECTION 10.1.4  [Representations and Warranties] (v) AND THE INDEMNIFICATION OBLIGATIONS OF LEADERSONLINE UNDER SECTION 11.4(i)(c)  [Indemnification by LeadersOnline] AND THE INDEMNIFICATION OBLIGATIONS OF VERTICALNET UNDER SECTION 11.5(i)(c)  [Indemnification by VerticalNet], NEITHER PARTY WILL BE LIABLE FOR ANY SPECIAL, INDIRECT, CONSEQUENTIAL, EXEMPLARY OR INCIDENTAL DAMAGES ARISING OUT OF OR RELATED TO THIS AGREEMENT, HOWEVER CAUSED AND UNDER ANY THEORY",
+        "answer_start": 38557,
+        "answer_end": 39085
+      },
+      {
+        "contract_id": "contract_0236",
+        "answer_text": "EXCEPT FOR LIABILITY ARISING FROM SECTION 9.3  [Intellectual Property Infringement], IN NO EVENT SHALL EITHER PARTY BE LIABLE UNDER THIS AGREEMENT FOR AN AMOUNT GREATER THAN THE AMOUNT THAT SUCH PARTY HAS EARNED PURSUANT TO THE REVENUE SHARING PROVISIONS OF SECTION 5.4  [Share of Net Revenue] IN THE TWELVE MONTH PERIOD PRECEDING THE CLAIM.",
+        "answer_start": 35670,
+        "answer_end": 36011
+      }
+    ],
+    "hard_negative_examples": [
+      {
+        "contract_id": "contract_0272",
+        "negative_source_category": "Cap On Liability",
+        "answer_text": "THE PROVIDER SHALL NOT BE LIABLE FOR ANY INCIDENTAL OR CONSEQUENTIAL DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF REVENUES OR LOSS OF PROFIT, ARISING OUT OF THE PROVISION OF THE SERVICES OR REPAIRS, NOTWITHSTANDING ADVANCE NOTICE FROM THE COMPANY THAT THE POSSIBILITY OF SUCH DAMAGE OR LOSS EXISTS.",
+        "answer_start": 10592,
+        "answer_end": 10891
+      },
+      {
+        "contract_id": "contract_0040",
+        "negative_source_category": "Cap On Liability",
+        "answer_text": "This includes in particular the liability exclusion for lost profit, the loss of data or interruption to or errors in the operation of the Web site of the Affiliate.",
+        "answer_start": 18644,
+        "answer_end": 18809
+      },
+      {
+        "contract_id": "contract_0289",
+        "negative_source_category": "Cap On Liability",
+        "answer_text": "It is expressly agreed that the Agent shall not be liable for any loss, liability, claim, damage or expense or be  required to contribute any amount pursuant to Section 9(b) or this Section 10 which in the aggregate exceeds the amount paid (excluding  reimbursable expenses) to the Agent under this Agreement.",
+        "answer_start": 134244,
+        "answer_end": 134553
+      },
+      {
+        "contract_id": "contract_0216",
+        "negative_source_category": "Governing Law",
+        "answer_text": "This Agreement will be construed and governed in accordance with the laws of the State of Illinois, without regard to conflict of laws principles.",
+        "answer_start": 8862,
+        "answer_end": 9008
+      },
+      {
+        "contract_id": "contract_0308",
+        "negative_source_category": "License Grant",
+        "answer_text": "WGT reserves all rights in and to the Trademarks and all      other trademarks and trade names used by WGT in connection with the      Products, but WGT grants to Distributor the nonexclusive right to use and      display the Trademarks during the Term to promote and identify the Product      in the Territory in connection with this Agreement.",
+        "answer_start": 30691,
+        "answer_end": 31036
+      }
+    ]
+  },
+  "Termination For Convenience": {
+    "category_id": "termination_for_convenience",
+    "cuad_group": "-",
+    "description": "Can a party terminate this\u00a0 contract without cause (solely by giving a notice and allowing a waiting\u00a0 period to expire)?",
+    "statistics": {
+      "num_positive_contracts": 123,
+      "num_positive_context_groups": 122,
+      "num_positive_spans": 165,
+      "spans_per_contract": 1.34,
+      "top1_contract_share": 0.024,
+      "flag_single_contract_heavy": false
+    },
+    "related_categories": [
+      {
+        "category": "Governing Law",
+        "cooccurrence_count": 117
+      },
+      {
+        "category": "Anti-Assignment",
+        "cooccurrence_count": 104
+      },
+      {
+        "category": "Cap On Liability",
+        "cooccurrence_count": 90
+      }
+    ],
+    "positive_examples": [
+      {
+        "contract_id": "contract_0189",
+        "answer_text": "Written notice of intention to withdraw must be served in writing upon the remaining Participants at least Thirty (30) business days prior to the withdrawal date.",
+        "answer_start": 9408,
+        "answer_end": 9570
+      },
+      {
+        "contract_id": "contract_0083",
+        "answer_text": "The Agreement rests, for all that, cancellable at any time by any of the parties before the expiry date of the Agreement or any of itsrenewals, upon three months prior written notice.",
+        "answer_start": 21570,
+        "answer_end": 21753
+      },
+      {
+        "contract_id": "contract_0272",
+        "answer_text": "Notwithstanding the foregoing, either party may terminate this Agreement at any time without liability by providing one hundred eighty (180) days written notice to the other party.",
+        "answer_start": 1633,
+        "answer_end": 1813
+      },
+      {
+        "contract_id": "contract_0027",
+        "answer_text": "Party A is entitled to unilaterally terminate this Agreement within three natural months from the signing date of this Agreement.",
+        "answer_start": 61742,
+        "answer_end": 61871
+      },
+      {
+        "contract_id": "contract_0230",
+        "answer_text": "Licensee may terminate this Agreement for convenience upon eighteen (18) months' advance written notice to Bioeq; provided, however, that any such termination for convenience shall not become effective prior to twelve (12) months after the First Commercial Sale of the first Licensed Product.",
+        "answer_start": 119239,
+        "answer_end": 119531
+      }
+    ],
+    "hard_negative_examples": [
+      {
+        "contract_id": "contract_0346",
+        "negative_source_category": "Renewal Term",
+        "answer_text": "MBE shall have the right to elect by written notice to the Company at any time between two (2) and six (6) months prior to the end of such initial term or any subsequent Renewal Period (as defined below), to notify the Company that MBE elects to seek to extend such term for additional two (2)-year periods (each a \"Renewal Period\") In the event of such election, MBE and the Company shall have  -------------- a period of sixty (60) days in which to negotiate commercially reasonable Basic Fees, Bounty Fees and eBay Fees (and other applicable fees) (\"Fee Schedule\")                                                               ------------ under which the Company would be willing to renew this Agreement for such Renewal Period.",
+        "answer_start": 57995,
+        "answer_end": 58727
+      },
+      {
+        "contract_id": "contract_0073",
+        "negative_source_category": "Renewal Term",
+        "answer_text": "Upon expiry of the Initial Term, this Agreement [*****] unless a Notice of non-renewal is given by either Party to the other Party [*****] prior to the expiry of the Initial Term or the end of a renewal period, if any.",
+        "answer_start": 32174,
+        "answer_end": 32392
+      },
+      {
+        "contract_id": "contract_0244",
+        "negative_source_category": "Renewal Term",
+        "answer_text": "This Agreement shall commence on the Effective Date and continue in full force and effect until the end of the fifteenth (15th) Contract Year, and shall continue in full force and effect thereafter until terminated by either Party by providing thirty (30) calendar days' prior written notice of termination to the other Party (such fifteen (15) Contract Year period, as may be further extended as provided herein is referred to as the \"Term\").",
+        "answer_start": 11577,
+        "answer_end": 12020
+      },
+      {
+        "contract_id": "contract_0137",
+        "negative_source_category": "Exclusivity",
+        "answer_text": "Franchisee  also  acknowledges  that Pretzel Time has granted the Franchise to  Franchisee  in  consideration  of and reliance  upon  Franchisee's agreement to deal  exclusively  with Pretzel Time.",
+        "answer_start": 207748,
+        "answer_end": 207945
+      },
+      {
+        "contract_id": "contract_0177",
+        "negative_source_category": "Uncapped Liability",
+        "answer_text": "Except for claims under Sections 15.4  [INDEMNIFICATION BY NEOFORMA] and 15.5  [INDEMNIFICATION BY VERTICALNET] hereof, neither Party may bring a claim or action regardless of form, arising out of or related to this Agreement, including any claim of fraud or misrepresentation, more than two years after the cause of action accrues or",
+        "answer_start": 59597,
+        "answer_end": 59931
+      }
+    ]
+  },
+  "Anti-Assignment": {
+    "category_id": "anti_assignment",
+    "cuad_group": "3",
+    "description": "Is consent or notice required of a party if the contract is assigned to a third party?",
+    "statistics": {
+      "num_positive_contracts": 235,
+      "num_positive_context_groups": 235,
+      "num_positive_spans": 408,
+      "spans_per_contract": 1.74,
+      "top1_contract_share": 0.017,
+      "flag_single_contract_heavy": false
+    },
+    "related_categories": [
+      {
+        "category": "Governing Law",
+        "cooccurrence_count": 229
+      },
+      {
+        "category": "Cap On Liability",
+        "cooccurrence_count": 164
+      },
+      {
+        "category": "License Grant",
+        "cooccurrence_count": 146
+      }
+    ],
+    "positive_examples": [
+      {
+        "contract_id": "contract_0073",
+        "answer_text": "Consequently either this Agreement or any of the respective rights or obligations of the Parties hereunder may be assigned or otherwise transferred, in whole or in part, in any form whatsoever (including by way of change of Control), by either Party subject to the prior written consent of the other Party, which consent shall not be unreasonably withheld or delayed, and any attempt to do so without such consent shall be null and void.",
+        "answer_start": 87997,
+        "answer_end": 88434
+      },
+      {
+        "contract_id": "contract_0214",
+        "answer_text": "Either Party may, without consent of the other Party, assign this Agreement in whole to (i) in the case of RevMed, its successor in interest or assignee or purchaser, as applicable, in the case of a Change of Control or (ii) in the case of Sanofi, its successor in interest or assignee or purchaser, as applicable, in connection with the sale of all or substantially all of its assets to which this Agreement relates, or in connection with a merger, acquisition or similar transaction.",
+        "answer_start": 243853,
+        "answer_end": 244338
+      },
+      {
+        "contract_id": "contract_0249",
+        "answer_text": "Neither this Agreement nor any rights or obligations hereunder shall be assignable by a Party without the prior written consent of the other Party, provided that either Party shall have the right, on notice to but without the other Party's consent, to assign this Agreement and its rights and obligations contained herein, to an affiliate or to a third party who is not a competitor of the other Party in connection with a sale of all or substantially all of the assigning Party's business or assets relating to this Agreement.",
+        "answer_start": 85146,
+        "answer_end": 85673
+      },
+      {
+        "contract_id": "contract_0042",
+        "answer_text": "This Agreement may not be assigned by Broker Dealer without the prior written consent of Issuer and   Distributor, which shall not be unreasonably withheld.",
+        "answer_start": 25119,
+        "answer_end": 25275
+      },
+      {
+        "contract_id": "contract_0056",
+        "answer_text": "The Distributor shall not sub-license, transfer or otherwise deal with the rights of use of the Trade Marks granted under this agreement.",
+        "answer_start": 12823,
+        "answer_end": 12960
+      }
+    ],
+    "hard_negative_examples": [
+      {
+        "contract_id": "contract_0120",
+        "negative_source_category": "Governing Law",
+        "answer_text": "The construction, interpretation and performance of this Agreement and all transactions under it shall be governed by the law of the State of Israel, without giving effect to choice of law rules, and both Parties consent to jurisdiction by the courts of the City of Haifa.",
+        "answer_start": 33760,
+        "answer_end": 34032
+      },
+      {
+        "contract_id": "contract_0358",
+        "negative_source_category": "Governing Law",
+        "answer_text": "This Agreement shall be governed by and construed in accordance with the laws of the Province of British Columbia and the federal laws of Canada applicable therein, excluding its conflict-of-laws rules.",
+        "answer_start": 4807,
+        "answer_end": 5009
+      },
+      {
+        "contract_id": "contract_0065",
+        "negative_source_category": "Governing Law",
+        "answer_text": "This Agreement shall be governed by and construed under the laws of Hong Kong without regard to choice of laws principles.",
+        "answer_start": 40144,
+        "answer_end": 40266
+      },
+      {
+        "contract_id": "contract_0057",
+        "negative_source_category": "Termination For Convenience",
+        "answer_text": "The Company will have the ability to terminate this Agreement by giving 60 days' prior  written notice to the Contractor.",
+        "answer_start": 53263,
+        "answer_end": 53384
+      },
+      {
+        "contract_id": "contract_0270",
+        "negative_source_category": "Audit Rights",
+        "answer_text": "Any books of accounts or records shall not be inspected more than once.",
+        "answer_start": 83317,
+        "answer_end": 83388
+      }
+    ]
+  },
+  "Audit Rights": {
+    "category_id": "audit_rights",
+    "cuad_group": "5",
+    "description": "Does a party have the right to\u00a0 audit the books, records, or physical locations of the counterparty to ensure compliance with the contract?",
+    "statistics": {
+      "num_positive_contracts": 139,
+      "num_positive_context_groups": 139,
+      "num_positive_spans": 417,
+      "spans_per_contract": 3.0,
+      "top1_contract_share": 0.038,
+      "flag_single_contract_heavy": false
+    },
+    "related_categories": [
+      {
+        "category": "Governing Law",
+        "cooccurrence_count": 137
+      },
+      {
+        "category": "Anti-Assignment",
+        "cooccurrence_count": 129
+      },
+      {
+        "category": "Cap On Liability",
+        "cooccurrence_count": 113
+      }
+    ],
+    "positive_examples": [
+      {
+        "contract_id": "contract_0177",
+        "answer_text": "The Auditing Party may cause the Auditor to perform such an audit not more than once in any 12-month period, unless a prior audit within the past two years revealed that the amount owed by the Audited Party to the Auditing Party was underpaid in excess of 8% of the amount owed, in which case an audit may be performed no more frequently than twice in any 12-month period.",
+        "answer_start": 50688,
+        "answer_end": 51060
+      },
+      {
+        "contract_id": "contract_0137",
+        "answer_text": "Franchisee shall fully cooperate with Pretzel Time's representatives and independent accountants hired by Pretzel Time to conduct any such inspection or audit.",
+        "answer_start": 147028,
+        "answer_end": 147187
+      },
+      {
+        "contract_id": "contract_0356",
+        "answer_text": "Premier, shall have the right, directly or through its representative, to inspect, copy, and audit all such records upon reasonable request and during normal business hours, acknowledging that access to accounting and purchasing records will be limited to those supporting pass-through materials costs and purchases of Premier specified equipment if any.",
+        "answer_start": 16698,
+        "answer_end": 17052
+      },
+      {
+        "contract_id": "contract_0318",
+        "answer_text": "SHPS shall have the right, upon reasonable prior written notice, to examine, copy and audit such records. Such audit shall be conducted at the location where such records are maintained and shall be at the expense of SHPS.",
+        "answer_start": 6856,
+        "answer_end": 7078
+      },
+      {
+        "contract_id": "contract_0160",
+        "answer_text": "In addition to any inspection rights granted under Law, upon notice to the Company of at least twenty-four (24) hours, each Party shall have full access to all properties, books of account, and records of the Company.",
+        "answer_start": 44670,
+        "answer_end": 44887
+      }
+    ],
+    "hard_negative_examples": [
+      {
+        "contract_id": "contract_0043",
+        "negative_source_category": "Revenue/Profit Sharing",
+        "answer_text": "In consideration of the License granted and other good and valuable consideration provided by T&B to LEA, LEA shall pay to T&B a base royalty (\"Base Royalty\") in the amount of [\u25cf%] of LEA's monthly Cash Sales for Cash Sales of up to [$\u25cf].",
+        "answer_start": 20365,
+        "answer_end": 20603
+      },
+      {
+        "contract_id": "contract_0193",
+        "negative_source_category": "Revenue/Profit Sharing",
+        "answer_text": "The revenue share for the Program is stated in Exhibit B.",
+        "answer_start": 6665,
+        "answer_end": 6722
+      },
+      {
+        "contract_id": "contract_0166",
+        "negative_source_category": "Revenue/Profit Sharing",
+        "answer_text": "License Renewal and Maintenance Fees will be split evenIy with 50% distributed to Developer and 50% distributed to Distributor, also subject to paragraph 4 of this section 2.3.",
+        "answer_start": 14315,
+        "answer_end": 14491
+      },
+      {
+        "contract_id": "contract_0142",
+        "negative_source_category": "License Grant",
+        "answer_text": "As part of the exclusive distribution right granted in this Section 2, Vendor hereby grants Distributor the non- exclusive, non-transferable right to use and display Vendor's trademarks, logos, Product photographs and images, Product advertising and promotional copy, including but not limited to the materials contained in Vendor's website, in connection with the promotion, advertising and distribution of the Products.",
+        "answer_start": 6729,
+        "answer_end": 7150
+      },
+      {
+        "contract_id": "contract_0025",
+        "negative_source_category": "Revenue/Profit Sharing",
+        "answer_text": "A majority of the Restaurant owners in the Regional Fund may vote to increase the amount of each Restaurant owner's Regional Fund contribution by up to an additional two percent (2%) of each Restaurant's Gross Revenues.",
+        "answer_start": 86989,
+        "answer_end": 87208
+      }
+    ]
+  },
+  "License Grant": {
+    "category_id": "license_grant",
+    "cuad_group": "4",
+    "description": "Does the contract contain a license granted by one party to its counterparty?",
+    "statistics": {
+      "num_positive_contracts": 163,
+      "num_positive_context_groups": 163,
+      "num_positive_spans": 530,
+      "spans_per_contract": 3.25,
+      "top1_contract_share": 0.03,
+      "flag_single_contract_heavy": false
+    },
+    "related_categories": [
+      {
+        "category": "Governing Law",
+        "cooccurrence_count": 155
+      },
+      {
+        "category": "Anti-Assignment",
+        "cooccurrence_count": 146
+      },
+      {
+        "category": "Cap On Liability",
+        "cooccurrence_count": 124
+      }
+    ],
+    "positive_examples": [
+      {
+        "contract_id": "contract_0375",
+        "answer_text": "Subject to the terms and conditions hereof, drkoop.com hereby represents that it has the power and authority to grant, and does hereby grant to Sponsor a non-exclusive, non-transferable, royalty-free, worldwide license to reproduce and display all logos, trademarks, trade names and similar identifying material relating to drkoop.com and, solely as allowed pursuant to this Agreement, to the Dr. C. Everett Koop name (collectively, the \"drkoop.com Marks\") solely in connection with the promotion, marketing and distribution of the parties and the Sites in accordance with the terms hereof, provided, however, that Sponsor shall, other than as specifically provided for in Section 4.4 of this Agreement, not make any specific use of any drkoop.com Marks without first submitting a sample of such use to drkoop.com and obtaining its prior consent, which consent shall not be unreasonably withheld.",
+        "answer_start": 13023,
+        "answer_end": 13919
+      },
+      {
+        "contract_id": "contract_0292",
+        "answer_text": "During the term of this Agreement, and subject to the terms and conditions hereof, STAAR hereby grants to Distributor, and Distributor hereby accepts, the limited, nontransferable, nonexclusive right and license to use the trade name, trademarks, and logos of STAAR (collectively, \"Trademarks\"), without the right to grant sublicenses, solely in connection with the marketing, distribution and sale of the Products in the Territory pursuant to this Agreement.",
+        "answer_start": 3072,
+        "answer_end": 3531
+      },
+      {
+        "contract_id": "contract_0137",
+        "answer_text": "Franchisee  agrees and grants to Pretzel Time and its Affiliates a perpetual and worldwide  right to use and  authorize  other  Pretzel  Time Units or other food service businesses  operated by Pretzel Time or its Affiliates,  franchisees and designees  to  use  such  ideas,  recipes,  formulas,   concepts,  methods,  and techniques  relating to the development  and/or  operation of a dessert or snack food business.",
+        "answer_start": 221470,
+        "answer_end": 221889
+      },
+      {
+        "contract_id": "contract_0142",
+        "answer_text": "As part of the exclusive distribution right granted in this Section 2, Vendor hereby grants Distributor the non- exclusive, non-transferable right to use and display Vendor's trademarks, logos, Product photographs and images, Product advertising and promotional copy, including but not limited to the materials contained in Vendor's website, in connection with the promotion, advertising and distribution of the Products.",
+        "answer_start": 6729,
+        "answer_end": 7150
+      },
+      {
+        "contract_id": "contract_0092",
+        "answer_text": "Develop, Manufacture, or Commercialize the Product for use outside the Licensed Field.",
+        "answer_start": 44865,
+        "answer_end": 44951
+      }
+    ],
+    "hard_negative_examples": [
+      {
+        "contract_id": "contract_0059",
+        "negative_source_category": "Exclusivity",
+        "answer_text": "MediWound shall have an exclusive license under patents and other intellectual property, to develop, use, manufacture, market and sell the Product for burn treatment in humans;",
+        "answer_start": 1794,
+        "answer_end": 1970
+      },
+      {
+        "contract_id": "contract_0230",
+        "negative_source_category": "Exclusivity",
+        "answer_text": "Subject to the provisions of this Agreement, Bioeq hereby grants to Licensee an exclusive (even as to Bioeq), milestone- and royalty-bearing, non-transferable license (including the right to grant sublicenses only to the extent permitted by Section 2.1.2) under the Licensed Technology (including the Licensed Patents) to use, sell, have sold, import, have imported or otherwise Commercialize the Licensed Products in the Field in the Territory.",
+        "answer_start": 29647,
+        "answer_end": 30092
+      },
+      {
+        "contract_id": "contract_0287",
+        "negative_source_category": "Exclusivity",
+        "answer_text": "Based on the foregoing, and subject to the terms and conditions contained in this Agreement, the Agents severally and not jointly agree to act as, and the Corporation appoints the Agents as, the exclusive agents of the Corporation to offer the Offered Shares for sale on the Closing Date (as defined herein) in the Selling Jurisdictions (as defined herein) on a private placement basis at the Offering Price.",
+        "answer_start": 1674,
+        "answer_end": 2082
+      },
+      {
+        "contract_id": "contract_0014",
+        "negative_source_category": "Revenue/Profit Sharing",
+        "answer_text": "In addition to the 5% amount calculated pursuant to the preceding paragraph, there shall be an identical 5% amount to be paid from THI, per Premier's consideration, to certain shareholders of Premier, as identified by Premier, as of a record date to be determined in the future, on an annual basis, commencing on the one-year anniversary of this Agreement until a total amount of $40,000,000 has been paid to Premier.",
+        "answer_start": 12407,
+        "answer_end": 12824
+      },
+      {
+        "contract_id": "contract_0105",
+        "negative_source_category": "Audit Rights",
+        "answer_text": "Operator shall cooperate with Owner's auditors by (i) making the applicable books and records available for inspection by Owner's auditors, and (ii) making such copies of books and records as may be reasonably requested by such auditors. In no event shall Owner's audits unreasonably interfere with Operator's operations.",
+        "answer_start": 37979,
+        "answer_end": 38300
+      }
+    ]
+  },
+  "Exclusivity": {
+    "category_id": "exclusivity",
+    "cuad_group": "2",
+    "description": "Is there an exclusive dealing\u00a0 commitment with the counterparty? This includes a commitment to procure all \u201crequirements\u201d from one party of certain technology, goods, or services or a prohibition on licensing or selling technology, goods or services to third parties, or a prohibition on\u00a0 collaborating or working with other parties), whether during the contract or\u00a0 after the contract ends (or both).",
+    "statistics": {
+      "num_positive_contracts": 117,
+      "num_positive_context_groups": 117,
+      "num_positive_spans": 274,
+      "spans_per_contract": 2.34,
+      "top1_contract_share": 0.044,
+      "flag_single_contract_heavy": false
+    },
+    "related_categories": [
+      {
+        "category": "Governing Law",
+        "cooccurrence_count": 113
+      },
+      {
+        "category": "Anti-Assignment",
+        "cooccurrence_count": 102
+      },
+      {
+        "category": "License Grant",
+        "cooccurrence_count": 91
+      }
+    ],
+    "positive_examples": [
+      {
+        "contract_id": "contract_0047",
+        "answer_text": "Reseller shall not obtain the           TouchStar Software or Support Services (or any software or services           which compete with the TouchStar Software) for sale from any Entity           other than TouchStar or its authorized agents.",
+        "answer_start": 17348,
+        "answer_end": 17590
+      },
+      {
+        "contract_id": "contract_0163",
+        "answer_text": "Nantz Communications and Nantz expressly agree that the Endorsement will not be granted to anyone other than the Company for use during the Term in connection with the advertisement and promotion of sportswear apparel, hats and shoes.",
+        "answer_start": 14607,
+        "answer_end": 14841
+      },
+      {
+        "contract_id": "contract_0355",
+        "answer_text": "During the Term of this Agreement, except as otherwise permitted by this Section 3(a)(v), VS agrees that it shall not enter into the same or substantially similar Commitments with any other company or entity which performs clinical research services the same or similar to those provided by PPD or any PPD affiliate (collectively, \"PPD Competitor\"), nor shall VS provide preferred pricing to a PPD Competitor which is better than that provided by VS hereunder to PPD.",
+        "answer_start": 9116,
+        "answer_end": 9583
+      },
+      {
+        "contract_id": "contract_0397",
+        "answer_text": "The Company hereby appoints and grants Distributor the exclusive right to sell the products of the Company, including the Snotarator\u2122 Nasal Aspirator,  (\"Products\") listed in the current \"Price List\" (Exhibit \"A\" attached hereto).",
+        "answer_start": 627,
+        "answer_end": 857
+      },
+      {
+        "contract_id": "contract_0043",
+        "answer_text": "In consideration of the exclusivity rights granted to LEA, commencing with the seventh (7t h) month of the Term and continuing each year of the Term thereafter, the minimum Royalties payable to T&B each month shall be the greater of the (i) applicable monthly Base Royalty and Marketing Royalty or (ii) $200,000.",
+        "answer_start": 22382,
+        "answer_end": 22694
+      }
+    ],
+    "hard_negative_examples": [
+      {
+        "contract_id": "contract_0143",
+        "negative_source_category": "License Grant",
+        "answer_text": "Without limiting the foregoing, Magenta may use and disclose Bachem Intellectual Property to the extent necessary in connection with the prosecution, maintenance and enforcement of Magenta Developed Intellectual Property.",
+        "answer_start": 45412,
+        "answer_end": 45633
+      },
+      {
+        "contract_id": "contract_0300",
+        "negative_source_category": "License Grant",
+        "answer_text": "Subject to the terms and conditions of this Agreement, Licensor hereby grants to Licensee, and Licensee hereby accepts from Licensor, an exclusive, non-transferable (except as set forth in Section 10.7) and non-sublicensable (except as provided in Section 2.1(c)) license to use the Licensed Content in connection with websites associated with the Licensed Domain Names until the earlier of (i) termination or expiration of this Agreement, or (ii) termination or expiration of the Agency Agreement, provided, however, that in the event the Agency Agreement is amended or restated, such amendment or restatement shall not be deemed a termination or expiration of the Agency Agreement.",
+        "answer_start": 8355,
+        "answer_end": 9038
+      },
+      {
+        "contract_id": "contract_0011",
+        "negative_source_category": "License Grant",
+        "answer_text": "shall retain those licenses granted to it under this Agreement, provided that the license shall be limited to the business, products or services (as applicable) of the Divested Entity as of the date of divestment and such natural development thereof within the Nuance Field of Use (where Nuance is the divesting Party) or SpinCo Field of Use (where SpinCo is the divesting party).",
+        "answer_start": 41009,
+        "answer_end": 41389
+      },
+      {
+        "contract_id": "contract_0167",
+        "negative_source_category": "Audit Rights",
+        "answer_text": "In order to preserve the validity and integrity of the Marks and\n\n\n\n\n\ncopyrighted material licensed to you and to assure that you are properly employing the same in the operation of your Franchised Restaurant, we and our agents have the right of entry and inspection of your premises and operating procedures at all reasonable times.",
+        "answer_start": 27860,
+        "answer_end": 28193
+      },
+      {
+        "contract_id": "contract_0183",
+        "negative_source_category": "Renewal Term",
+        "answer_text": "LeadersOnline shall have the option, subject to VerticalNet's approval exercised in its sole  and absolute discretion, to extend the Term of this Agreement for an additional 12 months (a \"Renewal Term\") on such terms and conditions as may be mutually agreed upon by the Parties.",
+        "answer_start": 24518,
+        "answer_end": 24796
+      }
+    ]
+  }
+}
