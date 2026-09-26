@@ -1,0 +1,5 @@
+metric,value
+avg_chunks_per_doc,30.916923076923077
+max_chunks_per_doc,196.0
+spans_longer_than_one_chunk,11.0
+pct_spans_longer_than_one_chunk,0.12

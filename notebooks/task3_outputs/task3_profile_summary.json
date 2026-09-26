@@ -1,0 +1,10 @@
+{
+  "split": "train",
+  "num_contracts": 325,
+  "num_documents": 325,
+  "num_annotation_sets": 13325,
+  "num_spans": 8964,
+  "doc_length_char_mean": 53164.75384615385,
+  "doc_length_char_median": 35612.0,
+  "anomaly_total": 0
+}

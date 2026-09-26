@@ -1,0 +1,120 @@
+{
+  "gate1_passed": true,
+  "checks": [
+    {
+      "check": "count_contracts",
+      "expected": 408,
+      "actual": 408,
+      "passed": true,
+      "section": "counts"
+    },
+    {
+      "check": "count_documents",
+      "expected": 408,
+      "actual": 408,
+      "passed": true,
+      "section": "counts"
+    },
+    {
+      "check": "count_categories",
+      "expected": 41,
+      "actual": 41,
+      "passed": true,
+      "section": "counts"
+    },
+    {
+      "check": "count_annotation_sets",
+      "expected": 16728,
+      "actual": 16728,
+      "passed": true,
+      "section": "counts"
+    },
+    {
+      "check": "count_spans",
+      "expected": 11180,
+      "actual": 11180,
+      "passed": true,
+      "section": "counts"
+    },
+    {
+      "check": "train_validation_group_overlap",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "section": "split"
+    },
+    {
+      "check": "documents_missing_split_label",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "section": "split"
+    },
+    {
+      "check": "documents_orphaned_contract_id",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "section": "referential_integrity"
+    },
+    {
+      "check": "annotation_sets_orphaned_contract_id",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "section": "referential_integrity"
+    },
+    {
+      "check": "annotation_sets_orphaned_category_id",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "section": "referential_integrity"
+    },
+    {
+      "check": "spans_orphaned_annotation_set_id",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "section": "referential_integrity"
+    },
+    {
+      "check": "duplicate_contract_id",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "section": "duplicates"
+    },
+    {
+      "check": "duplicate_document_id",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "section": "duplicates"
+    },
+    {
+      "check": "duplicate_annotation_set_id",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "section": "duplicates"
+    },
+    {
+      "check": "duplicate_span_id",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "section": "duplicates"
+    }
+  ],
+  "blocking_anomalies": [],
+  "artifact_hashes": {
+    "../split_data/contracts.parquet": "58da80fa5d456c26597f50de0955d12d",
+    "../split_data/documents.parquet": "ceb83c1998474d9ebae24c16496eaf7d",
+    "../split_data/categories.parquet": "61262c226b2abe37008df56899fa1870",
+    "../split_data/annotation_sets.parquet": "7bc833f328d855bfb444990253db942c",
+    "../split_data/spans.parquet": "0f47145d141e175af42b8368dd6eda43",
+    "../frozen-split_data/frozen-split.parquet": "c312b2e1656e10ddbab0a0c361d2af0a"
+  },
+  "missing_artifacts": []
+}
