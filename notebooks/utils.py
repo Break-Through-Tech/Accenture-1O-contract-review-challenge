@@ -1,6 +1,6 @@
 import requests
 import pandas as pd
-from io import StringIO
+from io import StringIO, BytesIO
 
 def load_file_from_github(path_from_root: str, branch: str="main"):
     """
@@ -9,6 +9,7 @@ def load_file_from_github(path_from_root: str, branch: str="main"):
     :param branch: the branch the file is located on, assumes "main" branch
     :return: the file as a json object or pandas dataframe according to the file type
     """
+    path_from_root = path_from_root.strip()
     url = f"https://raw.githubusercontent.com/Break-Through-Tech/Accenture-1O-contract-review-challenge/{branch}/{path_from_root}"
 
     response = requests.get(url)
@@ -19,7 +20,6 @@ def load_file_from_github(path_from_root: str, branch: str="main"):
     elif path_from_root.endswith(".csv"):
         return pd.read_csv(StringIO(response.text))
     elif path_from_root.endswith(".parquet"):
-        # TODO: add support for parquet files
-        return ValueError(f"Parquet file not supported yet: {path_from_root}")
+        return pd.read_parquet(BytesIO(response.content))
     else:
         raise ValueError(f"File type not supported: {path_from_root}")
