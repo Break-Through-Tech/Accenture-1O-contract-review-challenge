@@ -23,3 +23,40 @@ def load_file_from_github(path_from_root: str, branch: str="main"):
         return pd.read_parquet(BytesIO(response.content))
     else:
         raise ValueError(f"File type not supported: {path_from_root}")
+
+def load_split_data(split_name: str, data_dir="split_data", split_dir="frozen-split_data"):
+    """
+    Loads all CUAD tables and filters them down to one split ("train" or "val"),
+    based on the frozen split map (context-group-level split, contract-level in practice).
+    :param split_name: the name of the split to load
+    :param data_dir: the directory where the data is located
+    :param split_dir: the directory where the data is located
+    :return: a dict containing a pandas dataframe for all cuad-tables
+    """
+    contracts = pd.read_parquet(f"{data_dir}/contracts.parquet")
+    documents = pd.read_parquet(f"{data_dir}/documents.parquet")
+    categories = pd.read_parquet(f"{data_dir}/categories.parquet")
+    annotation_sets = pd.read_parquet(f"{data_dir}/annotation_sets.parquet")
+    spans = pd.read_parquet(f"{data_dir}/spans.parquet")
+    split_map = pd.read_parquet(f"{split_dir}/frozen-split.parquet")
+
+    documents = documents.merge(split_map, on="context_group_id", how="left")
+
+    unmatched = documents["split"].isna().sum()
+    if unmatched:
+        print(f"WARNING: {unmatched} documents with no split label")
+
+    split_documents = documents[documents["split"] == split_name].copy()
+    split_contract_ids = set(split_documents["contract_id"])
+
+    split_contracts = contracts[contracts["contract_id"].isin(split_contract_ids)].copy()
+    split_annotation_sets = annotation_sets[annotation_sets["contract_id"].isin(split_contract_ids)].copy()
+    split_spans = spans[spans["annotation_set_id"].isin(split_annotation_sets["annotation_set_id"])].copy()
+
+    return {
+        "contracts": split_contracts,
+        "documents": split_documents,
+        "categories": categories,          # not split-specific
+        "annotation_sets": split_annotation_sets,
+        "spans": split_spans,
+    }
