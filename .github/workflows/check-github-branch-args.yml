@@ -13,10 +13,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Scan for non-main load_file_from_github calls
+        env:
+          RAW_PATTERN: 'load_file_from_github\(\s*(?:path_from_root\s*=\s*)?["''][^"'']+["'']\s*,\s*(?:branch\s*=\s*)?["''](?!main["''])[^"'']+["'']\s*\)'
         run: |
-          PATTERN='load_file_from_github\(\s*(?:path_from_root\s*=\s*)?["'][^"']+["']\s*,\s*(?:branch\s*=\s*)?["'](?!main["'])[^"']+["']\s*\)'
-          
-          MATCHES=$(rg -n --pcre2 "$PATTERN" || true)
+          MATCHES=$(rg -n --pcre2 "$RAW_PATTERN" . || true)
 
           if [ -n "$MATCHES" ]; then
             echo "::error::Found non-main branch references in load_file_from_github calls!"
