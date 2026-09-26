@@ -22,4 +22,4 @@ def load_file_from_github(path_from_root: str, branch: str="main"):
     elif path_from_root.endswith(".parquet"):
         return pd.read_parquet(BytesIO(response.content))
     else:
-        raise ValueError(f"Your File type not supported: {path_from_root}")
+        raise ValueError(f"File type not supported: {path_from_root}")
