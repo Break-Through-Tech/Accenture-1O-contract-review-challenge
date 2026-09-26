@@ -1,4 +1,4 @@
-name: Check Hardcoded Branch Arguments
+name: Check GitHub Branch Arguments
 
 on:
   pull_request:
