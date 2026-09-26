@@ -1,0 +1,46 @@
+category_a,category_b,cooccurrence_count
+Governing Law,Anti-Assignment,229
+Governing Law,Cap On Liability,180
+Cap On Liability,Anti-Assignment,164
+Governing Law,License Grant,155
+Anti-Assignment,License Grant,146
+Governing Law,Audit Rights,137
+Anti-Assignment,Audit Rights,129
+Cap On Liability,License Grant,124
+Governing Law,Termination For Convenience,117
+Governing Law,Renewal Term,114
+Governing Law,Exclusivity,113
+Cap On Liability,Audit Rights,113
+Renewal Term,Anti-Assignment,107
+Termination For Convenience,Anti-Assignment,104
+Anti-Assignment,Exclusivity,102
+Audit Rights,License Grant,94
+Governing Law,Revenue/Profit Sharing,94
+Renewal Term,Cap On Liability,91
+License Grant,Exclusivity,91
+Cap On Liability,Termination For Convenience,90
+Cap On Liability,Exclusivity,83
+Revenue/Profit Sharing,Anti-Assignment,81
+Cap On Liability,Uncapped Liability,78
+Uncapped Liability,Anti-Assignment,77
+Governing Law,Uncapped Liability,77
+Renewal Term,License Grant,77
+Renewal Term,Audit Rights,75
+Revenue/Profit Sharing,License Grant,72
+Audit Rights,Exclusivity,70
+Revenue/Profit Sharing,Cap On Liability,70
+Termination For Convenience,License Grant,68
+Termination For Convenience,Audit Rights,67
+Revenue/Profit Sharing,Audit Rights,67
+Uncapped Liability,License Grant,64
+Renewal Term,Exclusivity,60
+Revenue/Profit Sharing,Exclusivity,58
+Renewal Term,Revenue/Profit Sharing,55
+Uncapped Liability,Audit Rights,55
+Renewal Term,Termination For Convenience,52
+Renewal Term,Uncapped Liability,42
+Revenue/Profit Sharing,Termination For Convenience,40
+Termination For Convenience,Exclusivity,40
+Uncapped Liability,Exclusivity,38
+Uncapped Liability,Termination For Convenience,33
+Revenue/Profit Sharing,Uncapped Liability,28
