@@ -16,8 +16,8 @@ jobs:
         env:
           RAW_PATTERN: 'load_file_from_github\(\s*(?:path_from_root\s*=\s*)?["''][^"'']+["'']\s*,\s*(?:branch\s*=\s*)?["''](?!main["''])[^"'']+["'']\s*\)'
         run: |
-          MATCHES=$(rg -n --pcre2 "$RAW_PATTERN" . || true)
-
+          MATCHES=$(grep -rnP "$RAW_PATTERN" . || true)
+          
           if [ -n "$MATCHES" ]; then
             echo "::error::Found non-main branch references in load_file_from_github calls!"
             echo "$MATCHES"
