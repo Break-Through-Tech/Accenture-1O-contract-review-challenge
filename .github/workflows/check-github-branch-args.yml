@@ -1,0 +1,25 @@
+name: Check GitHub Branch Arguments
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-branch-arg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Scan for non-main load_file_from_github calls
+        env:
+          RAW_PATTERN: 'load_file_from_github\(\s*(?:path_from_root\s*=\s*)?["''][^"'']+["'']\s*,\s*(?:branch\s*=\s*)?["''](?!main["''])[^"'']+["'']\s*\)'
+        run: |
+          MATCHES=$(grep -rnP "$RAW_PATTERN" . || true)
+          
+          if [ -n "$MATCHES" ]; then
+            echo "::error::Found non-main branch references in load_file_from_github calls!"
+            echo "$MATCHES"
+            exit 1
+          fi
