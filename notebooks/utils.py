@@ -1,3 +1,5 @@
+import pickle
+
 import requests
 import pandas as pd
 from io import StringIO, BytesIO
@@ -21,6 +23,10 @@ def load_file_from_github(path_from_root: str, branch: str="main"):
         return pd.read_csv(StringIO(response.text))
     elif path_from_root.endswith(".parquet"):
         return pd.read_parquet(BytesIO(response.content))
+    elif path_from_root.endswith(".pkl"):
+        with open("frozen_scorecards.pkl", "rb") as f:
+            file_contents = pickle.load(f)
+        return file_contents
     else:
         raise ValueError(f"File type not supported: {path_from_root}")
 
