@@ -1,5 +1,9 @@
 # AI Studio Challenge Project Title
 
+## CUAD buyer-side risk-label dataset
+
+The self-contained supporting dataset is in [`data/risk`](data/risk/README.md). It provides research-derived Low/Medium/High targets and all documentation needed to interpret the files. It does not implement the fellows' classifier, training pipeline, notebook, or application.
+
 > 💡 **Note for the team:** This is just a template. Update the above title with your AI Studio Challenge Project name. Remove all guidance notes and example text in this template and populate this README with your own content. You can work on this README throughout AI Studio, and get feedback from your AI Studio Coach and Challenge Advisor before finalizing it.  
 
 ---

@@ -1,0 +1,97 @@
+{
+  "accessed_at": "2026-09-29",
+  "sources": [
+    {
+      "source_id": "POLICY-BUYER-TRIAGE",
+      "title": "CUAD buyer-side triage rubric",
+      "issuing_body": "Project team",
+      "source_class": "project_policy",
+      "url": null,
+      "jurisdiction": "United States commercial-procurement baseline",
+      "party_perspective": "buyer_customer_licensee",
+      "scope": "Defines the project's severity thresholds, missing-clause treatment, and deterministic contract rollup for the ten selected categories.",
+      "limitations": "A reproducible project convention, not law, market-standard evidence, or legal advice."
+    },
+    {
+      "source_id": "SRC-CUAD-DESC",
+      "title": "CUAD category descriptions",
+      "issuing_body": "The Atticus Project",
+      "source_class": "dataset_documentation",
+      "url": "CATEGORY_DEFINITIONS.md",
+      "official_repository": "https://github.com/TheAtticusProject/cuad",
+      "dataset_page": "https://www.atticusprojectai.org/cuad/",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "jurisdiction": "Mixed commercial contracts",
+      "party_perspective": "category_extraction_only",
+      "scope": "Defines what text belongs to each CUAD clause category.",
+      "limitations": "CUAD category membership and expert span annotations are not risk ratings."
+    },
+    {
+      "source_id": "SRC-CUAD-PAPER-2021",
+      "title": "CUAD: An Expert-Annotated NLP Dataset for Legal Contract Review",
+      "issuing_body": "Hendrycks et al.; NeurIPS 2021",
+      "source_class": "peer_reviewed_research",
+      "url": "https://arxiv.org/abs/2103.06268",
+      "jurisdiction": "Mixed commercial contracts",
+      "party_perspective": "category_extraction_only",
+      "scope": "Documents the 510-contract, 41-category CUAD corpus and the boundary between extraction and contextual legal counseling.",
+      "limitations": "Does not provide buyer-side Low/Medium/High risk ground truth."
+    },
+    {
+      "source_id": "SRC-WORLDCC-CP",
+      "title": "Contracting Principles",
+      "issuing_body": "World Commerce & Contracting Foundation",
+      "source_class": "professional_contracting_guidance",
+      "url": "https://www.worldcc.foundation/how-we-help/resources-tools/contracting-principles.html",
+      "jurisdiction": "General commercial contracting",
+      "party_perspective": "buyer_and_supplier",
+      "scope": "Provides balanced contracting considerations for assignment, audit, IP, liability, insurance, termination, warranties, and related terms.",
+      "limitations": "Principles require transaction-specific selection and applicable-law review; they are not universal legal rules."
+    },
+    {
+      "source_id": "SRC-UK-RISK-ALLOC",
+      "title": "Risk Allocation and Pricing Approaches guidance note",
+      "issuing_body": "UK Cabinet Office and Government Legal Department",
+      "source_class": "government_procurement_guidance",
+      "url": "https://www.gov.uk/government/publications/the-sourcing-and-consultancy-playbooks/risk-allocation-and-pricing-approaches-guidance-note-html",
+      "jurisdiction": "United Kingdom public procurement",
+      "party_perspective": "public_buyer",
+      "scope": "Supports transparent, proportional, context-sensitive allocation of contractual risk.",
+      "limitations": "Useful methodology and drafting benchmark only; it is not controlling authority for U.S. commercial contracts."
+    },
+    {
+      "source_id": "SRC-UIC-RISK-2019",
+      "title": "Contract Risk Assessment",
+      "issuing_body": "University of Illinois Chicago",
+      "source_class": "institutional_procurement_matrix",
+      "url": "https://files.webservices.illinois.edu/8605/contractriskassessment5-15-19.pdf",
+      "jurisdiction": "Illinois public-university procurement",
+      "party_perspective": "institutional_buyer",
+      "scope": "Demonstrates discrete Low/Medium/High procurement triage factors and escalation based on individual High factors.",
+      "limitations": "Institution-specific precedent for scale design, not substantive ground truth for CUAD contracts."
+    },
+    {
+      "source_id": "SRC-FTC-EXCLUSIVE",
+      "title": "Exclusive Dealing or Requirements Contracts",
+      "issuing_body": "U.S. Federal Trade Commission",
+      "source_class": "regulator_guidance",
+      "url": "https://www.ftc.gov/advice-guidance/competition-guidance/guide-antitrust-laws/dealings-supply-chain/exclusive-dealing-or-requirements-contracts",
+      "jurisdiction": "United States",
+      "party_perspective": "competition_policy",
+      "scope": "Explains that exclusivity is common and generally lawful but can require contextual competition review.",
+      "limitations": "Does not make every exclusive clause high risk or determine enforceability in an individual transaction."
+    },
+    {
+      "source_id": "SRC-NIST-AIRMF",
+      "title": "Artificial Intelligence Risk Management Framework 1.0",
+      "issuing_body": "National Institute of Standards and Technology",
+      "source_class": "government_ai_risk_framework",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf",
+      "jurisdiction": "United States",
+      "party_perspective": "ai_system_governance",
+      "scope": "Supports documenting provenance, assumptions, limitations, uncertainty, and evaluation boundaries.",
+      "limitations": "Governs dataset and model documentation; it does not define substantive contract risk."
+    }
+  ]
+}

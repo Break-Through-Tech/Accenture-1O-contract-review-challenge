@@ -19,12 +19,12 @@ In this project, you will use real-world commercial contracts from the CUAD data
 Success has two tracks:
 
 - For clause detection across the 10 core categories: per-category precision/recall/F1 clearly beating the baseline (accuracy is misleading under CUAD's imbalance), with error analysis on where the model struggles.
-- For risk scoring: since there are no ground-truth labels, success means strong Spearman correlation and bucket agreement between the model's risk rankings and the advisor's hand-ranked clauses, plus a sensitivity analysis showing the High/Medium boundary is stable.
+- For risk scoring: since there are no expert ground-truth labels, success means agreement with the documented buyer-side rubric and, if the team creates one, a locked independently double-reviewed nonexpert reference set using the blank template in `data/risk`. Report coverage, abstentions, class-specific results, and a sensitivity analysis showing whether the High/Medium boundary is stable.
 
 Overall, a successful December outcome is a working end-to-end pipeline producing risk-scored clause registers the advisor finds plausible and useful, a clean documented repo, and a final report covering results, limitations, and estimated reviewer time saved — an auditable triage tool the advisor would actually trust, not a black box.
 
 ### Stretch Goals
-Stretch goals include span extraction, a trained risk model benchmarked against the rule-based baseline, LLM-generated clause explanations, broader category coverage, a Streamlit/Gradio demo, and an active-learning loop using advisor/model disagreements. These extend modeling or usability without affecting core deliverables.
+Stretch goals include span extraction, a trained risk model benchmarked against the rule-based baseline, LLM-generated clause explanations, broader category coverage, a Streamlit/Gradio demo, and an active-learning loop using reviewer/model disagreements. These extend modeling or usability without affecting core deliverables.
 
 ### Project Milestones
 Use these milestones to guide your work. Your team will create a GitHub Projects board to track tasks within each milestone.
@@ -33,7 +33,7 @@ Use these milestones to guide your work. Your team will create a GitHub Projects
 |-------|-----------|----------------|
 | **September** | Data Understanding & Baseline Modeling | Load the provided JSON train/test splits, run EDA on class imbalance, select the 10 core categories with the Challenge Advisor, build a chunking strategy, and establish a TF-IDF/keyword baseline with per-category metrics. |
 | **October** | Transformer Modeling & Evaluation | Fine-tune a lightweight pre-trained transformer encoder for multi-label clause classification, address class imbalance, evaluate with per-category precision/recall/F1, and conduct error analysis. |
-| **November** | Risk Scoring & Pipeline Integration | Build and calibrate the rule-based risk-scoring layer, assemble the end-to-end pipeline, and validate risk rankings against advisor-labeled examples. |
+| **November** | Risk Scoring & Pipeline Integration | Build and calibrate the rule-based risk-scoring layer, assemble the end-to-end pipeline, and evaluate it against the included weak-label rubric and any locked team-created nonexpert reference examples. |
 
 > **Note for the team:** Please create a GitHub Projects board in this repository to break these milestones into weekly tasks. Go to the **Projects** tab → **New project** → Choose **Board** → Add columns for each month.
 

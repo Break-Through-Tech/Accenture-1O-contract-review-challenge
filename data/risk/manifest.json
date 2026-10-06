@@ -1,0 +1,168 @@
+{
+  "category_ids": [
+    "anti_assignment",
+    "audit_rights",
+    "cap_on_liability",
+    "exclusivity",
+    "governing_law",
+    "license_grant",
+    "renewal_term",
+    "revenue_profit_sharing",
+    "termination_for_convenience",
+    "uncapped_liability"
+  ],
+  "category_order": [
+    "governing_law",
+    "renewal_term",
+    "revenue_profit_sharing",
+    "cap_on_liability",
+    "uncapped_liability",
+    "termination_for_convenience",
+    "anti_assignment",
+    "audit_rights",
+    "license_grant",
+    "exclusivity"
+  ],
+  "counts": {
+    "category_assessments": 5100,
+    "category_training_examples": 1801,
+    "clause_findings": 3517,
+    "contract_assessments": 510,
+    "contract_texts": 510,
+    "contracts": 510,
+    "reference_template_rows": 204,
+    "risk_training_examples": 1962,
+    "source_answer_spans": 4661
+  },
+  "dataset_name": "CUAD Buyer-Side Research-Derived Risk Labels",
+  "distributions": {
+    "category_assessments_by_presence": {
+      "absent": 2729,
+      "present": 2371
+    },
+    "category_assessments_by_risk_band": {
+      "high": 105,
+      "low": 658,
+      "medium": 1085,
+      "none": 351,
+      "not_applicable": 1930,
+      "unresolved": 971
+    },
+    "category_training_examples_by_severity": {
+      "0": 291,
+      "1": 541,
+      "2": 886,
+      "3": 83
+    },
+    "category_training_examples_by_split": {
+      "train": 1419,
+      "validation": 382
+    },
+    "category_training_examples_by_target_risk_band": {
+      "high": 83,
+      "low": 832,
+      "medium": 886
+    },
+    "clause_findings_by_category": {
+      "anti_assignment": 504,
+      "audit_rights": 400,
+      "cap_on_liability": 468,
+      "exclusivity": 319,
+      "governing_law": 456,
+      "license_grant": 565,
+      "renewal_term": 183,
+      "revenue_profit_sharing": 288,
+      "termination_for_convenience": 212,
+      "uncapped_liability": 122
+    },
+    "contract_assessments_by_review_priority_band": {
+      "high": 105,
+      "medium": 405
+    },
+    "contract_assessments_by_risk_band": {
+      "high": 105,
+      "low": 41,
+      "medium": 364
+    },
+    "contracts_by_split": {
+      "official_test": 102,
+      "train": 325,
+      "validation": 83
+    },
+    "contracts_by_type": {
+      "collaboration": 53,
+      "confidentiality": 1,
+      "distribution": 48,
+      "franchise": 15,
+      "license": 41,
+      "marketing": 64,
+      "services": 60,
+      "software_license": 4,
+      "supply": 23,
+      "unknown": 201
+    },
+    "development_clause_findings_by_label_status": {
+      "weak_abstain": 931,
+      "weak_automatic": 1962
+    },
+    "risk_training_examples_by_label_confidence": {
+      "high": 328,
+      "low": 1014,
+      "medium": 620
+    },
+    "risk_training_examples_by_severity": {
+      "0": 308,
+      "1": 792,
+      "2": 861,
+      "3": 1
+    },
+    "risk_training_examples_by_split": {
+      "train": 1564,
+      "validation": 398
+    },
+    "risk_training_examples_by_target_risk_band": {
+      "high": 1,
+      "low": 1100,
+      "medium": 861
+    }
+  },
+  "generator": {
+    "id": "cuad_risk_builder",
+    "implementation_sha256": "30841b33715426452ca9af58392b8d7b6e57f694f31eb60e0c4da9ad5568ea1c"
+  },
+  "input_sha256": {
+    "rule_cards": "8e1b454914f5fd13d56a7218d570d55be960e825050eb997ac0fb0180d5e2f66",
+    "source_registry": "ac5320716e689e8fb41e0f62246ca69b96f993bba9d4fdf177b22f325da18f19",
+    "split_map": "6386a9086cc5d58afccaffe167e55cbb62617bfc9d98fa567c7ef7ac1a7a3b9f",
+    "test_json": "007b6a40b0c65247f881627375c3d2e9b6aeeb5dfa89957494feed0765a1a073",
+    "train_json": "7de21d2bb741ac939e2a839ef9640634a5e0f9f40ea2b82c6833baf7db33dab4"
+  },
+  "package_sha256": {
+    "CATEGORY_DEFINITIONS.md": "e649cfbbee888c16f1e05fec6b2c1036b03105dc00232f6b0ff8c7c35e58a7c4",
+    "METHODOLOGY.md": "8bbdcce220715a6b89f332e820ff6a3765596423c53daeeafde93e344a9d418e",
+    "README.md": "57e879b3f1b523fd3d4524ff6fcaf606f9a39147c4acadb7f51bd9b0b82eb8d9",
+    "SCHEMA.md": "e844988f24d714e30947babcefa07f34ebfbd69ad37fce5c8e6a21486be8a18c",
+    "category_assessments.csv": "0fff60c9fc8473b6d07c9f0d8be290b7241e434b84178dcd9c665c914e703374",
+    "category_training_examples.csv": "1f9f0d6af1c4637221f50a6dd3f12172321338412b78bfcfe22642bc677ac1b5",
+    "clause_findings.jsonl": "c62aa6a446a494b83a0856ba764ca59ce04271e0f42bc8aa6e49197340ce5cea",
+    "contract_assessments.csv": "155c02d183e63c303fd8ecd0ed004b92f88ee50d805d9f295c077f175fc2a13d",
+    "contracts.jsonl": "c79cf5667fd54efbe9faf96ff016b4297698baa011cf13105fa1b63f6739fbe7",
+    "review/README.md": "c228a066ca399815860fac4623dcaff9c06be8a40fd4ff0e0032cd0edeb24875",
+    "review/official_test_reference_template.csv": "ebfa05d67a44bc070e8dedf3b9ec4e6b31f49b4a622588fe3ee8b5ec4a8a1cd5",
+    "risk_training_examples.jsonl": "21d229c29d71b85938d511b86b8eaeda6f0645420f90495355e5d702afbed672",
+    "rule_cards.json": "8e1b454914f5fd13d56a7218d570d55be960e825050eb997ac0fb0180d5e2f66",
+    "source_registry.json": "ac5320716e689e8fb41e0f62246ca69b96f993bba9d4fdf177b22f325da18f19"
+  },
+  "parameters": {
+    "frozen_split_grouping": "context_ + md5(unchanged_context_utf8)[:10]",
+    "official_test_reviewer_slots": 2,
+    "same_finding_max_gap_chars": 250
+  },
+  "quality": {
+    "development_clause_findings": 2893,
+    "numeric_development_clause_coverage": 0.678189,
+    "numeric_development_clause_findings": 1962,
+    "validation_category_examples_with_exact_train_text": 7,
+    "validation_examples_with_exact_train_text": 11
+  }
+}

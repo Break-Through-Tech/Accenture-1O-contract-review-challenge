@@ -1,0 +1,1272 @@
+{
+  "dataset_name": "CUAD Buyer-Side Research-Derived Risk Labels",
+  "perspective": "buyer_customer_licensee",
+  "jurisdictional_baseline": "United States commercial procurement",
+  "label_quality": "research_derived_weak_silver",
+  "policy_id": "POLICY-BUYER-TRIAGE",
+  "release_invariants": {
+    "contracts": 510,
+    "category_assessments": 5100,
+    "contracts_by_split": {
+      "train": 325,
+      "validation": 83,
+      "official_test": 102
+    }
+  },
+  "severity_scale": {
+    "0": "none",
+    "1": "low",
+    "2": "medium",
+    "3": "high",
+    "unresolved": "abstain",
+    "not_applicable": "outside category applicability"
+  },
+  "three_class_target_mapping": {
+    "0": "low",
+    "1": "low",
+    "2": "medium",
+    "3": "high"
+  },
+  "methodology_source_ids": [
+    "SRC-CUAD-PAPER-2021",
+    "SRC-NIST-AIRMF",
+    "POLICY-BUYER-TRIAGE"
+  ],
+  "categories": [
+    {
+      "category_id": "governing_law",
+      "category_name": "Governing Law",
+      "rule_card_id": "RC-GOVLAW",
+      "review_bundle_id": "governing_law_anti_assignment",
+      "risk_domain": "dispute_resolution",
+      "issue_family_template": "governing_law",
+      "source_ids": ["SRC-CUAD-DESC", "SRC-WORLDCC-CP", "SRC-UK-RISK-ALLOC", "SRC-UIC-RISK-2019", "POLICY-BUYER-TRIAGE"],
+      "material_if_unresolved": true,
+      "missing_clause_policy": {
+        "mode": "risk",
+        "applicable_contract_types": ["all"],
+        "rationale": "A missing governing-law provision leaves dispute-planning uncertainty under the documented procurement rubric."
+      },
+      "abstain_rationale": "The clause does not identify a stable governing jurisdiction or contains terms outside the documented jurisdiction list.",
+      "present_rules": [
+        {
+          "rule_id": "governing_law_unilateral_change",
+          "priority": 100,
+          "when_all": [
+            "\\b(?:supplier|vendor|licensor|provider)\\b.{0,80}\\bmay (?:change|select|designate)\\b",
+            "\\b(?:governing law|laws? governing)\\b"
+          ],
+          "severity_ordinal": 3,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "The project playbook escalates a unilateral counterparty right to change the governing law."
+        },
+        {
+          "rule_id": "governing_law_foreign",
+          "priority": 80,
+          "when_any": [
+            "\\blaws? of (?:England(?: and Wales)?|Scotland|Ireland|Canada|Ontario|Quebec|British Columbia|France|Germany|Switzerland|Singapore|Hong Kong|Japan|China|India|Israel|Australia)\\b",
+            "\\bgoverned by the laws? of (?:the )?(?:United Kingdom|European Union)\\b"
+          ],
+          "severity_ordinal": 2,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "A non-U.S. governing law is a medium review escalation under this U.S. procurement baseline, not an enforceability judgment."
+        },
+        {
+          "rule_id": "governing_law_us_state",
+          "priority": 60,
+          "when_any": [
+            "\\blaws? of (?:the )?(?:(?:State|Commonwealth) of )?(?:Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|New Hampshire|New Jersey|New Mexico|New York|North Carolina|North Dakota|Ohio|Oklahoma|Oregon|Pennsylvania|Rhode Island|South Carolina|South Dakota|Tennessee|Texas|Utah|Vermont|Virginia|Washington|West Virginia|Wisconsin|Wyoming)\\b",
+            "\\blaws? of (?:the )?District of Columbia\\b"
+          ],
+          "severity_ordinal": 0,
+          "direction": "balanced",
+          "confidence": "high",
+          "rationale": "The clause identifies U.S. state or D.C. law and does not trigger the documented jurisdiction escalation."
+        },
+        {
+          "rule_id": "governing_law_federal_only",
+          "priority": 40,
+          "when_any": ["\\bfederal laws? of the United States\\b", "\\bUnited States federal law\\b"],
+          "when_none": ["\\bState of\\b", "\\bCommonwealth of\\b"],
+          "severity_ordinal": 1,
+          "direction": "unclear",
+          "confidence": "medium",
+          "rationale": "Federal-law-only wording receives a low escalation because the applicable state law remains unclear."
+        },
+        {
+          "rule_id": "governing_law_other_resolved_jurisdiction",
+          "priority": 30,
+          "when_any": [
+            "\\b(?:governed|construed|interpreted).{0,120}\\blaws? of\\b",
+            "\\blaws? of\\b.{0,100}\\b(?:govern|constru|interpret)"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 2,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "A governing jurisdiction is present but falls outside the documented U.S.-state resolver, so it receives medium manual review rather than an inferred legal conclusion."
+        }
+      ],
+      "missing_rules": [
+        {
+          "rule_id": "governing_law_missing",
+          "priority": 50,
+          "severity_ordinal": 2,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "the documented procurement rubric treats an omitted governing-law provision as a medium review escalation."
+        }
+      ]
+    },
+    {
+      "category_id": "renewal_term",
+      "category_name": "Renewal Term",
+      "rule_card_id": "RC-RENEWAL",
+      "review_bundle_id": "renewal_termination",
+      "risk_domain": "term_and_exit",
+      "issue_family_template": "term_exit",
+      "source_ids": ["SRC-CUAD-DESC", "SRC-WORLDCC-CP", "SRC-UIC-RISK-2019", "POLICY-BUYER-TRIAGE"],
+      "material_if_unresolved": true,
+      "missing_clause_policy": {
+        "mode": "not_applicable",
+        "applicable_contract_types": [],
+        "rationale": "Renewal absence is optional and unscored; it must not be encoded as numeric zero."
+      },
+      "abstain_rationale": "The renewal text does not state enough about duration, control, or exit timing for the documented rules.",
+      "present_rules": [
+        {
+          "rule_id": "renewal_supplier_only_or_indefinite",
+          "priority": 100,
+          "when_any": [
+            "\\b(?:supplier|vendor|licensor|provider)(?:'s)? sole (?:option|discretion).{0,80}renew",
+            "\\bautomatically renew.{0,100}\\b(?:perpetual|indefinite)\\b",
+            "\\brenewal term of (?:three|four|five|six|seven|eight|nine|ten|[3-9][0-9]?) years\\b"
+          ],
+          "severity_ordinal": 3,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "Supplier-only, indefinite, or multi-year automatic renewal is a hard-stop escalation under the buyer-side rubric."
+        },
+        {
+          "rule_id": "renewal_automatic_unclear_exit",
+          "priority": 70,
+          "when_any": ["\\bautomatically renew", "\\bautomatic renewal", "\\bsuccessive renewal terms?\\b"],
+          "when_none": ["\\bnon-?renew", "\\bcancel", "\\bterminate", "\\bnotice.{0,30}(?:30|60|90) days\\b"],
+          "severity_ordinal": 2,
+          "direction": "adverse",
+          "confidence": "medium",
+          "rationale": "Automatic renewal with no visible exit mechanism receives a medium escalation."
+        },
+        {
+          "rule_id": "renewal_bounded_with_exit",
+          "priority": 60,
+          "when_all": [
+            "\\b(?:one|1|twelve|12)[ -](?:year|month)",
+            "\\b(?:non-?renew|cancel|terminate|written notice)\\b"
+          ],
+          "severity_ordinal": 1,
+          "direction": "balanced",
+          "confidence": "medium",
+          "rationale": "A renewal period of at most one year with an express exit receives a low playbook escalation."
+        },
+        {
+          "rule_id": "renewal_mutual_written_agreement",
+          "priority": 50,
+          "when_any": [
+            "\\brenew(?:ed|al)? only (?:by|upon) mutual written (?:agreement|consent)\\b",
+            "\\bparties may mutually agree in writing to renew\\b"
+          ],
+          "severity_ordinal": 0,
+          "direction": "balanced",
+          "confidence": "high",
+          "rationale": "Renewal controlled by mutual written agreement does not trigger a buyer-side escalation."
+        },
+        {
+          "rule_id": "renewal_bounded_structural",
+          "priority": 35,
+          "when_all": [
+            "\\b(?:renew(?:s|ed|al)?|month[- ]to[- ]month|continue automatically)\\b",
+            "\\b(?:annual|one \\(1\\) year|one-year|month[- ]to[- ]month|notice|terminate|approved)\\b"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 1,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "The text shows a bounded renewal structure, but party control is unresolved; it receives a low review label with low confidence."
+        },
+        {
+          "rule_id": "renewal_present_material_review",
+          "priority": 20,
+          "when_any": [
+            "\\b(?:renew|renewal|successive term|continue automatically|month[- ]to[- ]month)\\b"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]", "\\b(?:is |as )?set forth in (?:an? )?(?:exhibit|schedule)\\b"],
+          "severity_ordinal": 2,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "A renewal mechanism is present but duration, control, or exit cannot be fully resolved from the annotated provision; medium denotes required human review."
+        }
+      ],
+      "missing_rules": [
+        {
+          "rule_id": "renewal_missing_not_applicable",
+          "priority": 10,
+          "severity_ordinal": null,
+          "risk_band": "not_applicable",
+          "applicability": "not_applicable",
+          "direction": "unclear",
+          "confidence": "high",
+          "label_status": "weak_not_applicable",
+          "rationale": "No renewal provision was identified; optional absence is excluded from the numeric severity target."
+        }
+      ]
+    },
+    {
+      "category_id": "revenue_profit_sharing",
+      "category_name": "Revenue/Profit Sharing",
+      "rule_card_id": "RC-REVSHARE",
+      "review_bundle_id": "revenue_audit",
+      "risk_domain": "commercial_economics",
+      "issue_family_template": "revenue_verification",
+      "source_ids": ["SRC-CUAD-DESC", "SRC-WORLDCC-CP", "SRC-UK-RISK-ALLOC", "POLICY-BUYER-TRIAGE"],
+      "material_if_unresolved": true,
+      "missing_clause_policy": {
+        "mode": "not_applicable",
+        "applicable_contract_types": [],
+        "rationale": "Revenue-sharing absence is not a deviation unless another economic obligation makes it expected."
+      },
+      "abstain_rationale": "The text does not resolve payer, recipient, calculation base, or verification rights.",
+      "present_rules": [
+        {
+          "rule_id": "revenue_supplier_unilateral_calculation",
+          "priority": 100,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client)\\b.{0,100}\\b(?:pay|share|remit)\\b",
+            "\\b(?:supplier|vendor|licensor|provider).{0,80}(?:sole discretion|may determine|may calculate|may change)\\b"
+          ],
+          "severity_ordinal": 3,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "A buyer payment calculated unilaterally by the counterparty is a hard-stop economic-control issue."
+        },
+        {
+          "rule_id": "revenue_buyer_pays_unverified_share",
+          "priority": 70,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client) (?:shall|will|must) (?:pay|share|remit)\\b",
+            "\\b(?:%|percent|percentage|revenue share|profit share)\\b"
+          ],
+          "when_none": ["\\baudit\\b", "\\brecords?\\b", "\\bverify\\b"],
+          "severity_ordinal": 2,
+          "direction": "adverse",
+          "confidence": "medium",
+          "rationale": "A buyer-side revenue share with no visible verification mechanism receives a medium escalation."
+        },
+        {
+          "rule_id": "revenue_buyer_bounded_verified_share",
+          "priority": 60,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client) (?:shall|will|must) (?:pay|share|remit)\\b",
+            "\\b(?:net revenue|net profit)\\b",
+            "\\b(?:audit|records?|verify)\\b"
+          ],
+          "severity_ordinal": 1,
+          "direction": "balanced",
+          "confidence": "medium",
+          "rationale": "A defined net-revenue base paired with verification language is a low residual review item."
+        },
+        {
+          "rule_id": "revenue_supplier_pays_buyer",
+          "priority": 50,
+          "when_all": [
+            "\\b(?:supplier|vendor|licensor|provider) (?:shall|will|must) (?:pay|share|remit)\\b",
+            "\\b(?:customer|buyer|licensee|client)\\b"
+          ],
+          "severity_ordinal": 0,
+          "direction": "protective",
+          "confidence": "medium",
+          "rationale": "The identified payment runs to the reviewed buyer, so this rule alone assigns no buyer-side risk."
+        },
+        {
+          "rule_id": "revenue_defined_formula_role_unresolved",
+          "priority": 35,
+          "when_all": [
+            "\\b(?:\\d+(?:\\.\\d+)?\\s*%|percent(?:age)?|net sales|gross sales|net revenue|net profit|net assets)\\b",
+            "\\b(?:pay|payment|royalt|revenue|profit|sales|receipts|commission|fee)\\b"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 1,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "A variable-payment formula is visible but the reviewed-party direction is unresolved; the rule assigns low review priority with low confidence."
+        },
+        {
+          "rule_id": "revenue_present_material_review",
+          "priority": 20,
+          "when_any": [
+            "\\b(?:royalt(?:y|ies)|revenue[- ]?shar(?:e|ing)|profit[- ]?shar(?:e|ing)|net sales|gross sales|sales price|net assets|commission)\\b"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]", "\\bas set forth in (?:an? )?(?:exhibit|schedule)\\b"],
+          "severity_ordinal": 2,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "Variable economics are present but payer, base, duration, or verification remains unresolved; medium means human review is required."
+        }
+      ],
+      "missing_rules": [
+        {
+          "rule_id": "revenue_missing_not_applicable",
+          "priority": 10,
+          "severity_ordinal": null,
+          "risk_band": "not_applicable",
+          "applicability": "not_applicable",
+          "direction": "unclear",
+          "confidence": "high",
+          "label_status": "weak_not_applicable",
+          "rationale": "No revenue-sharing obligation was identified, so this category is not applicable absent an external economic trigger."
+        }
+      ]
+    },
+    {
+      "category_id": "cap_on_liability",
+      "category_name": "Cap On Liability",
+      "rule_card_id": "RC-LIABILITY-CAP",
+      "review_bundle_id": "cap_uncapped_liability",
+      "risk_domain": "liability_allocation",
+      "issue_family_template": "liability_allocation",
+      "source_ids": ["SRC-CUAD-DESC", "SRC-WORLDCC-CP", "SRC-UK-RISK-ALLOC", "SRC-UIC-RISK-2019", "POLICY-BUYER-TRIAGE"],
+      "material_if_unresolved": true,
+      "missing_clause_policy": {
+        "mode": "conditional_risk",
+        "applicable_contract_types": ["services", "software_license", "license", "supply", "distribution", "franchise", "lease", "collaboration"],
+        "rationale": "the buyer-side rubric expects a liability cap in ongoing commercial contracts but does not infer applicability for unknown types."
+      },
+      "abstain_rationale": "The cap language does not identify enough scope, amount basis, or party allocation to apply the buyer playbook.",
+      "present_rules": [
+        {
+          "rule_id": "cap_buyer_uncapped",
+          "priority": 100,
+          "when_any": [
+            "\\b(?:customer|buyer|licensee|client)(?:'s)? liability (?:is|shall be) unlimited\\b",
+            "\\bliability of (?:the )?(?:customer|buyer|licensee|client).{0,40}(?:unlimited|not (?:be )?limited)\\b"
+          ],
+          "severity_ordinal": 3,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "Project policy treats an unlimited buyer exposure paired with a counterparty cap as a hard-stop escalation."
+        },
+        {
+          "rule_id": "cap_supplier_quarter_fees",
+          "priority": 90,
+          "when_all": [
+            "\\b(?:supplier|vendor|licensor|provider).{0,80}liability\\b",
+            "\\b(?:25|twenty[- ]five) ?%\\b"
+          ],
+          "severity_ordinal": 3,
+          "direction": "adverse",
+          "confidence": "medium",
+          "rationale": "A supplier cap at one quarter of the stated fee base is below the documented buyer-policy floor."
+        },
+        {
+          "rule_id": "cap_lesser_or_exclusive_remedy",
+          "priority": 70,
+          "when_any": ["\\blesser of\\b.{0,100}\\b(?:fees|amount)\\b", "\\bsole and exclusive remedy\\b"],
+          "severity_ordinal": 2,
+          "direction": "adverse",
+          "confidence": "medium",
+          "rationale": "A lesser-of cap or exclusive-remedy formulation receives a medium buyer-side escalation."
+        },
+        {
+          "rule_id": "cap_mutual",
+          "priority": 50,
+          "when_all": [
+            "\\b(?:either|each) part(?:y|ies)\\b",
+            "\\b(?:shall not exceed|limited to|aggregate liability.{0,40}(?:fees|amount))\\b"
+          ],
+          "severity_ordinal": 1,
+          "direction": "balanced",
+          "confidence": "medium",
+          "rationale": "A clearly mutual monetary cap is a minor buyer-playbook deviation pending review of amount and carve-outs."
+        },
+        {
+          "rule_id": "cap_mutual_damages_exclusion",
+          "priority": 40,
+          "when_all": [
+            "\\b(?:neither|either|each) part(?:y|ies)\\b",
+            "\\b(?:consequential|indirect|incidental|special|punitive) damages\\b"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 1,
+          "direction": "balanced",
+          "confidence": "medium",
+          "rationale": "A facially mutual exclusion of specified damages receives low review priority pending its interaction with carve-outs."
+        },
+        {
+          "rule_id": "cap_generic_monetary_limit",
+          "priority": 30,
+          "when_any": [
+            "\\b(?:total|aggregate)?\\s*liability\\b.{0,180}\\b(?:shall not exceed|limited to|fees|amounts? paid|dollars?|euros?|pounds?)\\b",
+            "\\b(?:shall not exceed|limited to)\\b.{0,180}\\bliability\\b"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 2,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "A monetary limitation is visible but party allocation or adequacy is unresolved; medium denotes required human review."
+        },
+        {
+          "rule_id": "cap_general_damages_limitation",
+          "priority": 20,
+          "when_all": [
+            "\\b(?:in no event|shall not be liable|limitation of liability|not liable for)\\b",
+            "\\b(?:damages|loss|liability)\\b"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 2,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "A damages limitation is present but direction, cap basis, or carve-outs are unresolved; medium is a review-priority label, not a legal judgment."
+        }
+      ],
+      "missing_rules": [
+        {
+          "rule_id": "cap_missing_expected",
+          "priority": 80,
+          "contract_types": ["services", "software_license", "license", "supply", "distribution", "franchise", "lease", "collaboration"],
+          "severity_ordinal": 3,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "the buyer-side rubric escalates a missing liability cap in an ongoing commercial contract."
+        },
+        {
+          "rule_id": "cap_missing_not_applicable",
+          "priority": 20,
+          "contract_types": ["employment", "merger_acquisition"],
+          "severity_ordinal": null,
+          "risk_band": "not_applicable",
+          "applicability": "not_applicable",
+          "direction": "unclear",
+          "confidence": "medium",
+          "label_status": "weak_not_applicable",
+          "rationale": "the cap-absence rule is not applied to this contract type."
+        }
+      ]
+    },
+    {
+      "category_id": "uncapped_liability",
+      "category_name": "Uncapped Liability",
+      "rule_card_id": "RC-UNCAPPED-LIABILITY",
+      "review_bundle_id": "cap_uncapped_liability",
+      "risk_domain": "liability_allocation",
+      "issue_family_template": "liability_allocation",
+      "source_ids": ["SRC-CUAD-DESC", "SRC-WORLDCC-CP", "SRC-UK-RISK-ALLOC", "SRC-UIC-RISK-2019", "POLICY-BUYER-TRIAGE"],
+      "material_if_unresolved": true,
+      "missing_clause_policy": {
+        "mode": "not_applicable",
+        "applicable_contract_types": [],
+        "rationale": "Uncapped-liability absence is optional and unscored; it must not be encoded as numeric zero."
+      },
+      "abstain_rationale": "The text does not resolve whose liability is uncapped or the scope of the carve-out.",
+      "present_rules": [
+        {
+          "rule_id": "uncapped_buyer_general",
+          "priority": 100,
+          "when_any": [
+            "\\b(?:customer|buyer|licensee|client)(?:'s)? (?:aggregate |total )?liability (?:is|shall be|will be) (?:unlimited|not (?:be )?limited)\\b",
+            "\\bliability of (?:the )?(?:customer|buyer|licensee|client).{0,40}\\b(?:unlimited|not (?:be )?limited)\\b"
+          ],
+          "when_none": ["\\b(?:payment obligations?|taxes?)\\b"],
+          "severity_ordinal": 3,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "General uncapped buyer liability is a hard-stop under the buyer-side rubric."
+        },
+        {
+          "rule_id": "uncapped_buyer_material_carveout",
+          "priority": 80,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client)\\b",
+            "\\b(?:excluded from|exception to|shall not apply)\\b.{0,80}\\b(?:indemn|confidential|data|security|intellectual property)\\b"
+          ],
+          "severity_ordinal": 3,
+          "direction": "adverse",
+          "confidence": "medium",
+          "rationale": "A material buyer-side carve-out from the cap is High review priority under the buyer-side rubric."
+        },
+        {
+          "rule_id": "uncapped_buyer_payment_tax",
+          "priority": 70,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client)\\b",
+            "\\b(?:payment obligations?|taxes?)\\b",
+            "\\b(?:excluded from|exception to|shall not apply|not limited)\\b"
+          ],
+          "severity_ordinal": 1,
+          "direction": "balanced",
+          "confidence": "medium",
+          "rationale": "An uncapped carve-out limited to buyer payment or tax obligations is a low residual review item."
+        },
+        {
+          "rule_id": "uncapped_supplier_only",
+          "priority": 60,
+          "when_all": [
+            "\\b(?:supplier|vendor|licensor|provider)\\b",
+            "\\b(?:unlimited|not (?:be )?limited|without limitation)\\b"
+          ],
+          "when_none": ["\\b(?:customer|buyer|licensee|client)\\b.{0,80}\\b(?:unlimited|not (?:be )?limited)\\b"],
+          "severity_ordinal": 0,
+          "direction": "protective",
+          "confidence": "medium",
+          "rationale": "Only the supplier's exposure is identified as uncapped, so this rule does not escalate buyer risk."
+        },
+        {
+          "rule_id": "uncapped_mutual_standard_carveout",
+          "priority": 50,
+          "when_all": [
+            "\\b(?:either|each) part(?:y|ies)\\b",
+            "\\b(?:fraud|death|personal injury|willful misconduct|gross negligence)\\b"
+          ],
+          "when_none": ["\\b(?:confidential|data|security|intellectual property|indemn)\\b", "\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 0,
+          "direction": "balanced",
+          "confidence": "medium",
+          "rationale": "The visible mutual carve-out is limited to standard serious-misconduct or personal-injury claims, so this rule alone does not escalate."
+        },
+        {
+          "rule_id": "uncapped_material_carveout_role_unresolved",
+          "priority": 35,
+          "when_all": [
+            "\\b(?:except|excluded from|shall not apply|does not apply|not limit|nothing.{0,60}(?:exclude|limit))\\b",
+            "\\b(?:indemn|confidential|data|security|intellectual property|infringement)\\b"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 2,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "A material cap carve-out is visible but party allocation is unresolved; Medium requires human review without inventing a buyer-side High exposure."
+        },
+        {
+          "rule_id": "uncapped_generic_exception_review",
+          "priority": 20,
+          "when_all": [
+            "\\b(?:liability|limitation|cap|damages)\\b",
+            "\\b(?:except|exception|shall not apply|does not apply|not limit|nothing.{0,60}(?:exclude|limit))\\b"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]", "\\bas set forth in (?:section|clause|exhibit|schedule)\\b"],
+          "severity_ordinal": 2,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "An exception to a liability limitation is present but its scope or party direction is unresolved; medium is a triage label."
+        }
+      ],
+      "missing_rules": [
+        {
+          "rule_id": "uncapped_missing_not_applicable",
+          "priority": 10,
+          "severity_ordinal": null,
+          "risk_band": "not_applicable",
+          "applicability": "not_applicable",
+          "direction": "unclear",
+          "confidence": "high",
+          "label_status": "weak_not_applicable",
+          "rationale": "No uncapped-liability provision was identified; optional absence is excluded from the numeric severity target."
+        }
+      ]
+    },
+    {
+      "category_id": "termination_for_convenience",
+      "category_name": "Termination For Convenience",
+      "rule_card_id": "RC-TFC",
+      "review_bundle_id": "renewal_termination",
+      "risk_domain": "term_and_exit",
+      "issue_family_template": "term_exit",
+      "source_ids": ["SRC-CUAD-DESC", "SRC-WORLDCC-CP", "SRC-UK-RISK-ALLOC", "SRC-UIC-RISK-2019", "POLICY-BUYER-TRIAGE"],
+      "material_if_unresolved": true,
+      "missing_clause_policy": {
+        "mode": "conditional_risk",
+        "applicable_contract_types": ["services", "software_license", "license", "supply", "distribution", "franchise", "lease", "collaboration"],
+        "rationale": "the buyer-side rubric expects a buyer exit right in ongoing commercial contracts."
+      },
+      "abstain_rationale": "The clause does not resolve which party may terminate, notice timing, or exit charges.",
+      "present_rules": [
+        {
+          "rule_id": "tfc_supplier_only",
+          "priority": 100,
+          "when_all": [
+            "\\b(?:supplier|vendor|licensor|provider) may terminate.{0,80}(?:for convenience|without cause|for any reason)\\b",
+            "\\b(?:customer|buyer|licensee|client) may not terminate.{0,80}(?:for convenience|without cause|for any reason)\\b"
+          ],
+          "severity_ordinal": 3,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "A supplier-only convenience exit is a hard-stop buyer asymmetry."
+        },
+        {
+          "rule_id": "tfc_buyer_remaining_fees",
+          "priority": 95,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client).{0,80}terminate.{0,80}(?:for convenience|without cause)\\b",
+            "\\b(?:remaining fees|all fees due|early termination fee|termination charge)\\b"
+          ],
+          "severity_ordinal": 3,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "An exit conditioned on remaining-term fees does not provide an effective buyer convenience termination."
+        },
+        {
+          "rule_id": "tfc_buyer_long_notice",
+          "priority": 75,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client).{0,80}terminate.{0,80}(?:for convenience|without cause)\\b",
+            "\\b(?:120|180|one hundred (?:twenty|eighty)) days?\\b"
+          ],
+          "severity_ordinal": 2,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "A buyer convenience right requiring more than ninety days' notice is a medium deviation."
+        },
+        {
+          "rule_id": "tfc_buyer_short_no_penalty",
+          "priority": 65,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client).{0,80}terminate.{0,80}(?:for convenience|without cause|for any reason)\\b",
+            "\\b(?:immediately|(?:10|15|30|ten|fifteen|thirty) days?)\\b"
+          ],
+          "when_none": ["\\b(?:termination fee|termination charge|remaining fees|penalty)\\b"],
+          "severity_ordinal": 0,
+          "direction": "protective",
+          "confidence": "high",
+          "rationale": "A buyer-controlled exit on no more than thirty days' notice and no visible penalty meets the documented target."
+        },
+        {
+          "rule_id": "tfc_buyer_or_mutual_90_days",
+          "priority": 55,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client|either party).{0,80}terminate.{0,80}(?:for convenience|without cause|for any reason)\\b",
+            "\\b(?:45|60|90|forty-five|sixty|ninety) days?\\b"
+          ],
+          "severity_ordinal": 1,
+          "direction": "balanced",
+          "confidence": "medium",
+          "rationale": "A buyer or mutual exit on forty-five to ninety days' notice is a low deviation."
+        },
+        {
+          "rule_id": "tfc_mutual_notice_role_resolved",
+          "priority": 45,
+          "when_all": [
+            "\\b(?:either|each) party\\b.{0,100}\\bterminate",
+            "\\b(?:written )?notice\\b"
+          ],
+          "when_none": ["\\b(?:termination fee|termination charge|remaining fees|penalty)\\b", "\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 1,
+          "direction": "balanced",
+          "confidence": "medium",
+          "rationale": "A mutual termination right with notice and no visible exit charge receives low review priority."
+        },
+        {
+          "rule_id": "tfc_penalty_free_structural",
+          "priority": 35,
+          "when_all": [
+            "\\bterminate(?:d|s|ion)?\\b",
+            "\\bwithout (?:the payment of )?(?:any )?penalty\\b"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 1,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "The clause provides a penalty-free exit but the reviewed-party holder is unresolved; it receives a low-confidence Low label."
+        },
+        {
+          "rule_id": "tfc_present_role_unresolved",
+          "priority": 20,
+          "when_any": [
+            "\\bterminate(?:d|s|ion)?\\b.{0,160}\\b(?:at any time|without cause|for convenience|sole discretion|written notice)\\b",
+            "\\b(?:at any time|without cause|for convenience|sole discretion)\\b.{0,160}\\bterminate"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]", "\\bas set forth in (?:section|clause|exhibit|schedule)\\b"],
+          "severity_ordinal": 2,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "A convenience-style exit is present but the reviewed-party holder or cost is unresolved; medium means human review is required."
+        }
+      ],
+      "missing_rules": [
+        {
+          "rule_id": "tfc_missing_expected",
+          "priority": 80,
+          "contract_types": ["services", "software_license", "license", "supply", "distribution", "franchise", "lease", "collaboration"],
+          "severity_ordinal": 2,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "An ongoing commercial contract without a buyer convenience exit receives a medium escalation."
+        },
+        {
+          "rule_id": "tfc_missing_not_applicable",
+          "priority": 20,
+          "contract_types": ["employment", "merger_acquisition"],
+          "severity_ordinal": null,
+          "risk_band": "not_applicable",
+          "applicability": "not_applicable",
+          "direction": "unclear",
+          "confidence": "medium",
+          "label_status": "weak_not_applicable",
+          "rationale": "the missing-convenience-termination policy is not applied to this contract type."
+        }
+      ]
+    },
+    {
+      "category_id": "anti_assignment",
+      "category_name": "Anti-Assignment",
+      "rule_card_id": "RC-ASSIGNMENT",
+      "review_bundle_id": "governing_law_anti_assignment",
+      "risk_domain": "corporate_flexibility",
+      "issue_family_template": "assignment_control",
+      "source_ids": ["SRC-CUAD-DESC", "SRC-WORLDCC-CP", "SRC-UK-RISK-ALLOC", "POLICY-BUYER-TRIAGE"],
+      "material_if_unresolved": false,
+      "missing_clause_policy": {
+        "mode": "not_applicable",
+        "applicable_contract_types": [],
+        "rationale": "Anti-assignment absence is optional and unscored; it must not be encoded as numeric zero."
+      },
+      "abstain_rationale": "The text does not resolve consent symmetry or affiliate, successor, and change-of-control exceptions.",
+      "present_rules": [
+        {
+          "rule_id": "assignment_buyer_absolute_supplier_free",
+          "priority": 100,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client) (?:may|shall) not assign\\b",
+            "\\b(?:supplier|vendor|licensor|provider) may assign\\b"
+          ],
+          "when_none": ["\\b(?:affiliate|successor|merger|change of control)\\b"],
+          "severity_ordinal": 3,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "An absolute buyer restriction paired with a supplier assignment right is a hard-stop asymmetry."
+        },
+        {
+          "rule_id": "assignment_buyer_consent_no_carveout",
+          "priority": 75,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client).{0,50}(?:may not|shall not).{0,30}assign\\b",
+            "\\b(?:prior written consent|without.{0,20}consent)\\b"
+          ],
+          "when_none": ["\\b(?:affiliate|successor|merger|reorganization|change of control)\\b"],
+          "severity_ordinal": 2,
+          "direction": "adverse",
+          "confidence": "medium",
+          "rationale": "Buyer consent restrictions without ordinary corporate carve-outs receive a medium escalation."
+        },
+        {
+          "rule_id": "assignment_mutual_with_carveouts",
+          "priority": 60,
+          "when_all": [
+            "\\bneither party.{0,60}assign\\b",
+            "\\b(?:affiliate|successor|merger|reorganization|change of control)\\b"
+          ],
+          "severity_ordinal": 1,
+          "direction": "balanced",
+          "confidence": "medium",
+          "rationale": "A mutual restriction with ordinary corporate carve-outs is a low residual review item."
+        },
+        {
+          "rule_id": "assignment_buyer_flexible_supplier_restricted",
+          "priority": 50,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client) may assign.{0,80}(?:affiliate|successor|merger|reorganization)\\b",
+            "\\b(?:supplier|vendor|licensor|provider).{0,50}(?:may not|shall not) assign\\b"
+          ],
+          "severity_ordinal": 0,
+          "direction": "protective",
+          "confidence": "high",
+          "rationale": "The buyer retains ordinary corporate assignment flexibility while the supplier remains restricted."
+        },
+        {
+          "rule_id": "assignment_mutual_consent",
+          "priority": 40,
+          "when_all": [
+            "\\b(?:neither|either|each) part(?:y|ies)\\b.{0,140}\\bassign",
+            "\\bconsent\\b"
+          ],
+          "when_none": ["\\bbenefit of creditors\\b", "\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 1,
+          "direction": "balanced",
+          "confidence": "medium",
+          "rationale": "A facially mutual consent restriction receives low review priority pending confirmation of corporate carve-outs."
+        },
+        {
+          "rule_id": "assignment_reasonable_consent_role_unresolved",
+          "priority": 35,
+          "when_all": [
+            "\\bassign(?:ment|ed|s)?\\b",
+            "\\bconsent\\b.{0,80}\\bnot unreasonably (?:withheld|conditioned|delayed)\\b"
+          ],
+          "when_none": ["\\bbenefit of creditors\\b", "\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 1,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "The consent standard is bounded but the restricted party is unresolved; this receives a low-confidence Low label."
+        },
+        {
+          "rule_id": "assignment_consent_role_unresolved",
+          "priority": 20,
+          "when_all": ["\\bassign(?:ment|ed|s)?\\b", "\\bconsent\\b"],
+          "when_none": ["\\bbenefit of creditors\\b", "\\[\\s*\\*+\\s*\\]", "\\bas set forth in (?:section|clause|exhibit|schedule)\\b"],
+          "severity_ordinal": 2,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "An assignment-consent restriction is present but party asymmetry and carve-outs are unresolved; medium means human review is required."
+        }
+      ],
+      "missing_rules": [
+        {
+          "rule_id": "assignment_missing_not_applicable",
+          "priority": 10,
+          "severity_ordinal": null,
+          "risk_band": "not_applicable",
+          "applicability": "not_applicable",
+          "direction": "unclear",
+          "confidence": "high",
+          "label_status": "weak_not_applicable",
+          "rationale": "No anti-assignment provision was identified; optional absence is excluded from the numeric severity target."
+        }
+      ]
+    },
+    {
+      "category_id": "audit_rights",
+      "category_name": "Audit Rights",
+      "rule_card_id": "RC-AUDIT",
+      "review_bundle_id": "revenue_audit",
+      "risk_domain": "commercial_economics",
+      "issue_family_template": "audit_access",
+      "source_ids": ["SRC-CUAD-DESC", "SRC-WORLDCC-CP", "SRC-UK-RISK-ALLOC", "SRC-UIC-RISK-2019", "POLICY-BUYER-TRIAGE"],
+      "material_if_unresolved": true,
+      "missing_clause_policy": {
+        "mode": "not_applicable_unless_linked",
+        "applicable_contract_types": [],
+        "rationale": "Audit-right absence becomes material when a linked payment or compliance duty requires verification."
+      },
+      "abstain_rationale": "The clause does not resolve the auditing party, frequency, scope, notice, or cost allocation.",
+      "present_rules": [
+        {
+          "rule_id": "audit_supplier_intrusive",
+          "priority": 100,
+          "when_all": [
+            "\\b(?:supplier|vendor|licensor|provider).{0,80}(?:audit|inspect)\\b",
+            "\\b(?:customer|buyer|licensee|client)(?:'s)?\\b"
+          ],
+          "count_patterns": [
+            "\\bat any time\\b",
+            "\\bwithout notice\\b",
+            "\\baccess.{0,30}(?:systems?|premises|facilities|personnel)\\b",
+            "\\b(?:customer|buyer).{0,40}(?:cost|expense)\\b",
+            "\\bpenalt(?:y|ies)\\b"
+          ],
+          "min_pattern_matches": 2,
+          "severity_ordinal": 3,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "Multiple intrusive dimensions in a supplier audit right create a high operational escalation."
+        },
+        {
+          "rule_id": "audit_supplier_broad",
+          "priority": 75,
+          "when_all": [
+            "\\b(?:supplier|vendor|licensor|provider).{0,80}(?:audit|inspect)\\b",
+            "\\b(?:customer|buyer|licensee|client)(?:'s)?\\b"
+          ],
+          "severity_ordinal": 2,
+          "direction": "adverse",
+          "confidence": "medium",
+          "rationale": "A supplier audit of the buyer without visible safeguards receives a medium escalation."
+        },
+        {
+          "rule_id": "audit_buyer_bounded",
+          "priority": 65,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client).{0,80}(?:audit|inspect)\\b",
+            "\\b(?:supplier|vendor|licensor|provider)(?:'s)?\\b",
+            "\\b(?:once (?:per|in each) year|annually|reasonable notice|business hours)\\b"
+          ],
+          "severity_ordinal": 0,
+          "direction": "protective",
+          "confidence": "high",
+          "rationale": "A bounded buyer audit right supports verification without triggering a buyer-side escalation."
+        },
+        {
+          "rule_id": "audit_mutual_bounded",
+          "priority": 55,
+          "when_all": [
+            "\\b(?:either|each) party.{0,80}(?:audit|inspect)\\b",
+            "\\b(?:reasonable notice|business hours|annually|once per year)\\b"
+          ],
+          "severity_ordinal": 1,
+          "direction": "balanced",
+          "confidence": "medium",
+          "rationale": "A mutual, bounded audit right is a low residual review item."
+        },
+        {
+          "rule_id": "audit_bounded_role_unresolved",
+          "priority": 40,
+          "when_all": [
+            "\\b(?:audit|inspect|examine)\\b.{0,180}\\b(?:books|records|accounts?|work|facilities|premises|systems?|compliance)\\b",
+            "\\b(?:reasonable (?:prior )?notice|business hours|once per year|annually|independent auditor)\\b"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 1,
+          "direction": "unclear",
+          "confidence": "medium",
+          "rationale": "The audit right contains a visible procedural safeguard, but the reviewed-party direction is unresolved; it receives low review priority."
+        },
+        {
+          "rule_id": "audit_present_material_review",
+          "priority": 20,
+          "when_any": [
+            "\\b(?:audit|inspect|examine)\\b.{0,180}\\b(?:books|records|accounts?|work|facilities|premises|systems?|compliance)\\b",
+            "\\b(?:books|records|accounts?)\\b.{0,180}\\b(?:audit|inspect|examine)\\b"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]", "\\bas set forth in (?:section|clause|exhibit|schedule)\\b"],
+          "severity_ordinal": 2,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "An audit or inspection right is present but holder, scope, frequency, or cost remains unresolved; medium denotes required human review."
+        }
+      ],
+      "missing_rules": [
+        {
+          "rule_id": "audit_missing_revenue_verification",
+          "priority": 80,
+          "when_any": [
+            "\\b(?:revenue|profit)[- ]?shar(?:e|ing)\\b",
+            "\\b(?:royalt(?:y|ies)|net sales|gross sales|gross revenue|net revenue)\\b",
+            "\\b(?:percent|%)\\b.{0,80}\\b(?:sales|revenue|profit|receipts)\\b"
+          ],
+          "severity_ordinal": 2,
+          "direction": "adverse",
+          "confidence": "medium",
+          "rationale": "A linked variable-payment provision lacks a CUAD-annotated audit or verification right, so the buyer-side playbook requires medium human review."
+        },
+        {
+          "rule_id": "audit_missing_not_applicable",
+          "priority": 10,
+          "severity_ordinal": null,
+          "risk_band": "not_applicable",
+          "applicability": "not_applicable",
+          "direction": "unclear",
+          "confidence": "medium",
+          "label_status": "weak_not_applicable",
+          "rationale": "Audit-right absence is not scored without a linked verification need; cross-category logic may override this result."
+        }
+      ]
+    },
+    {
+      "category_id": "license_grant",
+      "category_name": "License Grant",
+      "rule_card_id": "RC-LICENSE",
+      "review_bundle_id": "license_exclusivity",
+      "risk_domain": "intellectual_property",
+      "issue_family_template": "license_scope",
+      "source_ids": ["SRC-CUAD-DESC", "SRC-WORLDCC-CP", "SRC-UK-RISK-ALLOC", "SRC-UIC-RISK-2019", "POLICY-BUYER-TRIAGE"],
+      "material_if_unresolved": true,
+      "missing_clause_policy": {
+        "mode": "conditional_risk",
+        "applicable_contract_types": ["software_license", "license"],
+        "rationale": "the buyer-side rubric expects use rights in license-dependent agreements but not in every service contract."
+      },
+      "abstain_rationale": "The text does not resolve grant direction, licensed subject matter, or material scope limitations.",
+      "present_rules": [
+        {
+          "rule_id": "license_buyer_broad_grant",
+          "priority": 100,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client) (?:hereby )?grants?\\b",
+            "\\b(?:supplier|vendor|licensor|provider)\\b",
+            "\\blicen[cs]e\\b"
+          ],
+          "count_patterns": [
+            "\\bexclusive\\b",
+            "\\bperpetual\\b",
+            "\\birrevocable\\b",
+            "\\bworldwide\\b",
+            "\\btransferable\\b",
+            "\\bsublicen[cs]able\\b",
+            "\\broyalty[- ]free\\b"
+          ],
+          "min_pattern_matches": 3,
+          "severity_ordinal": 3,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "A buyer-to-supplier grant with at least three broad scope attributes is a hard-stop IP escalation."
+        },
+        {
+          "rule_id": "license_buyer_materially_broad",
+          "priority": 80,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client) (?:hereby )?grants?\\b",
+            "\\b(?:supplier|vendor|licensor|provider)\\b",
+            "\\blicen[cs]e\\b"
+          ],
+          "count_patterns": [
+            "\\bexclusive\\b",
+            "\\bperpetual\\b",
+            "\\birrevocable\\b",
+            "\\bworldwide\\b",
+            "\\btransferable\\b",
+            "\\bsublicen[cs]able\\b",
+            "\\broyalty[- ]free\\b"
+          ],
+          "min_pattern_matches": 2,
+          "severity_ordinal": 2,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "A buyer-to-supplier grant with multiple breadth attributes receives a medium escalation."
+        },
+        {
+          "rule_id": "license_buyer_limited_service_use",
+          "priority": 65,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client) (?:hereby )?grants?\\b",
+            "\\b(?:supplier|vendor|licensor|provider)\\b",
+            "\\bsolely (?:to|for the purpose of).{0,80}(?:provide|perform) the services\\b"
+          ],
+          "severity_ordinal": 1,
+          "direction": "balanced",
+          "confidence": "high",
+          "rationale": "A buyer content license limited to performing the services is a low residual review item."
+        },
+        {
+          "rule_id": "license_supplier_grants_buyer_use",
+          "priority": 55,
+          "when_all": [
+            "\\b(?:supplier|vendor|licensor|provider) (?:hereby )?grants?\\b",
+            "\\b(?:customer|buyer|licensee|client)\\b",
+            "\\bnon-?exclusive\\b",
+            "\\b(?:use|access)\\b"
+          ],
+          "severity_ordinal": 0,
+          "direction": "protective",
+          "confidence": "high",
+          "rationale": "The supplier grants the buyer an express non-exclusive use right, so this rule does not escalate risk."
+        },
+        {
+          "rule_id": "license_broad_scope_role_unresolved",
+          "priority": 45,
+          "when_any": ["\\b(?:grant|grants|granted)\\b", "\\blicen[cs]e\\b"],
+          "count_patterns": [
+            "(?<!non[- ])\\bexclusive\\b",
+            "\\bperpetual\\b",
+            "\\birrevocable\\b",
+            "(?<!non[- ])\\btransferable\\b",
+            "(?<!non[- ])\\bsublicen[cs]able\\b",
+            "\\broyalty[- ]free\\b",
+            "\\bworldwide\\b"
+          ],
+          "min_pattern_matches": 3,
+          "when_none": ["\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 2,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "The grant contains at least three breadth attributes, but grant direction is unresolved; medium denotes required IP review."
+        },
+        {
+          "rule_id": "license_limited_scope_role_unresolved",
+          "priority": 35,
+          "when_all": [
+            "\\b(?:grant|grants|granted)\\b.{0,220}\\b(?:licen[cs]e|right to|use|access|distribut)\\b",
+            "\\b(?:non-?exclusive|limited|solely|during the term|non-?transferable)\\b"
+          ],
+          "when_none": ["\\b(?:perpetual|irrevocable)\\b", "\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 1,
+          "direction": "unclear",
+          "confidence": "medium",
+          "rationale": "A bounded grant is visible but party direction is unresolved; it receives low review priority."
+        },
+        {
+          "rule_id": "license_present_material_review",
+          "priority": 20,
+          "when_any": [
+            "\\b(?:grant|grants|granted)\\b.{0,220}\\b(?:licen[cs]e|right to|use|access|distribut)\\b",
+            "\\blicen[cs]e\\b.{0,220}\\b(?:use|access|copy|modify|distribut|sublicen[cs]e)\\b"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]", "\\bas set forth in (?:section|clause|exhibit|schedule)\\b"],
+          "severity_ordinal": 2,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "A license grant is present but grant direction or material scope is unresolved; medium is a triage label requiring human review."
+        }
+      ],
+      "missing_rules": [
+        {
+          "rule_id": "license_missing_expected",
+          "priority": 80,
+          "contract_types": ["software_license", "license"],
+          "severity_ordinal": 2,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "A license-dependent agreement without an identified license grant receives a medium escalation."
+        },
+        {
+          "rule_id": "license_missing_not_applicable",
+          "priority": 20,
+          "contract_types": ["services", "supply", "distribution", "franchise", "employment", "merger_acquisition", "lease", "collaboration"],
+          "severity_ordinal": null,
+          "risk_band": "not_applicable",
+          "applicability": "not_applicable",
+          "direction": "unclear",
+          "confidence": "medium",
+          "label_status": "weak_not_applicable",
+          "rationale": "the missing-license rule is not applied to this non-license contract type."
+        }
+      ]
+    },
+    {
+      "category_id": "exclusivity",
+      "category_name": "Exclusivity",
+      "rule_card_id": "RC-EXCLUSIVITY",
+      "review_bundle_id": "license_exclusivity",
+      "risk_domain": "commercial_restrictions",
+      "issue_family_template": "exclusivity_commitment",
+      "source_ids": ["SRC-CUAD-DESC", "SRC-FTC-EXCLUSIVE", "SRC-WORLDCC-CP", "SRC-UIC-RISK-2019", "POLICY-BUYER-TRIAGE"],
+      "material_if_unresolved": true,
+      "missing_clause_policy": {
+        "mode": "not_applicable",
+        "applicable_contract_types": [],
+        "rationale": "Exclusivity absence is optional and unscored; it must not be encoded as numeric zero."
+      },
+      "abstain_rationale": "The text does not resolve the bound party, duration, scope, or exit conditions.",
+      "present_rules": [
+        {
+          "rule_id": "exclusivity_right_granted_to_buyer",
+          "priority": 120,
+          "when_any": [
+            "\\b(?:customer|buyer|licensee|client|distributor|reseller)\\b.{0,40}\\b(?:is|are) (?:hereby )?granted\\b.{0,100}\\bexclusive\\b",
+            "\\bgrants?\\b.{0,80}\\bto (?:the )?(?:customer|buyer|licensee|client|distributor|reseller)\\b.{0,100}\\bexclusive\\b"
+          ],
+          "severity_ordinal": 0,
+          "direction": "protective",
+          "confidence": "high",
+          "rationale": "The buyer-side party receives the exclusive right, so the clause is not treated as an adverse buyer commitment."
+        },
+        {
+          "rule_id": "exclusivity_mutual_grant",
+          "priority": 110,
+          "when_all": [
+            "\\b(?:each|both) part(?:y|ies)\\b",
+            "\\bexclusive\\b"
+          ],
+          "severity_ordinal": 1,
+          "direction": "balanced",
+          "confidence": "medium",
+          "rationale": "A facially mutual exclusive grant receives low review priority rather than an adverse buyer label."
+        },
+        {
+          "rule_id": "exclusivity_buyer_broad_long",
+          "priority": 100,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client|distributor|reseller)\\b.{0,120}\\b(?:shall|must|agrees? to|will)\\b",
+            "\\b(?:purchase exclusively|exclusively purchase|all requirements|sole supplier|shall not.{0,80}(?:other source|other supplier|competitor))\\b"
+          ],
+          "when_any": [
+            "\\b(?:three|four|five|six|seven|eight|nine|ten) years\\b",
+            "\\b(?:2[4-9]|[3-9][0-9]) months\\b",
+            "\\b(?:indefinite|perpetual)\\b",
+            "\\ball requirements\\b",
+            "\\bsole supplier\\b"
+          ],
+          "severity_ordinal": 3,
+          "direction": "adverse",
+          "confidence": "high",
+          "rationale": "A long, indefinite, all-requirements, or sole-source buyer commitment is a hard-stop escalation."
+        },
+        {
+          "rule_id": "exclusivity_buyer_bounded_conditioned",
+          "priority": 75,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client|distributor|reseller)\\b",
+            "\\b(?:exclusive|exclusively)\\b",
+            "\\b(?:twelve|12|one)[ -](?:months?|year)\\b",
+            "\\b(?:performance|minimum service level|subject to|provided that)\\b"
+          ],
+          "severity_ordinal": 1,
+          "direction": "balanced",
+          "confidence": "medium",
+          "rationale": "A one-year-or-shorter buyer commitment conditioned on performance is a low residual review item."
+        },
+        {
+          "rule_id": "exclusivity_buyer_general",
+          "priority": 60,
+          "when_all": [
+            "\\b(?:customer|buyer|licensee|client|distributor|reseller)\\b.{0,120}\\b(?:shall|must|agrees? to|will)\\b",
+            "\\b(?:purchase exclusively|exclusively purchase|exclusive source|exclusive supplier|shall not.{0,80}(?:other source|other supplier|competitor))\\b"
+          ],
+          "severity_ordinal": 2,
+          "direction": "adverse",
+          "confidence": "medium",
+          "rationale": "Buyer exclusivity without a clearly bounded, performance-conditioned scope receives a medium escalation."
+        },
+        {
+          "rule_id": "exclusivity_supplier_for_buyer",
+          "priority": 50,
+          "when_all": [
+            "\\b(?:supplier|vendor|licensor|provider)\\b.{0,80}\\b(?:exclusive|exclusively)\\b",
+            "\\b(?:for|to) (?:the )?(?:customer|buyer|licensee|client)\\b"
+          ],
+          "severity_ordinal": 0,
+          "direction": "protective",
+          "confidence": "medium",
+          "rationale": "Only the supplier is identified as bound for the buyer's benefit, so this rule does not escalate buyer risk."
+        },
+        {
+          "rule_id": "exclusivity_alternative_source_restriction",
+          "priority": 45,
+          "when_all": [
+            "\\b(?:shall not|may not)\\b.{0,160}\\b(?:purchase|order|source|sell|distribute|market|use|endorse|promote)\\b",
+            "\\b(?:other source|other supplier|competitor|competing|any source other than)\\b"
+          ],
+          "when_none": ["\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 2,
+          "direction": "unclear",
+          "confidence": "medium",
+          "rationale": "A restriction on alternative sources or competing activity is visible, but party role or scope is incomplete; medium requires human review."
+        },
+        {
+          "rule_id": "exclusivity_appointment_role_unresolved",
+          "priority": 65,
+          "when_any": [
+            "\\b(?:appoint|grant).{0,120}\\bexclusive\\b",
+            "\\bexclusive\\b.{0,120}\\b(?:right|licen[cs]e|distribut|territor)\\b"
+          ],
+          "when_none": ["\\bnon-?exclusive\\b", "\\[\\s*\\*+\\s*\\]"],
+          "severity_ordinal": 1,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "An exclusive appointment or grant is visible but the reviewed-party benefit or burden is unresolved; it receives low review priority."
+        },
+        {
+          "rule_id": "exclusivity_present_material_review",
+          "priority": 20,
+          "when_any": ["(?<!non[- ])\\bexclusiv(?:e|ely|ity)\\b", "\\bsole[- ]source\\b", "\\ball requirements\\b"],
+          "when_none": ["\\bnon-?exclusive\\b", "\\[\\s*\\*+\\s*\\]", "\\bas set forth in (?:section|clause|exhibit|schedule)\\b"],
+          "severity_ordinal": 2,
+          "direction": "unclear",
+          "confidence": "low",
+          "rationale": "An exclusivity commitment is present but the bound party, scope, duration, or exit is unresolved; medium is a triage label, not a competition-law conclusion."
+        }
+      ],
+      "missing_rules": [
+        {
+          "rule_id": "exclusivity_missing_not_applicable",
+          "priority": 10,
+          "severity_ordinal": null,
+          "risk_band": "not_applicable",
+          "applicability": "not_applicable",
+          "direction": "unclear",
+          "confidence": "high",
+          "label_status": "weak_not_applicable",
+          "rationale": "No exclusivity provision was identified; optional absence is excluded from the numeric severity target."
+        }
+      ]
+    }
+  ]
+}
