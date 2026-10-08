@@ -1,0 +1,12 @@
+{
+  "tokenizer": "distilroberta-base",
+  "chunk_size": 512,
+  "overlap": 128,
+  "selected_method": "512_tokens_128_overlap",
+  "span_coverage_pct": 96.91,
+  "boundary_split_pct": 3.09,
+  "avg_masking_pct": 0.44,
+  "total_chunks": 11132,
+  "extra_chunks_vs_no_overlap": 2673,
+  "processing_cost_increase_pct": 31.6
+}

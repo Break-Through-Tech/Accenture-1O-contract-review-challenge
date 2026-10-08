@@ -1,0 +1,652 @@
+{
+  "task": "task10_chunking_validation",
+  "task10_passed": false,
+  "n_checks": 75,
+  "n_failed": 2,
+  "checks": [
+    {
+      "section": "1_config_and_data",
+      "check": "config_method_supported",
+      "expected": "paragraph_based or 512_tokens_128_overlap",
+      "actual": "paragraph_based",
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "1_config_and_data",
+      "check": "tokenizer_is_fast",
+      "expected": true,
+      "actual": true,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "1_config_and_data",
+      "check": "selected_categories_count",
+      "expected": 10,
+      "actual": 10,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "1_config_and_data",
+      "check": "selected_categories_unique",
+      "expected": 10,
+      "actual": 10,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "1_config_and_data",
+      "check": "selected_categories_exist_in_categories_table",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "1_config_and_data",
+      "check": "train_documents_vs_task9",
+      "expected": 325,
+      "actual": 325,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "1_config_and_data",
+      "check": "train_annotation_sets_vs_task9",
+      "expected": 13325,
+      "actual": 13325,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "1_config_and_data",
+      "check": "train_spans_vs_task9",
+      "expected": 8964,
+      "actual": 8964,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "1_config_and_data",
+      "check": "positive_annotation_sets_vs_task9",
+      "expected": 1536,
+      "actual": 1536,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "1_config_and_data",
+      "check": "valid_positive_spans_vs_task9",
+      "expected": 3078,
+      "actual": 3078,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "1_config_and_data",
+      "check": "no_validation_documents_in_train",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "2_generate_chunks",
+      "check": "total_chunks_vs_task9",
+      "expected": 10841,
+      "actual": 10841,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "2_generate_chunks",
+      "check": "every_train_contract_has_chunks",
+      "expected": 325,
+      "actual": 325,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "2_generate_chunks",
+      "check": "no_empty_chunk_text",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "2_generate_chunks",
+      "check": "total_chunks_vs_task9",
+      "expected": 10841,
+      "actual": 10841,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "2_generate_chunks",
+      "check": "every_train_contract_has_chunks",
+      "expected": 325,
+      "actual": 325,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "2_generate_chunks",
+      "check": "empty_chunk_texts",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "3_required_rows",
+      "check": "total_rows_equals_chunks_x_10",
+      "expected": 108410,
+      "actual": 108410,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "3_required_rows",
+      "check": "chunks_with_all_10_categories",
+      "expected": 10841,
+      "actual": 10841,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "3_required_rows",
+      "check": "duplicate_chunk_category_rows",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "3_required_rows",
+      "check": "categories_outside_selected_10",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "3_required_rows",
+      "check": "row_chunk_ids_not_in_chunks",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "3_required_rows",
+      "check": "train_contract_category_pairs_missing_annotation_set",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "4_targets",
+      "check": "rows_with_invalid_target",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "4_targets",
+      "check": "label_inconsistent_with_target",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "4_targets",
+      "check": "positive_or_masked_rows_without_annotation",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": "Categories with is_impossible == True must be all-negative."
+    },
+    {
+      "section": "4_targets",
+      "check": "positive_rows_differing_from_independent_recompute",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "4_targets",
+      "check": "masked_rows_differing_from_independent_recompute",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "4_targets",
+      "check": "annotated_categories_without_usable_offsets",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": "Any nonzero value is an exception that must be documented."
+    },
+    {
+      "section": "5_no_positives_lost",
+      "check": "positive_spans_dropped_for_missing_offsets",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "5_no_positives_lost",
+      "check": "spans_touching_no_chunk_LOST",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "5_no_positives_lost",
+      "check": "chunks_touching_positive_span_labeled_negative",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "5_no_positives_lost",
+      "check": "positive_annotation_sets_with_no_positive_chunk",
+      "expected": 0,
+      "actual": 20,
+      "passed": false,
+      "note": ""
+    },
+    {
+      "section": "5_no_positives_lost",
+      "check": "positive_annotation_sets_checked",
+      "expected": 1536,
+      "actual": 1536,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "5_no_positives_lost",
+      "check": "spans_fully_contained_vs_task9",
+      "expected": 2990,
+      "actual": 2990,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "5_no_positives_lost",
+      "check": "boundary_split_spans_vs_task9",
+      "expected": 88,
+      "actual": 88,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "chunk_id_duplicates",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "chunk_id_bad_format",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "chunk_id_prefix_not_matching_contract_id",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "chunk_id_suffix_not_matching_chunk_number",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "context_group_id_mismatch_with_documents",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "chunks_from_validation_context_groups",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": "Leakage guard: no validation group may appear in training chunks."
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "chunk_contracts_not_in_train_split",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "chunk_char_start_negative",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "chunk_char_end_not_after_start",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "chunk_char_end_beyond_document",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "span_start_negative",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "span_end_not_after_start",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "span_end_beyond_document",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "span_text_mismatch_after_whitespace_normalization",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": "Confirms answer_start/answer_end (end exclusive) point at answer_text."
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "span_text_exact_mismatch_info_only",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": "Informational: nonzero means only whitespace differs."
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "chunk_text_differs_from_document_slice",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "chunk_hash_mismatch_on_recompute",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "document_hash_mismatch_on_recompute",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "duplicate_chunk_hashes_info_only",
+      "expected": 0,
+      "actual": 336,
+      "passed": true,
+      "note": "Informational: identical text in different chunks (boilerplate across contracts)."
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "contracts_with_non_contiguous_chunk_numbers",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "contracts_with_chunk_char_start_out_of_order",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "uncovered_gaps_containing_text",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": "Text between/after chunks that no chunk contains (whitespace gaps are allowed)."
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "recorded_num_tokens_over_limit",
+      "expected": 0,
+      "actual": 0,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "retokenized_chunks_over_512_tokens",
+      "expected": 0,
+      "actual": 1896,
+      "passed": false,
+      "note": "Chunks the model would silently truncate, which could cut off part of a span."
+    },
+    {
+      "section": "6_ids_locations_hashes_boundaries",
+      "check": "recorded_num_tokens_lower_than_retokenized_info_only",
+      "expected": 0,
+      "actual": 6772,
+      "passed": true,
+      "note": "Informational: paragraph packing sums paragraph tokens and ignores the blank-line tokens between paragraphs."
+    },
+    {
+      "section": "7_config_and_order",
+      "check": "chunk_method_matches_frozen_config",
+      "expected": "paragraph_based",
+      "actual": "paragraph_based",
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "7_config_and_order",
+      "check": "tokenizer_matches_frozen_config",
+      "expected": "distilroberta-base",
+      "actual": "distilroberta-base",
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "7_config_and_order",
+      "check": "chunk_size_is_512",
+      "expected": 512,
+      "actual": 512,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "7_config_and_order",
+      "check": "long_paragraph_overlap_is_64",
+      "expected": 64,
+      "actual": 64,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "7_config_and_order",
+      "check": "regenerated_chunks_identical",
+      "expected": true,
+      "actual": true,
+      "passed": true,
+      "note": "Chunking the same documents twice gives identical results."
+    },
+    {
+      "section": "7_config_and_order",
+      "check": "task9_total_chunks_reproduced",
+      "expected": 10841,
+      "actual": 10841,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "7_config_and_order",
+      "check": "chunks_sorted_by_contract_then_chunk_number",
+      "expected": true,
+      "actual": true,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "7_config_and_order",
+      "check": "chunk_columns_match_schema",
+      "expected": true,
+      "actual": true,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "7_config_and_order",
+      "check": "rows_are_chunk_order_then_category_order",
+      "expected": true,
+      "actual": true,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "7_config_and_order",
+      "check": "row_columns_match_schema",
+      "expected": true,
+      "actual": true,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "8_artifacts",
+      "check": "chunks_parquet_roundtrip_identical",
+      "expected": true,
+      "actual": true,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "8_artifacts",
+      "check": "chunks_parquet_row_count",
+      "expected": 10841,
+      "actual": 10841,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "8_artifacts",
+      "check": "chunk_category_rows_parquet_roundtrip_identical",
+      "expected": true,
+      "actual": true,
+      "passed": true,
+      "note": ""
+    },
+    {
+      "section": "8_artifacts",
+      "check": "chunk_category_rows_parquet_row_count",
+      "expected": 108410,
+      "actual": 108410,
+      "passed": true,
+      "note": ""
+    }
+  ],
+  "chunking_config": {
+    "method": "paragraph_based",
+    "tokenizer_name": "distilroberta-base",
+    "chunk_size": 512,
+    "overlap": null,
+    "long_paragraph_overlap": 64,
+    "split": "train"
+  },
+  "config_hash": "92f302d31bc75704a82735667a3e08f504eccfb3e52078e02f41970c335dd77f",
+  "config_source": "Task 9 recommendation (hard-coded in this notebook)",
+  "counts": {
+    "train_documents": 325,
+    "chunks": 10841,
+    "chunk_category_rows": 108410,
+    "positive_rows": 2324,
+    "masked_rows": 217,
+    "negative_rows": 105869,
+    "positive_annotation_sets": 1536,
+    "valid_positive_spans": 3078,
+    "spans_fully_contained": 2990,
+    "spans_boundary_split": 88,
+    "spans_lost": 0,
+    "positive_annotation_sets_lost": 20
+  },
+  "artifact_hashes": {
+    "chunks": {
+      "path": "task10_outputs\\chunks.parquet",
+      "rows": 10841,
+      "md5": "ddc04060c46ecbf3d174e49674476ca1",
+      "content_sha256": "9341c770986c86bd367b6a2142f6077e7741492ca167b0e289478412ec1cbbab"
+    },
+    "chunk_category_rows": {
+      "path": "task10_outputs\\chunk_category_rows.parquet",
+      "rows": 108410,
+      "md5": "4f831d4e5785cac46d4ccb1cdb63e861",
+      "content_sha256": "8145bf9d091f96aeded159ce7ca144315d4abd7f465a32af89e9da2756bb11d9"
+    }
+  },
+  "environment": {
+    "python": "3.13.5",
+    "pandas": "3.0.5",
+    "numpy": "2.5.3",
+    "tokenizer": "distilroberta-base"
+  }
+}

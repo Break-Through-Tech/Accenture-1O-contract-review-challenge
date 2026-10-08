@@ -1,0 +1,10 @@
+{
+  "method": "paragraph_based",
+  "tokenizer_name": "distilroberta-base",
+  "chunk_size": 512,
+  "overlap": null,
+  "long_paragraph_overlap": 64,
+  "split": "train",
+  "config_hash": "92f302d31bc75704a82735667a3e08f504eccfb3e52078e02f41970c335dd77f",
+  "config_source": "Task 9 recommendation (hard-coded in this notebook)"
+}
