@@ -1,0 +1,3 @@
+method,span_coverage_pct,boundary_split_pct,avg_masking_pct,total_chunks,extra_chunks,processing_cost_increase_pct
+512_tokens_128_overlap,96.91,3.09,0.44,11132,2673,31.6
+512_tokens_no_overlap,84.89,15.11,3.79,8459,0,0.0

@@ -1,0 +1,11 @@
+category_id,positive,masked,negative,total,masked_pct
+governing_law,291,11,10539,10841,0.1
+renewal_term,127,5,10709,10841,0.05
+revenue_profit_sharing,178,35,10628,10841,0.32
+cap_on_liability,333,52,10456,10841,0.48
+uncapped_liability,91,18,10732,10841,0.17
+termination_for_convenience,143,8,10690,10841,0.07
+anti_assignment,313,19,10509,10841,0.18
+audit_rights,259,13,10569,10841,0.12
+license_grant,386,38,10417,10841,0.35
+exclusivity,203,18,10620,10841,0.17
