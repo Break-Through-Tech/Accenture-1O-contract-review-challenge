@@ -49,9 +49,22 @@
 - Your AI Studio host company and the project objective and scope
 - The real-world significance of the problem and the potential impact of your work
 
+This project is part of the Break Through Tech AI/ML Fellowship with Cornell Tech for the 2026–2027 cohort. The year-long fellowship consists of four main sections:
+
+* Spring: Python Bootcamp
+* Summer: Machine Learning Certificate Bootcamp
+* Fall: AI Studio
+* Spring: AI Specializations
+This project takes place during the Fall AI Studio, where fellows are placed into teams and partnered with industry host companies to apply their machine learning skills to real-world business problems.
+
+Our team is partnered with **Accenture** to explore how machine learning can [insert here].
+
+From a real-world perspective, more accurate early claim estimates could help insurance professionals make better-informed decisions when [insert here]
 ---
 
 ## 📊 **Data Exploration**
+*insert tasks 3-5 eda & training, verification & reproduce, The 10 categories (why we picked them)
+- How we model the data, chunking stats
 
 **You might consider describing the following (as applicable):**
 
@@ -73,6 +86,7 @@
 * Model(s) used (e.g., CNN with transfer learning, regression models)
 * Feature selection and Hyperparameter tuning strategies
 * Training setup (e.g., % of data for training/validation, evaluation metric, baseline performance)
+* LoRA
 
 
 ---
