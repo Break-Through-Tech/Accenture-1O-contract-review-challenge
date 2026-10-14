@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "huggingface-hub>=1.33.0",
     "ipykernel>=7.3.0",
     "iterative-stratification>=0.1.9",
     "matplotlib>=3.11.2",
@@ -13,5 +14,7 @@ dependencies = [
     "pyarrow>=25.0.1",
     "requests>=2.34.2",
     "scikit-learn>=1.9.0",
+    "sentence-transformers>=6.1.0",
+    "torch>=2.14.1",
     "transformers>=5.17.0",
 ]
