@@ -137,3 +137,6 @@ pip-selfcheck.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/pycharm+all,jupyternotebooks,visualstudiocode,venv
+
+# Environment Secrets
+.env
