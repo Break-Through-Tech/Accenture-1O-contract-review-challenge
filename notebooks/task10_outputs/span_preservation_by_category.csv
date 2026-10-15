@@ -1,0 +1,11 @@
+category_id,fully_contained,boundary_split,LOST,total_spans,coverage_pct
+governing_law,289,1,0,290,99.66
+renewal_term,141,3,0,144,97.92
+revenue_profit_sharing,250,19,0,269,92.94
+cap_on_liability,438,20,0,458,95.63
+uncapped_liability,116,7,0,123,94.31
+termination_for_convenience,164,1,0,165,99.39
+anti_assignment,401,7,0,408,98.28
+audit_rights,412,5,0,417,98.8
+license_grant,513,17,0,530,96.79
+exclusivity,266,8,0,274,97.08
