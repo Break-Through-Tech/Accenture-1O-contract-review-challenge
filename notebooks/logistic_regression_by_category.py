@@ -1,5 +1,6 @@
 from sklearn.linear_model import LogisticRegression
 import pandas as pd
+import numpy as np
 
 class LogisticRegressionByCategory:
     """One binary logistic regression per category, on chunk embeddings."""
@@ -9,9 +10,10 @@ class LogisticRegressionByCategory:
         :param categories: ids of all categories to be classified
         :param lr_kwargs:  arguments for scikit-learn's logistic regression
         """
-        self.lr_kwargs = {"class_weight": "balanced", **lr_kwargs}
+        self.lr_kwargs = {**lr_kwargs}
         self.categories = categories
         self.models = {}
+        self.threshold = 0.5
 
     def fit(self, X, y):
         """
@@ -27,15 +29,19 @@ class LogisticRegressionByCategory:
         }
         return self
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, index=None):
         """
         Predicts probability of a chunk being a part of a category, for every category
         :param X: a np.array containing chunk embeddings for test data
+        :param index: chunk ids for the rows of X (e.g. test_chunks["chunk_id"])
         :return:
         """
-        return {cat: m.predict_proba(X)[:, 1] for cat, m in self.models.items()}
+        probs = np.column_stack([
+            self.models[c].predict_proba(X)[:, 1] for c in self.categories
+        ])
+        return pd.DataFrame(probs, columns=self.categories, index=index)
 
-    def predict(self, X, threshold: float | dict=0.5, index=None):
+    def predict(self, X, threshold: float | dict | None=None, index=None):
         """
         :param X: np.array of chunk embeddings
         :param threshold: float, or dict of category -> float
@@ -43,8 +49,10 @@ class LogisticRegressionByCategory:
         :return: DataFrame of 0/1 predictions, one column per category
         """
         proba = pd.DataFrame(self.predict_proba(X), index=index)
-        if isinstance(threshold, dict):
+        if threshold is not None and isinstance(threshold, dict):
             return pd.DataFrame(
                 {cat: (proba[cat] >= threshold.get(cat, 0.5)).astype(int) for cat in proba.columns}
             )
+        else:
+            threshold = self.threshold
         return (proba >= threshold).astype(int)
