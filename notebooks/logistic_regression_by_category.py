@@ -37,22 +37,27 @@ class LogisticRegressionByCategory:
         :return:
         """
         probs = np.column_stack([
-            self.models[c].predict_proba(X)[:, 1] for c in self.categories
+            self.models[c].predict_proba(X)[:, 1]
+            for c in self.categories
         ])
         return pd.DataFrame(probs, columns=self.categories, index=index)
 
-    def predict(self, X, threshold: float | dict | None=None, index=None):
+    def predict(self, X, threshold=None , index=None):
         """
         :param X: np.array of chunk embeddings
         :param threshold: float, or dict of category -> float
         :param index: chunk ids for the rows of X (e.g. test_chunks["chunk_id"])
         :return: DataFrame of 0/1 predictions, one column per category
         """
-        proba = pd.DataFrame(self.predict_proba(X), index=index)
-        if threshold is not None and isinstance(threshold, dict):
-            return pd.DataFrame(
-                {cat: (proba[cat] >= threshold.get(cat, 0.5)).astype(int) for cat in proba.columns}
-            )
-        else:
+        proba = self.predict_proba(X, index=index)
+
+        if threshold is None:
             threshold = self.threshold
+
+        if isinstance(threshold, dict):
+            return pd.DataFrame(
+                {cat: (proba[cat] >= threshold.get(cat, self.threshold)).astype(int) for cat in self.categories},
+                index=proba.index
+            )
+
         return (proba >= threshold).astype(int)
