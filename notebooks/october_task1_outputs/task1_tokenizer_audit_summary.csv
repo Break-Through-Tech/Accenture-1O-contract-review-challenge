@@ -1,0 +1,4 @@
+encoder,total_chunks,mean_tokens,median_tokens,p95_tokens,max_tokens,chunks_over_limit,pct_over_limit,total_excess_tokens
+DistilRoBERTa,10841,398.32,468.0,557.0,1035,1896,17.49,78751
+Legal-BERT,10841,335.28,376.0,517.0,1534,688,6.35,42764
+RoBERTa-base,10841,398.32,468.0,557.0,1035,1896,17.49,78751
