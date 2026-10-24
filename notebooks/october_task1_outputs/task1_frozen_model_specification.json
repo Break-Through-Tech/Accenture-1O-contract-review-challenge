@@ -1,0 +1,120 @@
+{
+    "task": "October Task 1 - Encoder, Tokenizer, and Model Pre-registration",
+    "categories": [
+        "governing_law",
+        "renewal_term",
+        "revenue_profit_sharing",
+        "cap_on_liability",
+        "uncapped_liability",
+        "termination_for_convenience",
+        "anti_assignment",
+        "audit_rights",
+        "license_grant",
+        "exclusivity"
+    ],
+    "encoder": {
+        "primary_name": "Legal-BERT",
+        "primary_model_id": "nlpaueb/legal-bert-base-uncased",
+        "fallback_name": "DistilRoBERTa",
+        "fallback_model_id": "distilbert/distilroberta-base",
+        "selection_rationale": "Legal-BERT was selected because it is pretrained on legal text and produced fewer chunks over the 512-token limit during the token-length audit."
+    },
+    "tokenization": {
+        "max_length": 512,
+        "token_length_source": "Fresh tokenization of final chunk_text using the selected tokenizer",
+        "oversized_chunk_policy": "Re-split chunks over 512 tokens before training",
+        "truncation": "Use truncation=True only as a final safety guard",
+        "rationale": "Stored historical token counts did not always match token counts from the final chunk text, so fresh tokenizer-specific counts are used as the source of truth."
+    },
+    "training": {
+        "random_seeds": [
+            42,
+            123,
+            2026
+        ],
+        "maximum_completed_runs": 3,
+        "fine_tuning_method": "LoRA",
+        "lora": {
+            "r": 8,
+            "alpha": 16,
+            "dropout": 0.1,
+            "target_modules": [
+                "query",
+                "value"
+            ]
+        },
+        "loss_function": "BCEWithLogitsLoss",
+        "imbalance_treatment": "Positive-class weighting",
+        "positive_weight_formula": "number of negative training examples / number of positive training examples",
+        "weight_data_source": "Training data only"
+    },
+    "compute_fallback": {
+        "trigger": "Compute or memory limitations only, not model performance",
+        "steps": [
+            "Reduce per-device batch size",
+            "Increase gradient accumulation",
+            "Enable mixed-precision training when supported",
+            "Fall back to DistilRoBERTa if Legal-BERT still cannot train reliably"
+        ]
+    },
+    "model_selection": {
+        "primary_metric": "Validation Macro PR-AUC",
+        "seed_reporting": "Report individual seed results plus mean and standard deviation",
+        "test_set_usage": "Official test data cannot be used for model selection"
+    },
+    "threshold_selection": {
+        "method": "Per-category validation threshold",
+        "selection_metric": "F1",
+        "grid_start": 0.05,
+        "grid_end": 0.95,
+        "grid_step": 0.05,
+        "data_source": "Validation predictions only",
+        "final_thresholds": "To be selected after training using the frozen validation rule",
+        "test_set_usage": "Official test data cannot be used to tune thresholds"
+    },
+    "evaluation_metrics": [
+        "Macro Precision",
+        "Macro Recall",
+        "Macro F1",
+        "Micro Precision",
+        "Micro Recall",
+        "Micro F1",
+        "Macro PR-AUC"
+    ],
+    "tokenizer_audit": {
+        "DistilRoBERTa": {
+            "mean_tokens": 398.32,
+            "median_tokens": 468,
+            "p95_tokens": 557,
+            "max_tokens": 1035,
+            "chunks_over_512": 1896,
+            "percent_over_512": 17.49,
+            "total_excess_tokens": 78751
+        },
+        "RoBERTa-base": {
+            "mean_tokens": 398.32,
+            "median_tokens": 468,
+            "p95_tokens": 557,
+            "max_tokens": 1035,
+            "chunks_over_512": 1896,
+            "percent_over_512": 17.49,
+            "total_excess_tokens": 78751
+        },
+        "Legal-BERT": {
+            "mean_tokens": 335.28,
+            "median_tokens": 376,
+            "p95_tokens": 517,
+            "max_tokens": 1534,
+            "chunks_over_512": 688,
+            "percent_over_512": 6.35,
+            "total_excess_tokens": 42764
+        },
+        "token_count_consistency_check": {
+            "chunks_checked": 10841,
+            "distilroberta_mismatched_counts": 6964,
+            "average_difference_tokens": 17.78,
+            "largest_difference_tokens": 602,
+            "stored_under_512_but_retokenized_over_512": 1896
+        }
+    }
+}
