@@ -1,0 +1,61 @@
+section,check,expected,actual,passed,note
+2_config,config_method,paragraph_based,paragraph_based,True,
+2_config,config_tokenizer_name,distilroberta-base,distilroberta-base,True,
+2_config,config_chunk_size,512,512,True,
+2_config,config_long_paragraph_overlap,64,64,True,
+2_config,categories_count_unique,10,10,True,
+2_config,category_order_matches_task1_spec,"['governing_law', 'renewal_term', 'revenue_profit_sharing', 'cap_on_liability', 'uncapped_liability', 'termination_for_convenience', 'anti_assignment', 'audit_rights', 'license_grant', 'exclusivity']","['governing_law', 'renewal_term', 'revenue_profit_sharing', 'cap_on_liability', 'uncapped_liability', 'termination_for_convenience', 'anti_assignment', 'audit_rights', 'license_grant', 'exclusivity']",True,
+3_data,train_documents,325,325,True,Task 9/10 reference
+3_data,validation_context_groups,83,83,True,Aisha's email / Beth: 83 validation groups
+3_data,documents_without_split_label_excluded,0,0,True,informational: contracts with no train/validation label are never used here
+3_data,no_contract_in_both_splits,0,0,True,
+3_data,no_group_in_both_splits,0,0,True,
+5_chunks,train_chunks_vs_task10,10841,10841,True,paragraph_based reference from Task 9/10
+5_chunks,every_train_contract_has_chunks,325,325,True,
+5_chunks,every_validation_contract_has_chunks,83,83,True,
+5_chunks,empty_chunk_texts,0,0,True,
+5_chunks,max_tokens_le_512,True,True,True,
+6_match_task12b,train_chunk_id_sets_equal,True,True,True,"mine 10841 vs task12b 10841; only-mine 0, only-theirs 0"
+6_match_task12b,train_chunk_counts_equal,10841,10841,True,
+6_match_task12b,train_chunk_text_identical,10841,10841,True,"exact 10841/10841, equal after strip 10841/10841"
+6_match_task12b,train_chunk_order_identical,True,True,True,
+6_match_task12b,validation_chunk_id_sets_equal,True,True,True,"mine 2873 vs task12b 2873; only-mine 0, only-theirs 0"
+6_match_task12b,validation_chunk_counts_equal,2873,2873,True,
+6_match_task12b,validation_chunk_text_identical,2873,2873,True,"exact 2873/2873, equal after strip 2873/2873"
+6_match_task12b,validation_chunk_order_identical,True,True,True,
+8_validate_targets,train_rows_vs_task10,108410,108410,True,
+8_validate_targets,train_positive_masked_negative_equal_task10_per_category,True,True,True,
+8_validate_targets,train_rows_equal_chunks_x_10,108410,108410,True,
+8_validate_targets,train_every_chunk_has_all_10_categories,10841,10841,True,
+8_validate_targets,train_duplicate_chunk_category_rows,0,0,True,
+8_validate_targets,train_invalid_targets,0,0,True,
+8_validate_targets,train_contract_category_pairs_missing_annotation_set,0,0,True,
+8_validate_targets,train_positive_or_masked_without_annotation,0,0,True,
+8_validate_targets,train_split_label_in_rows,True,True,True,
+8_validate_targets,validation_rows_equal_chunks_x_10,28730,28730,True,
+8_validate_targets,validation_every_chunk_has_all_10_categories,2873,2873,True,
+8_validate_targets,validation_duplicate_chunk_category_rows,0,0,True,
+8_validate_targets,validation_invalid_targets,0,0,True,
+8_validate_targets,validation_contract_category_pairs_missing_annotation_set,0,0,True,
+8_validate_targets,validation_positive_or_masked_without_annotation,0,0,True,
+8_validate_targets,validation_split_label_in_rows,True,True,True,
+8_validate_targets,train_positive_rows_differing_from_independent_recompute,0,0,True,
+8_validate_targets,train_masked_rows_differing_from_independent_recompute,0,0,True,
+8_validate_targets,train_positive_spans_dropped_for_missing_offsets,0,0,True,"spans with no usable offsets are handled as masked, not dropped silently"
+8_validate_targets,validation_positive_rows_differing_from_independent_recompute,0,0,True,
+8_validate_targets,validation_masked_rows_differing_from_independent_recompute,0,0,True,
+8_validate_targets,validation_positive_spans_dropped_for_missing_offsets,0,0,True,"spans with no usable offsets are handled as masked, not dropped silently"
+8_validate_targets,train_annotation_sets_neither_positive_nor_masked,0,0,True,
+8_validate_targets,train_documented_exceptions_masked_no_positive_chunk,20,20,True,informational: 20 annotation sets have no fully-contained chunk (all masked). Task 10 train reference: 20
+8_validate_targets,validation_annotation_sets_neither_positive_nor_masked,0,0,True,
+8_validate_targets,validation_documented_exceptions_masked_no_positive_chunk,6,6,True,informational: 6 annotation sets have no fully-contained chunk (all masked). Task 10 train reference: 20
+10_wide,train_wide_rows_equal_chunks,10841,10841,True,
+10_wide,train_all_vectors_length_10,True,True,True,
+10_wide,train_masked_pairs_in_mask_vectors,217,217,True,
+10_wide,train_positive_labels_in_vectors,2324,2324,True,
+10_wide,train_no_positive_label_is_masked,0,0,True,
+10_wide,validation_wide_rows_equal_chunks,2873,2873,True,
+10_wide,validation_all_vectors_length_10,True,True,True,
+10_wide,validation_masked_pairs_in_mask_vectors,40,40,True,
+10_wide,validation_positive_labels_in_vectors,563,563,True,
+10_wide,validation_no_positive_label_is_masked,0,0,True,
