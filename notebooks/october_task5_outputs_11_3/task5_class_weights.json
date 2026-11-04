@@ -1,0 +1,89 @@
+{
+  "task": "October Task 5: support table and class weights",
+  "formula": "pos_weight = number of unmasked negative training pairs / number of unmasked positive training pairs",
+  "unit": "chunk-category pair",
+  "source_split": "train",
+  "masked_pairs_excluded": true,
+  "imbalance_treatment": "positive-class weighting of BCEWithLogitsLoss; no oversampling, resampling or duplication of rows",
+  "category_order": [
+    "governing_law",
+    "renewal_term",
+    "revenue_profit_sharing",
+    "cap_on_liability",
+    "uncapped_liability",
+    "termination_for_convenience",
+    "anti_assignment",
+    "audit_rights",
+    "license_grant",
+    "exclusivity"
+  ],
+  "pos_weight": {
+    "governing_law": 36.21649484536083,
+    "renewal_term": 84.32283464566929,
+    "revenue_profit_sharing": 59.70786516853933,
+    "cap_on_liability": 31.3993993993994,
+    "uncapped_liability": 117.93406593406593,
+    "termination_for_convenience": 74.75524475524476,
+    "anti_assignment": 33.575079872204476,
+    "audit_rights": 40.80694980694981,
+    "license_grant": 26.987046632124354,
+    "exclusivity": 52.31527093596059
+  },
+  "pos_weight_list": [
+    36.21649484536083,
+    84.32283464566929,
+    59.70786516853933,
+    31.3993993993994,
+    117.93406593406593,
+    74.75524475524476,
+    33.575079872204476,
+    40.80694980694981,
+    26.987046632124354,
+    52.31527093596059
+  ],
+  "train_counts": {
+    "governing_law": {
+      "positive": 291,
+      "negative": 10539
+    },
+    "renewal_term": {
+      "positive": 127,
+      "negative": 10709
+    },
+    "revenue_profit_sharing": {
+      "positive": 178,
+      "negative": 10628
+    },
+    "cap_on_liability": {
+      "positive": 333,
+      "negative": 10456
+    },
+    "uncapped_liability": {
+      "positive": 91,
+      "negative": 10732
+    },
+    "termination_for_convenience": {
+      "positive": 143,
+      "negative": 10690
+    },
+    "anti_assignment": {
+      "positive": 313,
+      "negative": 10509
+    },
+    "audit_rights": {
+      "positive": 259,
+      "negative": 10569
+    },
+    "license_grant": {
+      "positive": 386,
+      "negative": 10417
+    },
+    "exclusivity": {
+      "positive": 203,
+      "negative": 10620
+    }
+  },
+  "n_train_chunks": 10841,
+  "targets_file": "october_task3_outputs/task3_chunk_category_targets.csv",
+  "targets_file_sha256": "8fdae637a8940797c21c500e5bcb06d83f57be1a0d02c905127ff6cd15ac6833"
+}
