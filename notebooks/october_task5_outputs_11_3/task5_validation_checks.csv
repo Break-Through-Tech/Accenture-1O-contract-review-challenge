@@ -1,0 +1,20 @@
+section,check,expected,actual,passed,note
+2_input,required_columns_present,[],[],True,
+2_input,splits_are_exactly_train_and_validation,"['train', 'validation']","['train', 'validation']",True,the official test set must not be in this table
+2_input,categories_are_the_10_selected,"['anti_assignment', 'audit_rights', 'cap_on_liability', 'exclusivity', 'governing_law', 'license_grant', 'renewal_term', 'revenue_profit_sharing', 'termination_for_convenience', 'uncapped_liability']","['anti_assignment', 'audit_rights', 'cap_on_liability', 'exclusivity', 'governing_law', 'license_grant', 'renewal_term', 'revenue_profit_sharing', 'termination_for_convenience', 'uncapped_liability']",True,
+2_input,targets_only_positive_negative_masked,[],[],True,
+2_input,duplicate_chunk_category_rows,0,0,True,
+2_input,every_chunk_has_exactly_10_category_rows,True,True,True,13714 chunks
+2_input,no_chunk_in_both_splits,0,0,True,
+2_input,no_contract_in_both_splits,0,0,True,
+2_input,no_context_group_in_both_splits,0,0,True,
+2_input,validation_context_groups,83,83,True,frozen split: 83 validation groups
+4_both_classes,train_categories_missing_a_class,[],[],True,
+4_both_classes,validation_categories_missing_a_class,[],[],True,
+6_validate_weights,weights_match_independent_pivot_recompute,True,True,True,
+6_validate_weights,ten_weights_in_category_order,10,10,True,
+6_validate_weights,all_weights_finite_and_positive,True,True,True,
+6_validate_weights,weights_computed_from_train_rows_only,{'train'},{'train'},True,
+6_validate_weights,masked_pairs_excluded_from_counts,True,True,True,
+6_validate_weights,train_counts_equal_task10_summary,True,True,True,notebooks/task10_outputs/target_summary_by_category.csv
+6_validate_weights,weights_equal_task10_negative_over_positive,True,True,True,

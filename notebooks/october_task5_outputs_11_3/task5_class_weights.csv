@@ -1,0 +1,11 @@
+category_id,train_positive,train_negative,pos_weight
+governing_law,291,10539,36.2165
+renewal_term,127,10709,84.3228
+revenue_profit_sharing,178,10628,59.7079
+cap_on_liability,333,10456,31.3994
+uncapped_liability,91,10732,117.9341
+termination_for_convenience,143,10690,74.7552
+anti_assignment,313,10509,33.5751
+audit_rights,259,10569,40.8069
+license_grant,386,10417,26.987
+exclusivity,203,10620,52.3153
