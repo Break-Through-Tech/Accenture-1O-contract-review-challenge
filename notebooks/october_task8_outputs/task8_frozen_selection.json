@@ -1,0 +1,32 @@
+{
+  "selected_model_family": "weighted Legal-BERT",
+  "seeds_retained": [
+    42,
+    123,
+    2026
+  ],
+  "evaluation_split": "validation",
+  "evaluation_mask": 1,
+  "eligible_evaluation_pairs": 28690,
+  "positive_pairs": 563,
+  "negative_pairs": 28127,
+  "weighted_legalbert": {
+    "macro_precision": 0.759,
+    "macro_recall": 0.809,
+    "macro_f1": 0.77
+  },
+  "unweighted_legalbert": {
+    "macro_precision": 0.772,
+    "macro_recall": 0.773,
+    "macro_f1": 0.764
+  },
+  "logistic_regression_macro_f1": 0.543,
+  "keyword_macro_f1": 0.257,
+  "threshold_rule": {
+    "selection_split": "validation only",
+    "range": "0.05 to 0.95",
+    "step": 0.05,
+    "criterion": "maximum per-category F1",
+    "note": "Seed-specific thresholds retained; mean thresholds are not frozen."
+  }
+}
