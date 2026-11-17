@@ -1,0 +1,9 @@
+manual_assessment,examples
+Potential annotation disagreement,6
+Likely genuine false negative,5
+Likely genuine false positive,2
+Likely false negative; inspect surrounding grant language,1
+Ambiguous positive; requires section-level review,1
+Likely false negative,1
+Potential false negative; scope requires review,1
+Likely chunk-level false positive,1

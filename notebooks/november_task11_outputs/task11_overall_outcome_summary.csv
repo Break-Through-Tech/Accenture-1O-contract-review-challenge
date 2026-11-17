@@ -1,0 +1,5 @@
+Outcome,Transformer vs. Logistic Regression,Transformer vs. Keyword Baseline
+Newly corrected,396,446
+New error,91,106
+Persistent error,114,99
+Both correct,28089,28039
