@@ -7,7 +7,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 CHUNK_FIELDS = (
     "chunk_id", "document_id", "contract_id", "context_group_id",
-    "text", "char_start", "char_end",
+    "chunk_text", "char_start", "char_end",
 )
 
 class CUADClassifier:
@@ -85,7 +85,7 @@ class CUADClassifier:
             [
                 {
                     "category_id": category,
-                    "score": float(score),
+                    "score": round(float(score), 4),
                     "threshold": float(threshold),
                     "predicted": bool(is_positive),
                 }
@@ -100,9 +100,10 @@ class CUADClassifier:
         df: one row per chunk. Needs CHUNK_FIELDS columns (text_col is renamed to chunk_text).
         Extra columns (labels, masks, method, num_tokens...) are ignored and never copied out.
         """
-
-        if text_col != "chunk_text":
-            df = df.rename(columns={text_col: "chunk_text"})
+        if "chunk_text" not in df.columns:
+            if "text" not in df.columns:
+                raise KeyError("Need a 'chunk_text' (or 'text') column")
+            df = df.rename(columns={"text": "chunk_text"})
 
         missing = [f for f in CHUNK_FIELDS if f not in df.columns]
         if missing:
@@ -138,7 +139,7 @@ class CUADClassifier:
         if rows["category"].duplicated().any():
             raise ValueError(f"Duplicate categories for seed {seed}")
 
-        seeded_thr = {c: float(t) for c, t in zip(rows["category"], rows["threshold"])}
+        seeded_thr = {c: round(float(t), 2) for c, t in zip(rows["category"], rows["threshold"])}
         root = Path(root)
         model_dir = root / f'final_weighted_Legal-BERT_seed{seed}'
         tokenizer_dir = root / f'run_weighted_Legal-BERT_seed{seed}' / 'checkpoint-2034'
