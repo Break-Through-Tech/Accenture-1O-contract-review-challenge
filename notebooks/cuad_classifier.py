@@ -5,6 +5,10 @@ import numpy as np
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
+CHUNK_FIELDS = (
+    "chunk_id", "document_id", "contract_id", "context_group_id",
+    "text", "char_start", "char_end",
+)
 
 class CUADClassifier:
     def __init__(self, model_dir, tokenizer_dir, categories, thresholds=None, max_length=512, device=None):
@@ -91,22 +95,34 @@ class CUADClassifier:
             for score_row, predicted_row in zip(scores, predicted)
         ]
 
-    def predict_chunks(self, chunks, batch_size=32):
+    def score_chunks(self, df, batch_size=32, text_col="chunk_text"):
         """
-        Makes score predictions by chunk, aligning with the suggested output
+        df: one row per chunk. Needs CHUNK_FIELDS columns (text_col is renamed to chunk_text).
+        Extra columns (labels, masks, method, num_tokens...) are ignored and never copied out.
         """
-        FIELDS = (
-            "chunk_id", "document_id", "contract_id", "context_group_id",
-            "chunk_text", "char_start", "char_end",
-        )
 
-        results = self.score([c["chunk_text"] for c in chunks], batch_size=batch_size)
+        if text_col != "chunk_text":
+            df = df.rename(columns={text_col: "chunk_text"})
+
+        missing = [f for f in CHUNK_FIELDS if f not in df.columns]
+        if missing:
+            raise KeyError(f"Missing required columns: {missing}")
+        if df["chunk_id"].duplicated().any():
+            raise ValueError("Duplicate chunk_id values in input")
+
+        records = df[list(CHUNK_FIELDS)].to_dict("records")
+        results = self.score([r["chunk_text"] for r in records], batch_size=batch_size)
 
         return {
             "model_version": self.model_version,
             "chunk_predictions": [
-                {**{k: c[k] for k in FIELDS}, "category_results": r}
-                for c, r in zip(chunks, results)
+                {
+                    **r,
+                    "char_start": int(r["char_start"]),
+                    "char_end": int(r["char_end"]),
+                    "category_results": res,
+                }
+                for r, res in zip(records, results)
             ],
         }
 
