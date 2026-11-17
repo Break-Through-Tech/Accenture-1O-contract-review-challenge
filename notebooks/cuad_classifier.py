@@ -111,9 +111,9 @@ class CUADClassifier:
         }
 
     @classmethod
-    def from_run(cls, root, seed, thresholds, categories, **kwargs):
+    def from_run(cls, root, seed, thresholds, categories, device=None):
         """
-        Builds the paths from 'standard' drive folder layout (assumes october_task4_outputs/ structure)
+        Builds the paths from 'standard' drive folder layout (assumes october_task4_outputs/full_weighted structure)
         """
         rows = thresholds.loc[thresholds["seed"] == seed, ["category", "threshold"]]
 
@@ -122,12 +122,12 @@ class CUADClassifier:
         if rows["category"].duplicated().any():
             raise ValueError(f"Duplicate categories for seed {seed}")
 
-        thresholds = {c: float(t) for c, t in zip(rows["category"], rows["threshold"])}
+        seeded_thr = {c: float(t) for c, t in zip(rows["category"], rows["threshold"])}
         root = Path(root)
         model_dir = root / f'final_weighted_Legal-BERT_seed{seed}'
         tokenizer_dir = root / f'run_weighted_Legal-BERT_seed{seed}' / 'checkpoint-2034'
 
-        return cls(model_dir, tokenizer_dir, categories, thresholds=None, max_length=512, device=None)
+        return cls(model_dir, tokenizer_dir, categories, thresholds=seeded_thr, max_length=512, device=device)
 
 
     @staticmethod
