@@ -46,7 +46,7 @@ Use these milestones to guide your work. Your team will create a GitHub Projects
 
 **Size:** under 1 GB
 
-**Location:** [Data folder](data/cuad)
+**Location:** [Data folder](../data/raw/cuad)
 
 ### Key Details
 - `CUADv1.json` contains 510 commercial contracts and 13,823 annotated answer spans across 41 contract-review categories.
@@ -82,7 +82,7 @@ The following resources will help your team understand the problem space and pot
 
 **Code Examples:**
 - [Official CUAD repository](https://github.com/TheAtticusProject/cuad)
-- [Guide to the provided data files](data/cuad/README.md)
+- [Guide to the provided data files](../data/raw/cuad/README.md)
 
 **Other:**
 - [scikit-learn precision, recall, and F-score documentation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_recall_fscore_support.html)
@@ -111,7 +111,7 @@ The following resources will help your team understand the problem space and pot
 ## 🚀 Getting Started
 
 1. **Review this overview document** and note any questions for our first meeting
-2. **Begin reviewing the JSON dataset** in the [data folder](data/cuad)
+2. **Begin reviewing the JSON dataset** in the [data folder](../data/raw/cuad)
 3. **Read the GitHub Projects documentation** [here](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
 
 I’m excited to work with you!
