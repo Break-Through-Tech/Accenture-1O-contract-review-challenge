@@ -1,0 +1,925 @@
+{
+  "Legal-BERT": {
+    "42": {
+      "status": "completed",
+      "condition": "weighted",
+      "pos_weight": [
+        36.216495513916016,
+        84.32283782958984,
+        59.70786666870117,
+        31.399398803710938,
+        117.93406677246094,
+        74.75524139404297,
+        33.57508087158203,
+        40.806949615478516,
+        26.98704719543457,
+        52.315269470214844
+      ],
+      "mask": "october_task3_outputs/",
+      "trainable": 109489930,
+      "total": 109489930,
+      "minutes": 15.4,
+      "peak VRAM GB": 4.64,
+      "best val macro PR-AUC": 0.7748657585574433,
+      "checkpoint": "october_task4_outputs/run_weighted_Legal-BERT_seed42/checkpoint-2034",
+      "log_history": [
+        {
+          "loss": 1.3897592345280434,
+          "grad_norm": 3.774864435195923,
+          "learning_rate": 1.935103244837758e-05,
+          "epoch": 0.09882005899705015,
+          "step": 67
+        },
+        {
+          "loss": 1.0835822945210472,
+          "grad_norm": 5.66503381729126,
+          "learning_rate": 1.8692232055063916e-05,
+          "epoch": 0.1976401179941003,
+          "step": 134
+        },
+        {
+          "loss": 0.8897198919040054,
+          "grad_norm": 11.124698638916016,
+          "learning_rate": 1.8033431661750247e-05,
+          "epoch": 0.29646017699115046,
+          "step": 201
+        },
+        {
+          "loss": 0.6622866730191814,
+          "grad_norm": 5.59140682220459,
+          "learning_rate": 1.737463126843658e-05,
+          "epoch": 0.3952802359882006,
+          "step": 268
+        },
+        {
+          "loss": 0.6282108363820545,
+          "grad_norm": 10.173492431640625,
+          "learning_rate": 1.671583087512291e-05,
+          "epoch": 0.4941002949852507,
+          "step": 335
+        },
+        {
+          "loss": 0.4847207140566698,
+          "grad_norm": 1.5843478441238403,
+          "learning_rate": 1.6057030481809245e-05,
+          "epoch": 0.5929203539823009,
+          "step": 402
+        },
+        {
+          "loss": 0.4419842335715223,
+          "grad_norm": 41.56896209716797,
+          "learning_rate": 1.5398230088495576e-05,
+          "epoch": 0.6917404129793511,
+          "step": 469
+        },
+        {
+          "loss": 0.4730179060750933,
+          "grad_norm": 2.207146167755127,
+          "learning_rate": 1.4739429695181908e-05,
+          "epoch": 0.7905604719764012,
+          "step": 536
+        },
+        {
+          "loss": 0.48425657357742535,
+          "grad_norm": 10.245429992675781,
+          "learning_rate": 1.408062930186824e-05,
+          "epoch": 0.8893805309734514,
+          "step": 603
+        },
+        {
+          "loss": 0.4588275169258687,
+          "grad_norm": 0.7619820237159729,
+          "learning_rate": 1.3421828908554572e-05,
+          "epoch": 0.9882005899705014,
+          "step": 670
+        },
+        {
+          "eval_loss": 0.3655727207660675,
+          "eval_pr_auc_governing_law": 0.9612200930742123,
+          "eval_pr_auc_renewal_term": 0.7065908165423113,
+          "eval_pr_auc_revenue_profit_sharing": 0.6020086407013588,
+          "eval_pr_auc_cap_on_liability": 0.9061614707656052,
+          "eval_pr_auc_uncapped_liability": 0.3742541533259759,
+          "eval_pr_auc_termination_for_convenience": 0.5715621524139703,
+          "eval_pr_auc_anti_assignment": 0.8593231839630566,
+          "eval_pr_auc_audit_rights": 0.8793914393640896,
+          "eval_pr_auc_license_grant": 0.8427129886283825,
+          "eval_pr_auc_exclusivity": 0.48578559329677273,
+          "eval_n_categories_scored": 10,
+          "eval_macro_pr_auc": 0.7189010532075735,
+          "eval_macro_f1_at_0.5": 0.5074634556523056,
+          "eval_runtime": 23.2818,
+          "eval_samples_per_second": 123.401,
+          "eval_steps_per_second": 7.731,
+          "epoch": 1.0,
+          "step": 678
+        },
+        {
+          "loss": 0.35478159207016674,
+          "grad_norm": 16.252859115600586,
+          "learning_rate": 1.2763028515240905e-05,
+          "epoch": 1.0870206489675516,
+          "step": 737
+        },
+        {
+          "loss": 0.28591981574670594,
+          "grad_norm": 4.94854211807251,
+          "learning_rate": 1.2104228121927237e-05,
+          "epoch": 1.1858407079646018,
+          "step": 804
+        },
+        {
+          "loss": 0.3456520536052647,
+          "grad_norm": 0.928605854511261,
+          "learning_rate": 1.144542772861357e-05,
+          "epoch": 1.2846607669616519,
+          "step": 871
+        },
+        {
+          "loss": 0.33839257083722013,
+          "grad_norm": 1.9069554805755615,
+          "learning_rate": 1.0786627335299901e-05,
+          "epoch": 1.3834808259587021,
+          "step": 938
+        },
+        {
+          "loss": 0.37533185019421933,
+          "grad_norm": 1.455540657043457,
+          "learning_rate": 1.0127826941986234e-05,
+          "epoch": 1.4823008849557522,
+          "step": 1005
+        },
+        {
+          "loss": 0.3357380539623659,
+          "grad_norm": 2.5344717502593994,
+          "learning_rate": 9.469026548672568e-06,
+          "epoch": 1.5811209439528024,
+          "step": 1072
+        },
+        {
+          "loss": 0.3292292125189482,
+          "grad_norm": 18.449256896972656,
+          "learning_rate": 8.810226155358899e-06,
+          "epoch": 1.6799410029498525,
+          "step": 1139
+        },
+        {
+          "loss": 0.3758534673434585,
+          "grad_norm": 50.97222900390625,
+          "learning_rate": 8.151425762045232e-06,
+          "epoch": 1.7787610619469025,
+          "step": 1206
+        },
+        {
+          "loss": 0.3278854711731868,
+          "grad_norm": 2.138601064682007,
+          "learning_rate": 7.492625368731564e-06,
+          "epoch": 1.8775811209439528,
+          "step": 1273
+        },
+        {
+          "loss": 0.27455065143642143,
+          "grad_norm": 1.429729700088501,
+          "learning_rate": 6.833824975417897e-06,
+          "epoch": 1.976401179941003,
+          "step": 1340
+        },
+        {
+          "eval_loss": 0.32766416668891907,
+          "eval_pr_auc_governing_law": 0.9744229142921359,
+          "eval_pr_auc_renewal_term": 0.7296919273297189,
+          "eval_pr_auc_revenue_profit_sharing": 0.6263516575207189,
+          "eval_pr_auc_cap_on_liability": 0.9248978072002004,
+          "eval_pr_auc_uncapped_liability": 0.43314370673042074,
+          "eval_pr_auc_termination_for_convenience": 0.6812344286124582,
+          "eval_pr_auc_anti_assignment": 0.8977063691657636,
+          "eval_pr_auc_audit_rights": 0.9148251020858293,
+          "eval_pr_auc_license_grant": 0.8671063811604678,
+          "eval_pr_auc_exclusivity": 0.6180916129420906,
+          "eval_n_categories_scored": 10,
+          "eval_macro_pr_auc": 0.7667471907039805,
+          "eval_macro_f1_at_0.5": 0.6496480388072892,
+          "eval_runtime": 23.1664,
+          "eval_samples_per_second": 124.016,
+          "eval_steps_per_second": 7.77,
+          "epoch": 2.0,
+          "step": 1356
+        },
+        {
+          "loss": 0.24257634291008337,
+          "grad_norm": 5.8209662437438965,
+          "learning_rate": 6.175024582104229e-06,
+          "epoch": 2.0752212389380533,
+          "step": 1407
+        },
+        {
+          "loss": 0.23185991885057136,
+          "grad_norm": 1.538696050643921,
+          "learning_rate": 5.516224188790561e-06,
+          "epoch": 2.174041297935103,
+          "step": 1474
+        },
+        {
+          "loss": 0.20952394115391063,
+          "grad_norm": 0.7241753339767456,
+          "learning_rate": 4.857423795476893e-06,
+          "epoch": 2.2728613569321534,
+          "step": 1541
+        },
+        {
+          "loss": 0.22139747107206886,
+          "grad_norm": 1.520883321762085,
+          "learning_rate": 4.198623402163226e-06,
+          "epoch": 2.3716814159292037,
+          "step": 1608
+        },
+        {
+          "loss": 0.26570607655083955,
+          "grad_norm": 6.389606475830078,
+          "learning_rate": 3.539823008849558e-06,
+          "epoch": 2.4705014749262535,
+          "step": 1675
+        },
+        {
+          "loss": 0.2504917828004752,
+          "grad_norm": 3.396141290664673,
+          "learning_rate": 2.8810226155358902e-06,
+          "epoch": 2.5693215339233038,
+          "step": 1742
+        },
+        {
+          "loss": 0.24606864132098297,
+          "grad_norm": 1.4709830284118652,
+          "learning_rate": 2.222222222222222e-06,
+          "epoch": 2.668141592920354,
+          "step": 1809
+        },
+        {
+          "loss": 0.22417995111266178,
+          "grad_norm": 4.8072967529296875,
+          "learning_rate": 1.5634218289085548e-06,
+          "epoch": 2.7669616519174043,
+          "step": 1876
+        },
+        {
+          "loss": 0.17333547392887855,
+          "grad_norm": 0.21216431260108948,
+          "learning_rate": 9.046214355948869e-07,
+          "epoch": 2.8657817109144545,
+          "step": 1943
+        },
+        {
+          "loss": 0.215873220073643,
+          "grad_norm": 13.836727142333984,
+          "learning_rate": 2.458210422812193e-07,
+          "epoch": 2.9646017699115044,
+          "step": 2010
+        },
+        {
+          "eval_loss": 0.3299490809440613,
+          "eval_pr_auc_governing_law": 0.9735397776019521,
+          "eval_pr_auc_renewal_term": 0.7289392601056356,
+          "eval_pr_auc_revenue_profit_sharing": 0.6209800313575609,
+          "eval_pr_auc_cap_on_liability": 0.9267715317108846,
+          "eval_pr_auc_uncapped_liability": 0.45844548422141135,
+          "eval_pr_auc_termination_for_convenience": 0.7025475133884282,
+          "eval_pr_auc_anti_assignment": 0.8906854595833509,
+          "eval_pr_auc_audit_rights": 0.9142342695786008,
+          "eval_pr_auc_license_grant": 0.8552208593156808,
+          "eval_pr_auc_exclusivity": 0.677293398710928,
+          "eval_n_categories_scored": 10,
+          "eval_macro_pr_auc": 0.7748657585574433,
+          "eval_macro_f1_at_0.5": 0.6867855563975738,
+          "eval_runtime": 23.2557,
+          "eval_samples_per_second": 123.54,
+          "eval_steps_per_second": 7.74,
+          "epoch": 3.0,
+          "step": 2034
+        },
+        {
+          "train_runtime": 922.6057,
+          "train_samples_per_second": 35.251,
+          "train_steps_per_second": 2.205,
+          "total_flos": 8482233052436220.0,
+          "train_loss": 0.4173578929994896,
+          "epoch": 3.0,
+          "step": 2034
+        }
+      ]
+    },
+    "123": {
+      "status": "completed",
+      "condition": "weighted",
+      "pos_weight": [
+        36.216495513916016,
+        84.32283782958984,
+        59.70786666870117,
+        31.399398803710938,
+        117.93406677246094,
+        74.75524139404297,
+        33.57508087158203,
+        40.806949615478516,
+        26.98704719543457,
+        52.315269470214844
+      ],
+      "mask": "october_task3_outputs/",
+      "trainable": 109489930,
+      "total": 109489930,
+      "minutes": 15.4,
+      "peak VRAM GB": 4.64,
+      "best val macro PR-AUC": 0.7836642205570922,
+      "checkpoint": "october_task4_outputs/run_weighted_Legal-BERT_seed123/checkpoint-2034",
+      "log_history": [
+        {
+          "loss": 1.3357397050999884,
+          "grad_norm": 29.23288917541504,
+          "learning_rate": 1.935103244837758e-05,
+          "epoch": 0.09882005899705015,
+          "step": 67
+        },
+        {
+          "loss": 1.3901662114840836,
+          "grad_norm": 5.192274570465088,
+          "learning_rate": 1.8692232055063916e-05,
+          "epoch": 0.1976401179941003,
+          "step": 134
+        },
+        {
+          "loss": 1.144927978515625,
+          "grad_norm": 6.869731426239014,
+          "learning_rate": 1.8033431661750247e-05,
+          "epoch": 0.29646017699115046,
+          "step": 201
+        },
+        {
+          "loss": 0.7826010291256121,
+          "grad_norm": 6.636730670928955,
+          "learning_rate": 1.737463126843658e-05,
+          "epoch": 0.3952802359882006,
+          "step": 268
+        },
+        {
+          "loss": 0.5792652528677413,
+          "grad_norm": 2.6828198432922363,
+          "learning_rate": 1.671583087512291e-05,
+          "epoch": 0.4941002949852507,
+          "step": 335
+        },
+        {
+          "loss": 0.5876447763015975,
+          "grad_norm": 7.621572017669678,
+          "learning_rate": 1.6057030481809245e-05,
+          "epoch": 0.5929203539823009,
+          "step": 402
+        },
+        {
+          "loss": 0.48941518299615205,
+          "grad_norm": 10.051546096801758,
+          "learning_rate": 1.5398230088495576e-05,
+          "epoch": 0.6917404129793511,
+          "step": 469
+        },
+        {
+          "loss": 0.5013718676211228,
+          "grad_norm": 18.32990074157715,
+          "learning_rate": 1.4739429695181908e-05,
+          "epoch": 0.7905604719764012,
+          "step": 536
+        },
+        {
+          "loss": 0.4767497617806961,
+          "grad_norm": 33.874149322509766,
+          "learning_rate": 1.408062930186824e-05,
+          "epoch": 0.8893805309734514,
+          "step": 603
+        },
+        {
+          "loss": 0.4525961520066902,
+          "grad_norm": 2.697258472442627,
+          "learning_rate": 1.3421828908554572e-05,
+          "epoch": 0.9882005899705014,
+          "step": 670
+        },
+        {
+          "eval_loss": 0.3883693218231201,
+          "eval_pr_auc_governing_law": 0.9546131173013745,
+          "eval_pr_auc_renewal_term": 0.7111353902153723,
+          "eval_pr_auc_revenue_profit_sharing": 0.6316338002767964,
+          "eval_pr_auc_cap_on_liability": 0.9030176427959358,
+          "eval_pr_auc_uncapped_liability": 0.38931027801156465,
+          "eval_pr_auc_termination_for_convenience": 0.5721200100093656,
+          "eval_pr_auc_anti_assignment": 0.8674075674698597,
+          "eval_pr_auc_audit_rights": 0.8914183438668224,
+          "eval_pr_auc_license_grant": 0.8100730782609501,
+          "eval_pr_auc_exclusivity": 0.3956780086593094,
+          "eval_n_categories_scored": 10,
+          "eval_macro_pr_auc": 0.712640723686735,
+          "eval_macro_f1_at_0.5": 0.5067841353710045,
+          "eval_runtime": 23.3874,
+          "eval_samples_per_second": 122.844,
+          "eval_steps_per_second": 7.696,
+          "epoch": 1.0,
+          "step": 678
+        },
+        {
+          "loss": 0.3830825464049382,
+          "grad_norm": 0.5841493010520935,
+          "learning_rate": 1.2763028515240905e-05,
+          "epoch": 1.0870206489675516,
+          "step": 737
+        },
+        {
+          "loss": 0.37558774805780665,
+          "grad_norm": 1.247271180152893,
+          "learning_rate": 1.2104228121927237e-05,
+          "epoch": 1.1858407079646018,
+          "step": 804
+        },
+        {
+          "loss": 0.4182265267443301,
+          "grad_norm": 0.8140304684638977,
+          "learning_rate": 1.144542772861357e-05,
+          "epoch": 1.2846607669616519,
+          "step": 871
+        },
+        {
+          "loss": 0.4117916164113514,
+          "grad_norm": 1.460248351097107,
+          "learning_rate": 1.0786627335299901e-05,
+          "epoch": 1.3834808259587021,
+          "step": 938
+        },
+        {
+          "loss": 0.30250802680627625,
+          "grad_norm": 11.654433250427246,
+          "learning_rate": 1.0127826941986234e-05,
+          "epoch": 1.4823008849557522,
+          "step": 1005
+        },
+        {
+          "loss": 0.3498717635425169,
+          "grad_norm": 20.649721145629883,
+          "learning_rate": 9.469026548672568e-06,
+          "epoch": 1.5811209439528024,
+          "step": 1072
+        },
+        {
+          "loss": 0.3804580346861882,
+          "grad_norm": 7.453897476196289,
+          "learning_rate": 8.810226155358899e-06,
+          "epoch": 1.6799410029498525,
+          "step": 1139
+        },
+        {
+          "loss": 0.40470462058907125,
+          "grad_norm": 1.5824010372161865,
+          "learning_rate": 8.151425762045232e-06,
+          "epoch": 1.7787610619469025,
+          "step": 1206
+        },
+        {
+          "loss": 0.28127562110103776,
+          "grad_norm": 3.6341135501861572,
+          "learning_rate": 7.492625368731564e-06,
+          "epoch": 1.8775811209439528,
+          "step": 1273
+        },
+        {
+          "loss": 0.4006541237902285,
+          "grad_norm": 0.5675531029701233,
+          "learning_rate": 6.833824975417897e-06,
+          "epoch": 1.976401179941003,
+          "step": 1340
+        },
+        {
+          "eval_loss": 0.34631484746932983,
+          "eval_pr_auc_governing_law": 0.9655018318952194,
+          "eval_pr_auc_renewal_term": 0.7499531919221434,
+          "eval_pr_auc_revenue_profit_sharing": 0.6635164807809797,
+          "eval_pr_auc_cap_on_liability": 0.9289292455415666,
+          "eval_pr_auc_uncapped_liability": 0.47756764340413316,
+          "eval_pr_auc_termination_for_convenience": 0.6056594836988046,
+          "eval_pr_auc_anti_assignment": 0.8935864288774701,
+          "eval_pr_auc_audit_rights": 0.9375865555775729,
+          "eval_pr_auc_license_grant": 0.8695708711002371,
+          "eval_pr_auc_exclusivity": 0.5864715730565891,
+          "eval_n_categories_scored": 10,
+          "eval_macro_pr_auc": 0.7678343305854716,
+          "eval_macro_f1_at_0.5": 0.6666304536842793,
+          "eval_runtime": 23.491,
+          "eval_samples_per_second": 122.302,
+          "eval_steps_per_second": 7.663,
+          "epoch": 2.0,
+          "step": 1356
+        },
+        {
+          "loss": 0.2558157906603457,
+          "grad_norm": 1.7460914850234985,
+          "learning_rate": 6.175024582104229e-06,
+          "epoch": 2.0752212389380533,
+          "step": 1407
+        },
+        {
+          "loss": 0.25870846990329116,
+          "grad_norm": 11.942420959472656,
+          "learning_rate": 5.516224188790561e-06,
+          "epoch": 2.174041297935103,
+          "step": 1474
+        },
+        {
+          "loss": 0.3101462179155492,
+          "grad_norm": 4.3569769859313965,
+          "learning_rate": 4.857423795476893e-06,
+          "epoch": 2.2728613569321534,
+          "step": 1541
+        },
+        {
+          "loss": 0.27820237003155607,
+          "grad_norm": 1.5121691226959229,
+          "learning_rate": 4.198623402163226e-06,
+          "epoch": 2.3716814159292037,
+          "step": 1608
+        },
+        {
+          "loss": 0.3454134926867129,
+          "grad_norm": 1.695056438446045,
+          "learning_rate": 3.539823008849558e-06,
+          "epoch": 2.4705014749262535,
+          "step": 1675
+        },
+        {
+          "loss": 0.21593916594092524,
+          "grad_norm": 0.9355157017707825,
+          "learning_rate": 2.8810226155358902e-06,
+          "epoch": 2.5693215339233038,
+          "step": 1742
+        },
+        {
+          "loss": 0.31157903528925196,
+          "grad_norm": 11.684942245483398,
+          "learning_rate": 2.222222222222222e-06,
+          "epoch": 2.668141592920354,
+          "step": 1809
+        },
+        {
+          "loss": 0.17486790044983822,
+          "grad_norm": 0.8812535405158997,
+          "learning_rate": 1.5634218289085548e-06,
+          "epoch": 2.7669616519174043,
+          "step": 1876
+        },
+        {
+          "loss": 0.2299231628873455,
+          "grad_norm": 2.9026265144348145,
+          "learning_rate": 9.046214355948869e-07,
+          "epoch": 2.8657817109144545,
+          "step": 1943
+        },
+        {
+          "loss": 0.26751250651345326,
+          "grad_norm": 24.26397132873535,
+          "learning_rate": 2.458210422812193e-07,
+          "epoch": 2.9646017699115044,
+          "step": 2010
+        },
+        {
+          "eval_loss": 0.34974589943885803,
+          "eval_pr_auc_governing_law": 0.9715299493874058,
+          "eval_pr_auc_renewal_term": 0.7503390510921711,
+          "eval_pr_auc_revenue_profit_sharing": 0.6977261461446634,
+          "eval_pr_auc_cap_on_liability": 0.9277351901068566,
+          "eval_pr_auc_uncapped_liability": 0.4463028560277239,
+          "eval_pr_auc_termination_for_convenience": 0.6912561289250995,
+          "eval_pr_auc_anti_assignment": 0.8692943424350266,
+          "eval_pr_auc_audit_rights": 0.9226848534336097,
+          "eval_pr_auc_license_grant": 0.8701644779848674,
+          "eval_pr_auc_exclusivity": 0.6896092100334972,
+          "eval_n_categories_scored": 10,
+          "eval_macro_pr_auc": 0.7836642205570922,
+          "eval_macro_f1_at_0.5": 0.6864004817736029,
+          "eval_runtime": 23.4831,
+          "eval_samples_per_second": 122.343,
+          "eval_steps_per_second": 7.665,
+          "epoch": 3.0,
+          "step": 2034
+        },
+        {
+          "train_runtime": 923.7498,
+          "train_samples_per_second": 35.208,
+          "train_steps_per_second": 2.202,
+          "total_flos": 8483905880563680.0,
+          "train_loss": 0.46707610043100906,
+          "epoch": 3.0,
+          "step": 2034
+        }
+      ]
+    },
+    "2026": {
+      "status": "completed",
+      "condition": "weighted",
+      "pos_weight": [
+        36.216495513916016,
+        84.32283782958984,
+        59.70786666870117,
+        31.399398803710938,
+        117.93406677246094,
+        74.75524139404297,
+        33.57508087158203,
+        40.806949615478516,
+        26.98704719543457,
+        52.315269470214844
+      ],
+      "mask": "october_task3_outputs/",
+      "trainable": 109489930,
+      "total": 109489930,
+      "minutes": 15.2,
+      "peak VRAM GB": 4.64,
+      "best val macro PR-AUC": 0.7750303838689213,
+      "checkpoint": "october_task4_outputs/run_weighted_Legal-BERT_seed2026/checkpoint-2034",
+      "log_history": [
+        {
+          "loss": 1.5121294847175257,
+          "grad_norm": 18.700366973876953,
+          "learning_rate": 1.935103244837758e-05,
+          "epoch": 0.09882005899705015,
+          "step": 67
+        },
+        {
+          "loss": 1.2790074134940532,
+          "grad_norm": 21.107526779174805,
+          "learning_rate": 1.8692232055063916e-05,
+          "epoch": 0.1976401179941003,
+          "step": 134
+        },
+        {
+          "loss": 1.1131432376690764,
+          "grad_norm": 4.750275135040283,
+          "learning_rate": 1.8033431661750247e-05,
+          "epoch": 0.29646017699115046,
+          "step": 201
+        },
+        {
+          "loss": 0.9948396825078708,
+          "grad_norm": 13.203570365905762,
+          "learning_rate": 1.737463126843658e-05,
+          "epoch": 0.3952802359882006,
+          "step": 268
+        },
+        {
+          "loss": 0.761601462293027,
+          "grad_norm": 21.86333465576172,
+          "learning_rate": 1.671583087512291e-05,
+          "epoch": 0.4941002949852507,
+          "step": 335
+        },
+        {
+          "loss": 0.567271559985716,
+          "grad_norm": 4.185332775115967,
+          "learning_rate": 1.6057030481809245e-05,
+          "epoch": 0.5929203539823009,
+          "step": 402
+        },
+        {
+          "loss": 0.5086644870131763,
+          "grad_norm": 3.657015800476074,
+          "learning_rate": 1.5398230088495576e-05,
+          "epoch": 0.6917404129793511,
+          "step": 469
+        },
+        {
+          "loss": 0.5685609276614972,
+          "grad_norm": 13.453934669494629,
+          "learning_rate": 1.4739429695181908e-05,
+          "epoch": 0.7905604719764012,
+          "step": 536
+        },
+        {
+          "loss": 0.5601344891448519,
+          "grad_norm": 16.933870315551758,
+          "learning_rate": 1.408062930186824e-05,
+          "epoch": 0.8893805309734514,
+          "step": 603
+        },
+        {
+          "loss": 0.5124741739301539,
+          "grad_norm": 1.1100983619689941,
+          "learning_rate": 1.3421828908554572e-05,
+          "epoch": 0.9882005899705014,
+          "step": 670
+        },
+        {
+          "eval_loss": 0.3740408718585968,
+          "eval_pr_auc_governing_law": 0.9690856009276281,
+          "eval_pr_auc_renewal_term": 0.7590248246628856,
+          "eval_pr_auc_revenue_profit_sharing": 0.5534547166426225,
+          "eval_pr_auc_cap_on_liability": 0.9041010666721018,
+          "eval_pr_auc_uncapped_liability": 0.38288630264402174,
+          "eval_pr_auc_termination_for_convenience": 0.4530326146157529,
+          "eval_pr_auc_anti_assignment": 0.844345733733443,
+          "eval_pr_auc_audit_rights": 0.8767972231351807,
+          "eval_pr_auc_license_grant": 0.8474868790015754,
+          "eval_pr_auc_exclusivity": 0.43000583558869654,
+          "eval_n_categories_scored": 10,
+          "eval_macro_pr_auc": 0.7020220797623908,
+          "eval_macro_f1_at_0.5": 0.5275506866696531,
+          "eval_runtime": 23.5557,
+          "eval_samples_per_second": 121.966,
+          "eval_steps_per_second": 7.641,
+          "epoch": 1.0,
+          "step": 678
+        },
+        {
+          "loss": 0.41427951072579,
+          "grad_norm": 2.510899305343628,
+          "learning_rate": 1.2763028515240905e-05,
+          "epoch": 1.0870206489675516,
+          "step": 737
+        },
+        {
+          "loss": 0.4147091765901936,
+          "grad_norm": 13.077021598815918,
+          "learning_rate": 1.2104228121927237e-05,
+          "epoch": 1.1858407079646018,
+          "step": 804
+        },
+        {
+          "loss": 0.4053121538304571,
+          "grad_norm": 4.256892204284668,
+          "learning_rate": 1.144542772861357e-05,
+          "epoch": 1.2846607669616519,
+          "step": 871
+        },
+        {
+          "loss": 0.43034448196638875,
+          "grad_norm": 0.8633318543434143,
+          "learning_rate": 1.0786627335299901e-05,
+          "epoch": 1.3834808259587021,
+          "step": 938
+        },
+        {
+          "loss": 0.31306759279165697,
+          "grad_norm": 42.78617858886719,
+          "learning_rate": 1.0127826941986234e-05,
+          "epoch": 1.4823008849557522,
+          "step": 1005
+        },
+        {
+          "loss": 0.41290072540738687,
+          "grad_norm": 40.25859451293945,
+          "learning_rate": 9.469026548672568e-06,
+          "epoch": 1.5811209439528024,
+          "step": 1072
+        },
+        {
+          "loss": 0.4017237193548857,
+          "grad_norm": 6.203878402709961,
+          "learning_rate": 8.810226155358899e-06,
+          "epoch": 1.6799410029498525,
+          "step": 1139
+        },
+        {
+          "loss": 0.4250918715747435,
+          "grad_norm": 2.039823055267334,
+          "learning_rate": 8.151425762045232e-06,
+          "epoch": 1.7787610619469025,
+          "step": 1206
+        },
+        {
+          "loss": 0.3931039269290753,
+          "grad_norm": 12.125755310058594,
+          "learning_rate": 7.492625368731564e-06,
+          "epoch": 1.8775811209439528,
+          "step": 1273
+        },
+        {
+          "loss": 0.3623941051426218,
+          "grad_norm": 1.3819491863250732,
+          "learning_rate": 6.833824975417897e-06,
+          "epoch": 1.976401179941003,
+          "step": 1340
+        },
+        {
+          "eval_loss": 0.3557140529155731,
+          "eval_pr_auc_governing_law": 0.9706604921883455,
+          "eval_pr_auc_renewal_term": 0.7191084686377194,
+          "eval_pr_auc_revenue_profit_sharing": 0.6629032544498697,
+          "eval_pr_auc_cap_on_liability": 0.9050280783253292,
+          "eval_pr_auc_uncapped_liability": 0.41727927496606604,
+          "eval_pr_auc_termination_for_convenience": 0.6238347655543504,
+          "eval_pr_auc_anti_assignment": 0.8737846554254124,
+          "eval_pr_auc_audit_rights": 0.9194229254568081,
+          "eval_pr_auc_license_grant": 0.857807372851027,
+          "eval_pr_auc_exclusivity": 0.5920132507295861,
+          "eval_n_categories_scored": 10,
+          "eval_macro_pr_auc": 0.7541842538584513,
+          "eval_macro_f1_at_0.5": 0.6624811836507974,
+          "eval_runtime": 23.4775,
+          "eval_samples_per_second": 122.373,
+          "eval_steps_per_second": 7.667,
+          "epoch": 2.0,
+          "step": 1356
+        },
+        {
+          "loss": 0.21043082849303288,
+          "grad_norm": 0.19285696744918823,
+          "learning_rate": 6.175024582104229e-06,
+          "epoch": 2.0752212389380533,
+          "step": 1407
+        },
+        {
+          "loss": 0.3022482288417532,
+          "grad_norm": 2.432873010635376,
+          "learning_rate": 5.516224188790561e-06,
+          "epoch": 2.174041297935103,
+          "step": 1474
+        },
+        {
+          "loss": 0.26783985878104594,
+          "grad_norm": 0.8446068167686462,
+          "learning_rate": 4.857423795476893e-06,
+          "epoch": 2.2728613569321534,
+          "step": 1541
+        },
+        {
+          "loss": 0.3384207540483617,
+          "grad_norm": 62.98192596435547,
+          "learning_rate": 4.198623402163226e-06,
+          "epoch": 2.3716814159292037,
+          "step": 1608
+        },
+        {
+          "loss": 0.31244380438505714,
+          "grad_norm": 16.4582576751709,
+          "learning_rate": 3.539823008849558e-06,
+          "epoch": 2.4705014749262535,
+          "step": 1675
+        },
+        {
+          "loss": 0.3102481329618995,
+          "grad_norm": 1.5812232494354248,
+          "learning_rate": 2.8810226155358902e-06,
+          "epoch": 2.5693215339233038,
+          "step": 1742
+        },
+        {
+          "loss": 0.2388960140854565,
+          "grad_norm": 12.75686264038086,
+          "learning_rate": 2.222222222222222e-06,
+          "epoch": 2.668141592920354,
+          "step": 1809
+        },
+        {
+          "loss": 0.3089862083321187,
+          "grad_norm": 2.8118505477905273,
+          "learning_rate": 1.5634218289085548e-06,
+          "epoch": 2.7669616519174043,
+          "step": 1876
+        },
+        {
+          "loss": 0.31781945299746384,
+          "grad_norm": 0.4248235523700714,
+          "learning_rate": 9.046214355948869e-07,
+          "epoch": 2.8657817109144545,
+          "step": 1943
+        },
+        {
+          "loss": 0.25582387554111763,
+          "grad_norm": 2.012324810028076,
+          "learning_rate": 2.458210422812193e-07,
+          "epoch": 2.9646017699115044,
+          "step": 2010
+        },
+        {
+          "eval_loss": 0.3331854045391083,
+          "eval_pr_auc_governing_law": 0.9729213649561906,
+          "eval_pr_auc_renewal_term": 0.7711610698312726,
+          "eval_pr_auc_revenue_profit_sharing": 0.6622771426433965,
+          "eval_pr_auc_cap_on_liability": 0.9110244236875512,
+          "eval_pr_auc_uncapped_liability": 0.4684983354245879,
+          "eval_pr_auc_termination_for_convenience": 0.6517889200654894,
+          "eval_pr_auc_anti_assignment": 0.8908588686015095,
+          "eval_pr_auc_audit_rights": 0.9127469265140097,
+          "eval_pr_auc_license_grant": 0.8794064307975515,
+          "eval_pr_auc_exclusivity": 0.6296203561676539,
+          "eval_n_categories_scored": 10,
+          "eval_macro_pr_auc": 0.7750303838689213,
+          "eval_macro_f1_at_0.5": 0.6485388104031089,
+          "eval_runtime": 23.6249,
+          "eval_samples_per_second": 121.609,
+          "eval_steps_per_second": 7.619,
+          "epoch": 3.0,
+          "step": 2034
+        },
+        {
+          "train_runtime": 910.8264,
+          "train_samples_per_second": 35.707,
+          "train_steps_per_second": 2.233,
+          "total_flos": 8482929935674572.0,
+          "train_loss": 0.504196224428325,
+          "epoch": 3.0,
+          "step": 2034
+        }
+      ]
+    }
+  }
+}
