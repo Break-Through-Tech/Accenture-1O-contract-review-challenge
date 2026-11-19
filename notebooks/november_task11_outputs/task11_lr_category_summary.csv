@@ -1,0 +1,11 @@
+category_id,eligible_pairs,newly_corrected,new_errors,persistent_errors,both_correct,newly_corrected_pct,new_errors_pct,net_error_reduction,outcomes_accounted_for
+cap_on_liability,2869,70,5,12,2782,2.44,0.17,65,True
+governing_law,2873,59,2,4,2808,2.05,0.07,57,True
+anti_assignment,2872,57,7,13,2795,1.98,0.24,50,True
+license_grant,2860,56,16,16,2772,1.96,0.56,40,True
+termination_for_convenience,2872,36,10,10,2816,1.25,0.35,26,True
+revenue_profit_sharing,2867,34,8,12,2813,1.19,0.28,26,True
+audit_rights,2870,30,7,12,2821,1.05,0.24,23,True
+exclusivity,2866,26,9,14,2817,0.91,0.31,17,True
+renewal_term,2869,18,7,8,2836,0.63,0.24,11,True
+uncapped_liability,2872,10,20,13,2829,0.35,0.7,-10,True

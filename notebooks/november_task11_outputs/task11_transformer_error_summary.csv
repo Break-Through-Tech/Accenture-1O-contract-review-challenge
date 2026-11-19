@@ -1,0 +1,11 @@
+category_id,false_positives,false_negatives,total_errors
+uncapped_liability,29,4,33
+license_grant,14,18,32
+exclusivity,7,16,23
+anti_assignment,8,12,20
+termination_for_convenience,17,3,20
+revenue_profit_sharing,6,14,20
+audit_rights,6,13,19
+cap_on_liability,12,5,17
+renewal_term,7,8,15
+governing_law,4,2,6
